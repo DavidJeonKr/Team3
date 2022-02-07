@@ -1,4 +1,4 @@
-package com.itwill.project;
+package com.itwill.project.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
