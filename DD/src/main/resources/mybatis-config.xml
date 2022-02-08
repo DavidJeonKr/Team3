@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- MyBatis의 여러가지 환경 설정 -->
+    
+    <!-- 데이터베이스의 테이블 이름, 컬럼 이름들을 정의 -->
+    <properties>
+        <!-- BOARDS 테이블 관련 상수들 -->
+        <property name="TABLE_BOARDS" value="boards"/>
+        <property name="COL_BNO" value="bno"/>
+        <property name="COL_TITLE" value="title"/>
+        <property name="COL_CONTENT" value="content"/>
+        <property name="COL_REG_DATE" value="reg_date"/>
+        <property name="COL_VIEW_CNT" value="view_cnt"/>
+        <property name="COL_LIKE_CNT" value="like_cnt"/>
+        <property name="COL_FILENAME" value="filename"/>
+        <property name="COL_USERID" value="userid"/>
+        
+	</properties>
+        
+        <!-- REPLIES 테이블 관련 상수들 -->
+        <!-- userid, bno는 기존에 정의된 프로퍼티를 사용 -->
+    
+    <typeAliases>
+        <package name="com.itwill.dd.domain"/>
+    </typeAliases>
+
+</configuration>

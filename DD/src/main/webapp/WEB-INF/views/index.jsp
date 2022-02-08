@@ -73,7 +73,7 @@
                                 <a href="friend.html">일촌</a> 3
                             </li>
                             <li>
-                                비스켓 3
+                               	 비스켓 3
                             </li>
                         </ul>
                         <div class="bottom">
@@ -86,7 +86,7 @@
 
                     <div clas="main_right">
                         <div class="music_player">
-                            음악 플레이어
+                         	   음악 플레이어
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         <a href="#" class="home">홈</a>
                         <a href="#" class="diary">다이어리</a>
                         <a href="#" class="picture">사진첩</a>
-                        <a href="#" class="board">게시판</a>
+                        <a href="./board/main" class="board">게시판</a>
                     </div>
 
                     <div> <!--컨텐트 들어갈 div-->

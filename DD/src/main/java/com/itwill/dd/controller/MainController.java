@@ -11,7 +11,7 @@ public class MainController {
 	public String main() {
 		
 		
-		return "/main/index";
+		return "index";
 	}
 	
 }
