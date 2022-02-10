@@ -15,4 +15,14 @@ public class UserController {
 	public void signin() {
 		log.info("signin Test");
 	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public void login() {
+		log.info("login Test");
+	}
+	
+	@RequestMapping(value = "/reset", method = RequestMethod.GET)
+	public void reset() {
+		log.info("reset Test");
+	}
 }

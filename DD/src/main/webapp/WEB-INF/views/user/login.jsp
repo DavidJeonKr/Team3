@@ -7,10 +7,10 @@
 		<meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
-		<title>회원가입</title>
+		<title>로그인</title>
 	    <link rel="stylesheet" href="../resources/css/common.css">
 	    <link rel="stylesheet" href="../resources/css/login.css">
-	    <link rel="stylesheet" href="../resources/css/signin.css">	
+	    
     </head>
 	<body>
 	 <section id="container">
@@ -19,34 +19,24 @@
                 <div class="form">
 
                     <!-- logo -->
-                    <div class="signin_logo_location">
+                    <div class="login_logo_location">
                         <img src="../resources/imgs/DD.png" alt="DD_logo">
                     </div>    
 
-                    <!-- details input-->
-                    <form action="#" method="post">
-                        <h2 class="signin_font">친구들과 일정을 공유하고 싶으면 가입하세요!</h2>
+                    <!--ID/PASS input-->
+                    <form action="#">
                         <div>
-                            <input type="email" id="userid" name="userid" placeholder="이메일 주소" required />
+                            <input type="email" id="userid" placeholder="이메일" required/>
 
                         </div>
                         <div>
-                            <input type="password" name="pwd" placeholder="비밀번호" required />
+                            <input type="password" id="password" placeholder="비밀번호" required />
                         </div>
-                        <div>
-                            <input type="text" name="real_name" placeholder="성명" required />
+
+                        <input type="submit" id="submit_btn" value="로그인" class="submit_btn">
+                        <div class="find_pass">
+                            <a href="./reset">비밀번호를 잊으셨나요?</a>
                         </div>
-                        <div>
-                            <input type="text" name="nick_name" placeholder="사용자 이름" required />
-                        </div>
-                        <div>
-                            <input type="date" name="birthday" required />
-                        </div>
-                        <div>
-                            <input type="text" name="phone_number" placeholder="전화번호" required />
-                        </div>
-                        <input type="submit" id="signin_btn" value="가입" class="signin_btn">
-                        
                     </form>
 
                     
@@ -54,7 +44,7 @@
 
                 <div class="bottom_box">
                     <div>
-                        <span>계정이 있나요?</span><a href="./login"> 로그인</a>
+                        <span>아이디가 없으면?</span><a href="./signin"> 가입하기</a>
                     </div>
                 </div>
 

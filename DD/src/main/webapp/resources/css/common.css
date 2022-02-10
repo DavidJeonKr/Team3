@@ -202,14 +202,9 @@ body{
 }
 
 .content_bar a{
-    padding-top: 14.5px;
+    padding-top: 15px;
     text-decoration: none;
     color: gray;
-}
-
-.content_bar .home{
-    border-top : 1.5px solid black;
-    color:black;
 }
 
 

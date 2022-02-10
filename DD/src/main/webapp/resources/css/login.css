@@ -1,0 +1,73 @@
+
+
+.form_container{
+    width: 350px;
+    
+    
+}
+
+.form_container .form{
+    background-color: white;
+    border:1px solid #dbdbdb;
+    padding: 0 40px 40px 40px;
+    margin-bottom: 30px;
+}
+
+.login_logo_location{
+    text-align: center;
+    margin: 10px auto 10px;
+}
+
+.login_logo_location img{
+    height: 100;
+    width: 200px;
+    
+    
+}
+
+.form input{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 7px 8px 7px;
+    margin-bottom: 10px;
+}
+.form .submit_btn{
+    background: #3897f0;
+    border-color: #3897f0;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.find_pass{
+    text-align: center;
+    width: 100%;
+}
+
+.find_pass a{
+    text-decoration: none;
+    color: black;
+}
+
+.bottom_box{
+    text-align: center;
+    background-color: white;
+    border:1px solid #dbdbdb;
+    padding: 20px 40px 25px 40px;
+    
+}
+
+.bottom_box a{
+    text-decoration: none;
+    color:#0095f6;
+}
+
+

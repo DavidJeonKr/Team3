@@ -1,0 +1,106 @@
+.form_container{
+    width: 350px;
+    
+    
+}
+
+.form_container .form{
+    background-color: white;
+    border:1px solid #dbdbdb;
+    padding : 0 40px;
+    
+}
+
+.lock_icon_location{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 10px; 
+     
+}
+.lock_icon_location img{
+    width: 100px;
+    height: 100px;
+}
+
+.form input{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 7px 8px 7px;
+    margin-bottom: 15px;
+}
+
+.ask_reset{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.inform_reset{
+    text-align: center;
+    color: #8e8e8e;
+    margin-bottom: 8px;
+    
+}
+
+.form a{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form .reset_btn{
+    background: #3897f0;
+    border-color: #3897f0;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 20px; 
+}
+
+.middle_line{
+    display: flex;
+    margin-bottom: 10px;
+}
+.middle_line .line{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #dbdbdb;
+    height: 1px;
+    flex-grow: 1;
+    position: relative;
+    top: 0.5em;
+}
+
+.middle_line .or{
+    padding:0 18px;
+    color: #8e8e8e;
+}
+
+.signin_page{
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.form_bottom{
+
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgba(var(--b38,219,219,219),1);
+    background: rgba(var(--b3f,250,250,250),1);
+}
+.form_bottom a{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    font-size: 14px;
+}
+.form_bottom .click_login{
+    cursor: pointer;
+}
