@@ -93,14 +93,14 @@
 
                 <div class="content_main">
                     <div class="content_bar">
-                        <a href="#" class="home">홈</a>
-                        <a href="#" class="diary">다이어리</a>
+                        <a href="index" class="home">홈</a>
+                        <a href="./diary/main" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
                         <a href="#" class="picture">사진첩</a>
                         <a href="./board/main" class="board">게시판</a>
                     </div>
 
                     <div> <!--컨텐트 들어갈 div-->
-
+						<h3>home</h3>
                     </div>
                 </div>
 
