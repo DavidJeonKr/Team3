@@ -5,17 +5,32 @@
     display: block;
 }
 
-button {
+.bg_select p {
     font-size: 20px;
-    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.bg_select select {
+    font-size: 20px;
+    padding: 8px 20px;
+}
+
+.bg_select input {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.bg_select {
     float: right;
-    margin-right: 132px;
-    margin-top: 10px;
+    line-height: 50px;
+    text-align: right;
+    margin: 20px 130px 20px 0;
 }
 
 .content_list span {
     line-height: 50px;
-    margin-top: 90px;
+    margin-top: 20px;
     margin-left: 130px;
     display: block;
     font-weight: bold;
