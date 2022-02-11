@@ -25,26 +25,27 @@
                     </div>    
 
                     <!-- details input-->
-                    <form action="#" method="post">
+                    <form action="./signin" method="post">
                         <h2 class="signin_font">친구들과 일정을 공유하고 싶으면 가입하세요!</h2>
                         <div>
                             <input type="email" id="userid" name="userid" placeholder="이메일 주소" required />
 
                         </div>
                         <div>
-                            <input type="password" name="pwd" placeholder="비밀번호" required />
+                            <input type="password" name="password" placeholder="비밀번호" required />
                         </div>
                         <div>
-                            <input type="text" name="real_name" placeholder="성명" required />
+                            <input type="text" name="realname" placeholder="성명" required />
                         </div>
                         <div>
-                            <input type="text" name="nick_name" placeholder="사용자 이름" required />
+                            <input type="text" name="nickname" placeholder="사용자 이름" required />
                         </div>
                         <div>
-                            <input type="date" name="birthday" required />
+                        	
+                            <input type="date" name="birthday1" required />
                         </div>
                         <div>
-                            <input type="text" name="phone_number" placeholder="전화번호" required />
+                            <input type="text" name="phone" placeholder="전화번호" required />
                         </div>
                         <input type="submit" id="signin_btn" value="가입" class="signin_btn">
                         
