@@ -19,7 +19,7 @@
 
                     <!-- logo -->
                     <div class="lock_icon_location">
-                        <img src="../resources/imgs/lock_icon.jpg" alt="lock_icon">
+                        <img src="../resources/imgs/signin/lock_icon.jpg" alt="lock_icon">
                     </div>    
 
                     <!-- details input-->

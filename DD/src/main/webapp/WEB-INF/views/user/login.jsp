@@ -20,7 +20,7 @@
 
                     <!-- logo -->
                     <div class="login_logo_location">
-                        <img src="../resources/imgs/DD.png" alt="DD_logo">
+                        <img src="../resources/imgs/signin/DD.png" alt="DD_logo">
                     </div>    
 
                     <!--ID/PASS input-->

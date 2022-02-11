@@ -21,7 +21,7 @@
 
                     <!-- logo -->
                     <div class="signin_logo_location">
-                        <img src="../resources/imgs/DD.png" alt="DD_logo">
+                        <img src="../resources/imgs/signin/DD.png" alt="DD_logo">
                     </div>    
 
                     <!-- details input-->
