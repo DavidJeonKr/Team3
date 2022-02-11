@@ -10,7 +10,6 @@
 		<title>비밀번호 재설정</title>
 	    <link rel="stylesheet" href="../resources/css/common.css">
 	    <link rel="stylesheet" href="../resources/css/reset.css">
-	    
     </head>
 	<body>
 	 <section id="container">
