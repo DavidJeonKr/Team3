@@ -10,14 +10,14 @@ body{
 
 .sprite_home_icon {
     display: inline-block;
-    background: url('../imgs/background01.png') no-repeat -104px -260px;
+    background: url('../imgs/main/background01.png') no-repeat -104px -260px;
     width: 25px;
     height: 25px;
 }
 
 .sprite_setting_icon {
     display: inline-block;
-    background: url('../imgs/background01.png') no-repeat -321px -26px;
+    background: url('../imgs/main/background01.png') no-repeat -321px -26px;
     width: 25px;
     height: 25px;
     cursor: pointer;
