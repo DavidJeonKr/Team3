@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 100px 0;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+header img {
+    width: 200px;
+}
+
+.main_menu {
+    display: flex;
+    align-items: flex-end;
+}
+
+.main_menu li {
+    padding: 10px;
+}
+
+.main_menu li:hover {
+    background-color: rgb(228, 225, 225);
+    border-radius: 10px;
+}
+
+.main_menu li:hover a {
+    color: #fff;
+}

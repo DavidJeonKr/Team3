@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+.content_list img {
+    margin: auto;
+    display: block;
+}
+
+button {
+    font-size: 20px;
+    padding: 10px 20px;
+    float: right;
+    margin-right: 132px;
+    margin-top: 10px;
+}
+
+.content_list span {
+    line-height: 50px;
+    margin-top: 90px;
+    margin-left: 130px;
+    display: block;
+    font-weight: bold;
+    display: block;
+    font-size: 20px;
+}
+
+
