@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+*{margin: 0; padding: 0;}
+body, h1, h2, h3, h4, p, ul, li, ol, dl, dt, dd { margin: 0; padding: 0; box-sizing: border-box; }
+header, footer, div, section, nav, aside { box-sizing: border-box; }
+ul { list-style: none; }
+a { text-decoration: none; color: #ccc; }
+img { vertical-align: top; } 
+
+.clear::after { content: ""; display: block; clear:both; }
+
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+    
+}

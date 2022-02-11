@@ -35,7 +35,7 @@
 
                 <div class="right_icons">
                     <a href="index.html"><div class="sprite_home_icon"></div></a>
-                    <a href="shop.html"><img src="resources/imgs/shop.jpg" alt="shop" class="shop"></a>
+                    <a href="./shop/main"><img src="resources/imgs/shop.jpg" alt="shop" class="shop"></a>
                     <div class="dropdown">
                         
                         <div onclick="myFunction()" class="sprite_setting_icon"></div>
