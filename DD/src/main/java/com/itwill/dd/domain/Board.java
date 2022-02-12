@@ -88,4 +88,11 @@ public class Board {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format(
+				"Board{bno:%d, title:%s, content:%s, regdate:%s, view_cnt:%d, like_cnt:%d, filename:%s, userid:%s}", 
+				this.bno, this.title, this.content, this.regdate, this.view_cnt, this.like_cnt, this.filename, this.userid);
+	}
 }
