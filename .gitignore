@@ -14,6 +14,7 @@ local.properties
 .recommenders
 .classpath
 */target/*
+/.codetogether.ignore
 
 # External tool builders
 .externalToolBuilders/
