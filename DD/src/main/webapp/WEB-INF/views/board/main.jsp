@@ -10,7 +10,7 @@
 	<title>Insert title here</title>
 	</head>
 	<body>
-		<h1>게시판 테스트</h1>
+		<h1>게시판 테스트 gfsdfasf</h1>
 		
 	
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
