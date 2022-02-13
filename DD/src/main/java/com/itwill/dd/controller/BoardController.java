@@ -32,5 +32,22 @@ public class BoardController {
 	
 	}
 	
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public void insert() {
+		log.info("insert() GET 방식 호출");
+	}
+	
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	public String insert(Board board) {
+		//log.info("insert({},{},{}) POST 호출", title, content, userid);
+		// String title, String content, String userid
+		log.info("insert({}) POST 호출", board);
+		// 클라이언트에서 보낸 데이터들을 서비스 계층의 객체 (메서드)를 사용해서 새 글 작성 서비스 완료 후
+		// 게시판 메인 페이지로 이동(redirect)
+		boardService.insert(board);
+		 
+		return "redirect:/board/main";
+	}
+	
 	
 }

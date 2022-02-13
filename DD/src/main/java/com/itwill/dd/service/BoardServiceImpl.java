@@ -22,4 +22,11 @@ public class BoardServiceImpl implements BoardService {
 
 		return boardDao.read();
 	}
+	
+	@Override
+	public int insert(Board board) {
+		log.info("insert({}) 호출", board);
+				
+		return boardDao.create(board);
+	}
 }

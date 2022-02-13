@@ -7,4 +7,6 @@ import com.itwill.dd.domain.Board;
 public interface BoardService {
 
 	List<Board> select();
+	int insert(Board board);
 }
+

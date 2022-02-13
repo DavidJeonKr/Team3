@@ -12,9 +12,11 @@ public class Board {
 	private String filename;
 	private String userid;
 	
+	public Board() {}
+	
 	public Board(int bno, String title, String content, Date regdate, int view_cnt, int like_cnt, String filename,
 			String userid) {
-		super();
+		
 		this.bno = bno;
 		this.title = title;
 		this.content = content;
