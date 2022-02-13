@@ -14,7 +14,6 @@ local.properties
 .recommenders
 .classpath
 */target/*
-/.codetogether.ignore
 
 # External tool builders
 .externalToolBuilders/
@@ -70,4 +69,3 @@ local.properties
 .sts4-cache/
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
-/.project
