@@ -29,6 +29,8 @@
     </bean>
 		
 	<context:component-scan base-package="com.itwill.dd.persistence"></context:component-scan>	
+	<context:component-scan base-package="com.itwill.dd.service"></context:component-scan>	
 	
 	<mybatis-spring:scan base-package="com.itwill.dd.mapper"/>
+	
 </beans>
