@@ -16,10 +16,18 @@
         <property name="COL_FILENAME" value="filename"/>
         <property name="COL_USERID" value="userid"/>
         
-	</properties>
-        
-        <!-- REPLIES 테이블 관련 상수들 -->
-        <!-- userid, bno는 기존에 정의된 프로퍼티를 사용 -->
+        <!-- DIARY 테이블 관련 상수들 -->
+		<!-- userid는 기존에 정의된 프로퍼티 사용 -->
+		<property name="TABLE_DIARY" value="diary"/>
+		<property name="COL_DNO" value="dno"/>
+		<property name="COL_DNAME" value="dname"/>
+		<property name="COL_START_DATE" value="start_date"/>
+		<property name="COL_END_DATE" value="end_date"/>
+		
+		
+		
+		
+    </properties>
     
     <typeAliases>
         <package name="com.itwill.dd.domain"/>

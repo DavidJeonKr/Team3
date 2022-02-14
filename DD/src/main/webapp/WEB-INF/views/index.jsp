@@ -94,7 +94,7 @@
                 <div class="content_main">
                     <div class="content_bar">
                         <a href="index" class="home">홈</a>
-                        <a href="./diary/main" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
+                        <a href="./diary/calendar" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
                         <a href="#" class="picture">사진첩</a>
                         <a href="./board/main" class="board">게시판</a>
                     </div>

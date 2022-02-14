@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class DiaryController {
 	private static final Logger log = LoggerFactory.getLogger(DiaryController.class);
 	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public void main() {
-		log.info("Diary main() 호출");
+	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
+	public void calendar() {
+		log.info("Diary calendar() 호출");
 	}
 	
 }
