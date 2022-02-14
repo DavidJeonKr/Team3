@@ -11,5 +11,6 @@ public interface BoardService {
 	Board select(int bno);
 	int update(Board board);
 	int delete(int bno);
+	List<Board> select(int searchType, String searchKeyword);
 }
 

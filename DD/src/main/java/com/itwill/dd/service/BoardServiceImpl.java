@@ -51,4 +51,10 @@ public class BoardServiceImpl implements BoardService {
 		log.info("update({}) 호출", bno);
 		return boardDao.delete(bno);
 	}
+	
+	@Override
+	public List<Board> select(int searchType, String searchKeyword) {
+		log.info("select(searchType={},searchKeyword={}) 호출", searchType, searchKeyword);
+		return boardDao.read(searchType, searchKeyword);
+	}
 }
