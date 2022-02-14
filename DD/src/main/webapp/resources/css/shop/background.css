@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.content_list {
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content_list:nth-child(2) {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.content_list:nth-child(5) {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.content_list:nth-child(8) {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.content_list img {
+    width: 180px;
+    height: 200px;
+}
+
+.content_list span {
+    line-height: 30px;
+    padding-left: 10px;
+    width: 200px;
+}
+

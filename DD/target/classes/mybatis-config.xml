@@ -10,17 +10,26 @@
         <property name="COL_BNO" value="bno"/>
         <property name="COL_TITLE" value="title"/>
         <property name="COL_CONTENT" value="content"/>
-        <property name="COL_REG_DATE" value="reg_date"/>
+        <property name="COL_REG_DATE" value="regdate"/>
         <property name="COL_VIEW_CNT" value="view_cnt"/>
         <property name="COL_LIKE_CNT" value="like_cnt"/>
         <property name="COL_FILENAME" value="filename"/>
         <property name="COL_USERID" value="userid"/>
         
+        <!-- USERS 테이블 관련 상수들 -->
+        <property name="TABLE_USERS" value="users"/>
+        <property name="COL_PWD" value="password"/>
+        <property name="COL_REAL_NAME" value="realname"/>
+        <property name="COL_BIRTHDAY" value="birthday"/>
+        <property name="COL_PHONE" value="phone"/>
+        <property name="COL_NICKNAME" value="nickname"/>
+        <property name="COL_BISCUIT" value="biscuit"/>
 	</properties>
+        
         
         <!-- REPLIES 테이블 관련 상수들 -->
         <!-- userid, bno는 기존에 정의된 프로퍼티를 사용 -->
-    
+    	
     <typeAliases>
         <package name="com.itwill.dd.domain"/>
     </typeAliases>

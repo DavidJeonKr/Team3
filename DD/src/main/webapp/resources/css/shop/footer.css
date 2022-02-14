@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+footer{
+    margin-top: 200px; position: relative; 
+}
+footer>.line{
+    position: absolute; left: 0; top: 50px; background-color: #ccc;
+    display: block; width: 1200px; height: 1px; margin: 0 auto;
+}
+footer>.line:nth-child(1){
+    top: 0;
+}
+footer>.inner{
+    width: 1000px; margin: 0 auto; 
+}
+footer>.inner .noticeBox{
+    padding: 15px 0 10px 0; position: relative; overflow: hidden;
+    
+}
+footer>.inner .noticeBox .notice{
+    color: #ccc;
+}
+footer>.inner .noticeBox ul{
+    position: absolute; left: 0; top: 3px; margin-left: 100px;
+    
+}
+footer>.inner .noticeBox ul li{
+    line-height: 3;
+}
+
+.copyrightBox{
+    margin-top: 10px;
+}
+.copyrightBox .copyList>li{
+    float: left;
+}
+.copyrightBox .copyList>li>a{
+    padding: 5px 20px;
+}
+
+
+.copyrightBox .snsList{
+    position: absolute; right: 0; top: 0; margin-top: 55px;
+}
+.copyrightBox .snsList>li{
+    color: #fff; float: left; margin-right: 20px;
+    font-size: 30px;
+}
+
+.copyrightBox .copyright{
+    margin: 20px 0 20px 0;
+}
+.copyrightBox .copyright li{
+    line-height: 1.5; font-size: 14px; color: #ccc;
+}

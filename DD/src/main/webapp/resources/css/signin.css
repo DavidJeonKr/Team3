@@ -1,0 +1,27 @@
+.signin_logo_location{
+    text-align: center;
+    margin:10px auto 0;
+}
+.signin_logo_location img{
+    width: 200px;
+    height: 100;
+} 
+.form .signin_font{
+    color:#8e8e8e;
+    font-size: 17px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.form .signin_btn{
+    background: #3897f0;
+    border-color: #3897f0;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+    
+}

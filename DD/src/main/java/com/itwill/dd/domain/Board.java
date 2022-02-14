@@ -12,9 +12,11 @@ public class Board {
 	private String filename;
 	private String userid;
 	
+	public Board() {}
+	
 	public Board(int bno, String title, String content, Date regdate, int view_cnt, int like_cnt, String filename,
 			String userid) {
-		super();
+		
 		this.bno = bno;
 		this.title = title;
 		this.content = content;
@@ -87,5 +89,12 @@ public class Board {
 
 	public void setUserid(String userid) {
 		this.userid = userid;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format(
+				"Board{bno:%d, title:%s, content:%s, regdate:%s, view_cnt:%d, like_cnt:%d, filename:%s, userid:%s}", 
+				this.bno, this.title, this.content, this.regdate, this.view_cnt, this.like_cnt, this.filename, this.userid);
 	}
 }

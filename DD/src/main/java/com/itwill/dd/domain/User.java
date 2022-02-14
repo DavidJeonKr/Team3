@@ -14,8 +14,8 @@ public class User {
 	
 	public User() {}
 	
-	public User(String userid, String password, String realname, Date birthday, String phone, Date regdate,
-			String nickname, int biscuit) {
+	public User(String userid, String password, String realname, String nickname, Date birthday, String phone, Date regdate,
+			 int biscuit) {
 		super();
 		this.userid = userid;
 		this.password = password;
@@ -73,5 +73,12 @@ public class User {
 	}
 	public void setBiscuit(int biscuit) {
 		this.biscuit = biscuit;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return String.format("USER{userid=%s, pwd=%s, realname=%s, birthday=%s, nickname=%s, phone=%s, biscuit=%d}",
+				this.userid, this.password, this.realname, this.birthday, this.nickname, this.phone, this.biscuit);
 	}
 }
