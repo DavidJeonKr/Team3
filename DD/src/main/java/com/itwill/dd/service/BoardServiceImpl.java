@@ -29,4 +29,10 @@ public class BoardServiceImpl implements BoardService {
 				
 		return boardDao.create(board);
 	}
+	
+	@Override
+	public Board select(int bno) {
+		log.info("select({}) 호출", bno);
+		return boardDao.read(bno);
+	}
 }

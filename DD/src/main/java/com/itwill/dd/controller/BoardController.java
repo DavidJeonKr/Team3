@@ -39,14 +39,19 @@ public class BoardController {
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insert(Board board) {
-		//log.info("insert({},{},{}) POST 호출", title, content, userid);
-		// String title, String content, String userid
+		
 		log.info("insert({}) POST 호출", board);
-		// 클라이언트에서 보낸 데이터들을 서비스 계층의 객체 (메서드)를 사용해서 새 글 작성 서비스 완료 후
-		// 게시판 메인 페이지로 이동(redirect)
+		
 		boardService.insert(board);
-		 
 		return "redirect:/board/main";
+	}
+	
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public void detail(int bno, Model model) {
+		log.info("detail(bno={}) GET 호출", bno);
+		
+		Board board = boardService.select(bno);
+		model.addAttribute("board", board);
 	}
 	
 	

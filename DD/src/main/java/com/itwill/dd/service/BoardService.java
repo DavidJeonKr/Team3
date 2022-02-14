@@ -8,5 +8,6 @@ public interface BoardService {
 
 	List<Board> select();
 	int insert(Board board);
+	Board select(int bno);
 }
 

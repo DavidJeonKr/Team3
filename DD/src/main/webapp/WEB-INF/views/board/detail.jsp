@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
 <link rel="stylesheet" href="../resources/css/common.css">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
 <body>
@@ -105,72 +106,87 @@
                         <a href="#" class="picture">사진첩</a>
                         <a href="./board/main" class="board">게시판</a>
                     </div>
-			
-	</div>
-		<div class="container" style="margin-top: 40px;">
-
-		<nav class="navbar navbar-expand-sm bg-light navbar-light" style="padding-left: 0px;">
-			<h4 style="margin-right: 40px;">새 글 작성</h4>
-			
+	
+	<div class="container" style="margin-top: 40px;">
+		
+		
+		<nav class="navbar navbar-expand-sm bg-light navbar-light">
+			<h4 style="margin-right: 40px;">글 상세보기</h4>
 			<ul class="navbar-nav">
-				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="#">게시판 목록</a></li>
-				
+				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="./main">게시판 목록</a></li>
+				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" href="./update?bno=${board.bno}">수정</a></li>
+				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" href="#">삭제</a></li>
 			</ul>
+			
+			<div class="nav" style="margin-left: 300px">
+				<button type="button" class="btn btn-dark" style="margin-left: 100px; ">
+					<i  class="fas fa-thumbs-up"></i>
+				</button>
+			</div>
 		</nav>
 
-		<br />
-
+		<br/>
+		
+		
+		
+			
 		<div>
-			<form method="post" class="needs-validation" novalidate>
+			<form>
 				<!-- /board/insert POST submit -->
-				<div class="form-group">
-					<label for="title">title:</label> 
-					<input type="text" class="form-control" name="title" placeholder="제목 입력" required>
-					<div class="valid-feedback">Valid.</div>
-					<div class="invalid-feedback">Please fill out this field.</div>
+				<div class="row">
+					<label for="title" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;">제목</label> 
+					<div class="col-11">
+						<input type="text" id="title" class="form-control-plaintext" name="title" value="${board.title}" style="font-size: 17px; font-weight: 600; padding:0px;" required readonly />
+					</div>
 				</div>
 				
-				<div class="form-group">
-					<label for="content">content:</label>
-					<textarea class="form-control" rows="5" name="content" placeholder="내용 입력" required></textarea>
-					<div class="valid-feedback">Valid.</div>
-      				<div class="invalid-feedback">Please fill out this field.</div>
+				<div class="row">
+					<label for="regdate" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;">작성일</label> 
+					<div class="col-5">
+						<fmt:formatDate value="${board.regdate}" pattern="yyyy/MM/dd HH:mm" var="last_update_time"/>
+						<input type="text" id="regdate" class="form-control-plaintext" name="regdate" 
+					    	   value="${last_update_time}" 
+					    	   style="font-size: 15px; font-weight: 600;" readonly>
+					</div>
+					
+					<div class="col-2">
+						
+					</div>
+					
+					<label for="view_cnt" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;" >조회수</label> 
+					<div class="col-1">
+						<input type="text" id="view_cnt" class="form-control-plaintext" name="view_cnt" value="${board.view_cnt}" style="font-size: 12px; font-weight: 600;" readonly>
+					</div>
+					
+					<label for="like_cnt" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;" >좋아요</label> 
+					<div class="col-1">
+						<input type="text" id="like_cnt" class="form-control-plaintext" name="like_cnt" value="${board.like_cnt}" style="font-size: 12px; font-weight: 600;" readonly>
+					</div>
 				</div>
 				
-				<div class="form-group w-25" > <!-- style="display: none;" -->
-						<label for="userid">userid:</label>
-                        <input type="text" class="form-control" name="userid" value="admin" required readonly />
-                        <p>나중에 이 부분 숨길부분 /일단 admin으로 고정-> userid</p>
-                </div>
+				<div class="row" >
+					<label for="userid" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;">작성자</label> 
+					<div class="col-2">
+						<input type="text" id="userid" class="form-control-plaintext" name="userid" value="${board.userid}" style="font-size: 12px; font-weight: 600;" required readonly>
+					</div>
+				</div>
+				<hr>
+				
+				<div class="row" style="margin: 10px; margin-bottom: 50px; height:400px;">
+					
+					<textarea class="form-control-plaintext" rows="5" name="content" required readonly>${board.content}</textarea>
+					
+				</div>
+				
+			
                     
-				<div>
-					<input type="submit" value="작성 완료">
-				</div>
+				
 			</form>
 		</div>
-	</div>
-	
+		
 
-	<script>
-// Disable form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Get the forms we want to add validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
+	</div>
+
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
