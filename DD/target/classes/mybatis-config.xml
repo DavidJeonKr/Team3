@@ -15,7 +15,15 @@
         <property name="COL_LIKE_CNT" value="like_cnt"/>
         <property name="COL_FILENAME" value="filename"/>
         <property name="COL_USERID" value="userid"/>
-        
+
+        <!-- DIARY 테이블 관련 상수들 -->
+		<!-- userid는 기존에 정의된 프로퍼티 사용 -->
+		<property name="TABLE_DIARY" value="diary"/>
+		<property name="COL_DNO" value="dno"/>
+		<property name="COL_DNAME" value="dname"/>
+		<property name="COL_START_DATE" value="start_date"/>
+		<property name="COL_END_DATE" value="end_date"/>
+		
         <!-- USERS 테이블 관련 상수들 -->
         <property name="TABLE_USERS" value="users"/>
         <property name="COL_PWD" value="password"/>
@@ -24,12 +32,14 @@
         <property name="COL_PHONE" value="phone"/>
         <property name="COL_NICKNAME" value="nickname"/>
         <property name="COL_BISCUIT" value="biscuit"/>
+        
 	</properties>
         
         
         <!-- REPLIES 테이블 관련 상수들 -->
         <!-- userid, bno는 기존에 정의된 프로퍼티를 사용 -->
     	
+
     <typeAliases>
         <package name="com.itwill.dd.domain"/>
     </typeAliases>

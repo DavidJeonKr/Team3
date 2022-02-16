@@ -18,7 +18,7 @@
 <body>
     
     <div id="wrap">
-        <%@include file="header.jsp" %>
+        <%@include file="../include/header.jsp" %>
         <div class="content">
             <div class="main_img">
                 <img src="../resources/imgs/shop/cover1.jpg" alt="">
@@ -65,7 +65,7 @@
                </tbody>
            </table>
         </div>
-       	<%@include file="footer.jsp" %>
+       	<%@include file="../include/footer.jsp" %>
 
     </div>
 </body>

@@ -17,7 +17,7 @@
 <body>
 
     <div id="wrap">
-        <%@include file="header.jsp" %>
+        <%@include file="../include/header.jsp" %>
         <div class="content">
             <div class="content_list">
                 <img src="../resources/imgs/shop/background1.jpeg" alt="">
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-		<%@include file="footer.jsp" %>
+		<%@include file="../include/footer.jsp" %>
     </div>
     
 </body>

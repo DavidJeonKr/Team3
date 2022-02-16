@@ -16,7 +16,7 @@
 <body>
 
     <div id="wrap">
-		<%@include file="header.jsp" %>
+		<%@include file="../include/header.jsp" %>
         <div id="slider">
             <ul class="slide">
                 <li><img src="../resources/imgs/shop/slider1.jpg" alt=""></li>
@@ -95,7 +95,7 @@
                 </section>
             </div>
         </div>
-		<%@include file="footer.jsp" %>
+		<%@include file="../include/footer.jsp" %>
     </div>
 
 </body>

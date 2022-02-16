@@ -11,6 +11,7 @@
 	    <header>
             <a href="./main"><img src="../resources/imgs/shop/logo.png" alt=""></a>
             <ul class="main_menu">
+            	<li><a href="../admin/goods/main">관리자 페이지</a></li>
                 <li><a href="./music">MUSIC</a></li>
                 <li><a href="./background">BACKGROUND</a></li>
             </ul>

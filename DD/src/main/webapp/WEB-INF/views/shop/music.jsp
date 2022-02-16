@@ -18,7 +18,7 @@
     
 
     <div id="wrap">
-        <%@include file="header.jsp" %>
+        <%@include file="../include/header.jsp" %>
         <div class="content">
             <h2 class="title">최신 앨범</h2>
             <div class="content_list">
@@ -94,7 +94,7 @@
                 </span>
             </div>
         </div>
-		<%@include file="footer.jsp" %>
+		<%@include file="../include/footer.jsp" %>
     </div>
 </body>
 </html>
