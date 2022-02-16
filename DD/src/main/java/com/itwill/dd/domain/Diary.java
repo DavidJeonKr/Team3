@@ -10,14 +10,14 @@ public class Diary {
 	private int dno;	// 일정 인덱스 번호 (검색, 추가, 수정, 삭제 용도)
 	private String userid;	// userid - board 테이블과 일치
 	private String dname;	// 일정 제목
-	private Date start_date;	// 일정 시작일
-	private Date end_date;	// 일정 종료일 - 미 설정 시 자동으로 시작일과 일치 
+	private String start_date;	// 일정 시작일
+	private String end_date;	// 일정 종료일 - 미 설정 시 자동으로 시작일과 일치 
 	
 	
 	// 생성자 2개 (기본 생성자, 모든 필드 포함 생성자)
 	public Diary() {}
 	
-	public Diary(int dno, String userid, String dname, Date start_date, Date end_date) {		
+	public Diary(int dno, String userid, String dname, String start_date, String end_date) {		
 		this.dno = dno;
 		this.userid = userid;
 		this.dname = dname;
@@ -57,22 +57,22 @@ public class Diary {
 	}
 
 
-	public Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
 
 
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
 
 
-	public Date getEnd_date() {
+	public String getEnd_date() {
 		return end_date;
 	}
 
 
-	public void setEnd_date(Date end_date) {
+	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
 	
@@ -81,7 +81,7 @@ public class Diary {
 	@Override
 	public String toString() {
 		return String.format (
-				"Diary{dno=%d, userid=%s, dname=%d, start_date=%s, end_date=%s}", 
+				"Diary{dno=%d, userid=%s, dname=%s, start_date=%s, end_date=%s}", 
 				this.dno, this.userid, this.dname, this.start_date, this.end_date);
 	}
 	
