@@ -111,11 +111,11 @@
 		
 		
 		<nav class="navbar navbar-expand-sm bg-light navbar-light">
-			<h4 style="margin-right: 40px;">글 상세보기</h4>
+			<h4 style="margin-right: 40px;">글 수정</h4>
 			<ul class="navbar-nav">
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="./main">게시판 목록</a></li>
-				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" href="./update?bno=${board.bno}">수정</a></li>
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" id="menu-delete" href="./delete?bno=${board.bno}">삭제</a></li>
+				
 			</ul>
 			
 			<div class="nav" style="margin-left: 300px">
@@ -131,12 +131,15 @@
 		
 			
 		<div>
-			<form>
-				<!-- /board/insert POST submit -->
+			<form action="./update" method="post">
+				<div style="display: none;">
+					<input type="number" name="bno" value="${board.bno}" readonly/>
+				</div>
+				
 				<div class="row">
 					<label for="title" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;">제목</label> 
 					<div class="col-11">
-						<input type="text" id="title" class="form-control-plaintext" name="title" value="${board.title}" style="font-size: 17px; font-weight: 600; padding:0px;" required readonly />
+						<input type="text" id="title" class="form-control" name="title" value="${board.title}" style="font-size: 17px; font-weight: 600; padding:0px;" required  />
 					</div>
 				</div>
 				
@@ -174,11 +177,13 @@
 				
 				<div class="row" style="margin: 10px; margin-bottom: 50px; height:400px;">
 					
-					<textarea class="form-control-plaintext" rows="5" name="content" required readonly>${board.content}</textarea>
+					<textarea class="form-control" rows="5" name="content" required >${board.content}</textarea>
 					
 				</div>
 				
-			
+				<div>
+					<input type="submit" value="수정완료" />
+				</div>
                     
 				
 			</form>
@@ -187,11 +192,12 @@
 
 	</div>
 
-	
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		
 	<script>
 		$(document).ready(function() {
 
@@ -205,6 +211,5 @@
 		
 		});
 	</script>
-	
 </body>
 </html> 

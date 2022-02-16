@@ -110,14 +110,13 @@
 	<div class="container" style="margin-top: 40px;">
 		<div > 
 			<nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-end">
-				<form class="form-inline " action="">
+				<form class="form-inline " action="./search" method="get">
 					<select name="type" class="form-control mr-sm-2">
                         <option value="1">제목</option>
                         <option value="2">내용</option>
                         <option value="3">제목+내용</option>
                     </select>
-					<input class="form-control mr-sm-2" type="text"
-						placeholder="Search">
+					<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" required />
 					<button class="btn btn-dark" type="submit">Search</button>
 				</form>
 			</nav>
