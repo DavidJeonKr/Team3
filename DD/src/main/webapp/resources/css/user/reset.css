@@ -1,8 +1,7 @@
 .form_container{
     width: 350px;
-    
-    
 } 
+
 
 .form_container .form{
     background-color: white;
@@ -40,8 +39,20 @@
 .inform_reset{
     text-align: center;
     color: #8e8e8e;
-    margin-bottom: 8px;
-    
+    margin-bottom: 8px;    
+}
+
+.email_conf_1{
+	color: green;
+	display: none;
+}
+.email_conf_2{
+	color: red;
+	display: none;
+}
+.email_conf_3{
+	color: red;
+	display: none;
 }
 
 .form a{

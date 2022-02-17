@@ -1,0 +1,112 @@
+.mail_check{
+	display: flex;
+}
+.mail_check .mail_check_input{
+	border:1px solid gray;
+	border-radius: 3px;
+	font-size : 14px;
+	padding : 7px 8px 7px;
+	margin-bottom: 10px;
+	
+	
+}
+.mail_check .mail_check_button{
+	background: #3897f0;
+    border-color: #3897f0;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding-top: 6px;
+    padding-left:3px;
+    padding-right:2px;
+    margin-left: 2px;
+    margin-bottom: 10px;
+    
+}
+
+.signin_logo_location{
+    text-align: center;
+    margin:10px auto 0;
+}
+.signin_logo_location img{
+    width: 200px;
+    height: 100;
+} 
+.form .signin_font{
+    color:#8e8e8e;
+    font-size: 17px;
+    margin-top: 0;
+    text-align: center;
+}
+
+/* 이메일 영역 */
+	/* 중복아이디 존재 하지 않는 경우 */
+	.email_input_re_1{
+		color : green;
+		display : none;
+	}
+	
+	/* 중복아이디 존재하는 경우 */
+	.email_input_re_2{
+		color : red;
+		display : none;
+	}
+	/* 이메일을 입력하지 않은 경우 */
+	.email_input_re_3{
+		color : red;
+		display : none;
+	}
+/* 이메일 인증 확인 */
+.email_check_re_1{
+	color:green;
+	display: none;
+}
+.email_check_re_2{
+	color:red;
+	display: none;
+}
+
+.pw_input{
+	color : red;
+	display : none;
+}
+
+/* 비밀번호 확인 영역 */ 
+	.pwck_input_re_1{
+		color : green;
+		display : none;	
+	}
+	.pwck_input_re_2{
+		color : red;
+		display : none;	
+	}
+	
+/* final ck */
+.realname_ck{
+	display: none;
+	color:red;
+}
+.nickname_ck{
+	display : none;
+	color:red;
+}
+
+.phone_ck{
+	display : none;
+	color:red;
+}
+
+.form .signin_btn{
+    background: #3897f0;
+    border-color: #3897f0;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.dd.mapper.UserMapper">
+
+	<!-- 회원가입 -->
+	<insert id="create">
+	INSERT INTO ${TABLE_USERS} (${COL_USERID}, ${COL_PWD}, ${COL_REAL_NAME}, ${COL_BIRTHDAY}, ${COL_PHONE}, ${COL_NICKNAME})
+	VALUES(#{userid}, #{password}, #{realname}, #{birthday}, #{phone}, #{nickname})
+	</insert>
+	
+	<!-- 아이디 비번 확인 -->
+	<select id="selectByIdAndPwd" resultType="User">
+	SELECT * FROM ${TABLE_USERS}
+	WHERE ${COL_USERID} = #{userid} AND ${COL_PWD} = #{password}
+	</select>
+	
+	<!-- 이메일 유효성 검사 -->
+	<select id="selectByEmail" resultType="User">
+	SELECT * FROM ${TABLE_USERS}
+	WHERE ${COL_USERID} = #{userid}
+	</select>
+	
+	<!-- 비밀번호 업데이트 -->
+	<update id="updatePass">
+	UPDATE ${TABLE_USERS} 
+	SET ${COL_PWD} = #{password} 
+	WHERE ${COL_USERID} = #{userid}
+	</update>
+
+</mapper>

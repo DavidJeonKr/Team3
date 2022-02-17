@@ -9,7 +9,7 @@
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
 		<title>로그인</title>
 	    <link rel="stylesheet" href="../resources/css/common.css">
-	    <link rel="stylesheet" href="../resources/css/login.css">
+	    <link rel="stylesheet" href="../resources/css/user/login.css">
 	   
     </head>
 	<body>
@@ -24,13 +24,12 @@
                     </div>    
 
                     <!--ID/PASS input-->
-                    <form action="#">
+                    <form action="./login" method="post">
                         <div>
-                            <input type="email" id="userid" placeholder="이메일" required/>
-
+                            <input type="text" name="userid" id="userid" placeholder="이메일" required/>
                         </div>
                         <div>
-                            <input type="password" id="password" placeholder="비밀번호" required />
+                            <input type="password" name="password" id="password" placeholder="비밀번호" required />
                         </div>
 
                         <input type="submit" id="submit_btn" value="로그인" class="submit_btn">
