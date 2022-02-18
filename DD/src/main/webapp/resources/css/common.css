@@ -118,8 +118,20 @@ body{
     order: 1;
 }
 
+#main_container_2 {
+    /*height: 100vh;*/
+    display: flex;
+    justify-content: center;
+    order: 1;
+}
+
 
 #main_container .b_inner{
+    width:935px;
+    position: relative;
+}
+
+#main_container_2 .b_inner{
     width:935px;
     position: relative;
 }
@@ -174,6 +186,7 @@ body{
 .detail .middle{
     display: flex;
     padding-left: 0;
+    margin-top: 16px;
 }
 .detail .middle li{
     display: inline-block;
@@ -188,9 +201,10 @@ body{
 }
 
 
-.content_main{
+.content_main_bar{
     margin-top: 50px;
 }
+
 .content_bar{
     padding-top: 15px;
     text-align: center;
