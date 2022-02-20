@@ -10,9 +10,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
     <link rel="stylesheet" href="../resources/css/shop/reset.css">
     <link rel="stylesheet" href="../resources/css/shop/music.css">
+    <link rel="stylesheet" href="../resources/css/shop/footer.css">
+    <link rel="stylesheet" href="../resources/css/shop/header.css">
     <script src="../resources/js/shop/jquery.min.js"></script>
     <script src="../resources/js/shop/shop.js" defer></script>
     <title>Document</title>
+    
 </head>
 <body>
     
@@ -76,7 +79,7 @@
                 </span>
             </div>
             <div div class="content_list">
-                <a href=""><img src="../resources/imgs/shop/slide1.jpeg" alt=""></a>
+                <a href=""><img src="../resources/imgs/shop/cover4.jpg" alt="hotProgramImg1"></a>
                 <span>
                     <h4>Don't Look Back In Anger</h4>
                     Don't Look Back In Anger<br>
