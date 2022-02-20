@@ -7,6 +7,13 @@ public class ProductVO {
 	private int productPrice;
 	private String productDesc;
 	private String productImg;
+	private String cateCode;
+	
+	
+	// 썸네일 저장할 필드
+	private String productThumbImg;
+	
+	
 	public int getProductId() {
 		return productId;
 	}
@@ -38,10 +45,27 @@ public class ProductVO {
 		this.productImg = productImg;
 	}
 	
+	public String getProductThumbImg() {
+		return productThumbImg;
+	}
+	public void setProductThumbImg(String productThumbImg) {
+		this.productThumbImg = productThumbImg;
+	}
+	
+	public String getCateCode() {
+		return cateCode;
+	}
+	public void setCateCode(String cateCode) {
+		this.cateCode = cateCode;
+	}
+	
 	@Override
 	public String toString() {
 		return "ProductVO [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
-				+ ", productDesc=" + productDesc + ", productImg=" + productImg + "]";
+				+ ", productDesc=" + productDesc + ", productImg=" + productImg + ", cateCode=" + cateCode
+				+ ", productThumbImg=" + productThumbImg + "]";
 	}
+	
+	
 	
 }

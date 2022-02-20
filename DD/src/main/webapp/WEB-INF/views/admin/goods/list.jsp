@@ -15,12 +15,9 @@
 
 </head>
 <body>
-
 	<div id="wrap">
 
 		<%@ include file="../include/header.jsp" %>
-
-	
 		<nav id="nav">
 			<div id="nav_box">
 				<%@ include file="../include/nav.jsp" %>
@@ -37,18 +34,23 @@
 				<table>
 					<thead>
 						<tr>
+							<th>상품</th>
 							<th>번호</th>
 							<th>이름</th>
+							<th>카테고리</th>
 							<th>가격</th>
+							
 						</tr>
 					</thead>
 					<tbody>
 					<c:forEach items="${list}" var="list">
 						<tr>
+							<td><a href="./detail?n=${list.productId}"><img src="${pageContext.request.contextPath}/${list.productThumbImg}"></a></td>
 							<td>${list.productId}</td>
-							<td><a href="/admin/goods/view?n=${list.productId}">${list.productName}</a></td>
+							<td><a href="./detail?n=${list.productId}">${list.productName}</a></td>
+							<td>${list.cateName}</td>
 							<td>${list.productPrice}</td>
-							<td>${list.productDesc}</td>
+							
 						</tr>
 					</c:forEach>
 					</tbody>

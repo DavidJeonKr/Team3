@@ -7,10 +7,10 @@ $(function(){
     let imgWidth = $(".slide li").width();
 
   
-    let roll = setInterval(next, 4000)
+    let roll = setInterval(next, 600)
 
     function next(){
-    $(".slide").animate({marginLeft: -imgWidth}, 4000, "swing", function(){
+    $(".slide").delay(3000).animate({marginLeft: -imgWidth}, 600, "swing", function(){
         $(".slide>li:first").appendTo(".slide");
         $(".slide").css({marginLeft: 0});
     });
@@ -18,7 +18,7 @@ $(function(){
 
 
 
-    $(".imgbox").on({
+    $(".minititle").on({
         mouseenter: function(){
             $(this).children("a").children("img").css("transform", "scale(1.1)");
         },

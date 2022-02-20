@@ -8,7 +8,7 @@
 </head>
 <body>
 	    <header>
-            <a href="../shop/main"><img src="../../resources/imgs/shop/logo.png" alt=""></a>
+            <a href="../../shop/main2"><img src="../../resources/imgs/shop/logo.png" alt=""></a>
             <ul class="main_menu">
                 <li><a href="../shop/music">MUSIC</a></li>
                 <li><a href="../shop/background">BACKGROUND</a></li>
