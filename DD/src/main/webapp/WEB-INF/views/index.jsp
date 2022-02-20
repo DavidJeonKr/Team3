@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./resources/css/common.css">
 </head>
 <body>
+<!-- 테스트 -->
 <!-- 전체 section으로 묶음-->
     <section id="container">
         <!-- 상단 메뉴 바 -->
@@ -43,7 +44,7 @@
                     <div class="dropdown">
                         <div onclick="myFunction()" class="sprite_setting_icon"></div>
                         <div id="myDropdown" class="dropdown-content">
-                          <a href="./user/profile_edit_main">프로필 설정</a>
+                          <a href="./user/profile_edit_main">프로필 설정 테스트</a>
                           <a href="#">로그아웃</a>
                         </div>
                       </div>
