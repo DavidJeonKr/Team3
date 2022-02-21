@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -103,34 +105,21 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public void login() {
-		log.info("login Test");
-	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(User user, Model model) {
-		log.info("{}",user);
-		User signInUser = userService.checkSignIn(user);
-		if(signInUser == null) {
-			return "redirect:/user/login";
-		}else {
-			log.info("{}", signInUser);
-
-			// TODO: 로그인 유저 정보 넘기기
-
-			return "redirect:/";
-		}
-			
 		
-		
-	}
-	
 	
 	@RequestMapping(value = "/reset", method = RequestMethod.GET)
 	public void reset() {
 		log.info("reset Test");
 	}
+	
+	@RequestMapping(value = "/reset", method = RequestMethod.POST)
+	public String reset2() {
+		log.info("reset Test");
+		return "redirect:/";
+	}
+	
+	
 	/* 비밀번호 보내기 */
 	@RequestMapping(value="/passReset", method=RequestMethod.GET)
 	@ResponseBody
@@ -177,7 +166,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/profile_edit_main", method = RequestMethod.GET)
-	public void profileEdit() {
+	public void profileEdit(Model model) {
 		
 	}
 	

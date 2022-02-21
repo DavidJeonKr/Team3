@@ -12,7 +12,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"/>
     <title>DD</title>
-    <link rel="stylesheet" href="./resources/css/common.css">
+    <link rel="stylesheet" href="../resources/css/common.css">
 </head>
 <body>
 	<header>
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="right_icons">
-                    <a href="../"><div class="sprite_home_icon"></div></a>
+                    <a href="../diary/calendar"><div class="sprite_home_icon"></div></a>
                     <a href="../shop/main"><img src="../resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
                     <div class="dropdown">
                         <div onclick="myFunction()" class="sprite_setting_icon"></div>
@@ -96,7 +96,6 @@
 
                 <div class="content_main_bar">
                     <div class="content_bar">
-                        <a href="../" class="home">홈</a>
                         <a href="../diary/calendar" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
                         <a href="" class="picture">사진첩</a>
                         <a href="../board/main" class="board">게시판</a>

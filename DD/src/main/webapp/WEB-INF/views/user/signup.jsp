@@ -90,7 +90,7 @@
 
                 <div class="bottom_box">
                     <div>
-                        <span>계정이 있나요?</span><a href="./login"> 로그인</a>
+                        <span>계정이 있나요?</span><a href="../"> 로그인</a>
                     </div>
                 </div>
 

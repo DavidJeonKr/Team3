@@ -56,4 +56,10 @@ public class UserServiceImpl implements UserService{
 		return userDao.updatePass(userid, pwd);
 	}
 
+	@Override
+	public User userInfo(String userid) {
+		
+		return userDao.checkUserEmail(userid);
+	}
+
 }

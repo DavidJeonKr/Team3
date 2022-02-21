@@ -25,25 +25,60 @@
     		 	<div class="content_main_edit">
     		 		<ul class="edit_menu">
     		 			<li>
-    		 				<a href="./">프로필 설정</a>
+    		 				<div>프로필 설정</div>
     		 			</li>
     		 			<li>
-    		 				<a href="./profile_edit_pass">비밀번호 변경</a>
+							<div>비밀번호 변경</div>
     		 			</li>
     		 		</ul>
     		 	
-    		 		<article>
-    		 			<div>
+    		 		<article class="edit_main">
+    		 			<div class="edit_userid">
+    		 				<div class="usericon"></div>
+    		 			userid
     		 			</div>
-    		 			<form>
+    		 			<form action="./profile_edit_main" method="post">
     		 				<div>
     		 					<aside>
-    		 						<label for="이름">이름</label>
+    		 						<label for="realname">이름</label>
     		 					</aside>
     		 					<div>
-    		 						<input type="text" value="" required/>
+    		 						<input type="text" name="realname" value="" required/>
     		 					</div>
     		 				</div>
+    		 				<div>
+    		 					<aside>
+    		 						<label for="nickname">닉네임</label>
+    		 					</aside>
+    		 					<div>
+    		 						<input type="text" name="nickname" value="" required/>
+    		 					</div>
+    		 				</div>
+    		 				<div>
+    		 					<aside>
+    		 						<label for="birthday">생일</label>
+    		 					</aside>
+    		 					<div>
+    		 						<input type="date" name="birthday1" value="" required/>
+    		 					</div>
+    		 				</div>
+    		 				<div>
+    		 					<aside>
+    		 						<label for="phone">전화번호</label>
+    		 					</aside>
+    		 					<div>
+    		 						<input type="text" name="phone" value="" required/>
+    		 					</div>
+    		 				</div>
+    		 				<div>
+    		 					<aside>
+    		 						
+    		 					</aside>
+    		 					<div>
+    		 						<input type="submit" value="수정">
+    		 					</div>
+    		 				</div>
+    		 				
     		 			</form>
     		 		</article>
     		 	</div>
