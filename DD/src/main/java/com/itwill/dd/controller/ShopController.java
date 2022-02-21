@@ -88,9 +88,10 @@ public class ShopController {
 	}
 	
 	// 카트 리스트
+	@RequestMapping(value = "/cartList", method = RequestMethod.GET)
 	public void getCartList(HttpSession session, Model model) {
 		
-		User user = (User)session.getAttribute("user");
+		User user = (User)session.getAttribute("userid");
 		String userId = user.getUserid();
 		
 		List<CartListVO> cartList = shopService.cartList(userId);

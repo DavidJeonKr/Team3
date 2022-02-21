@@ -144,6 +144,7 @@
 		<%@include file="../include/footer.jsp" %>
 		 <div class="userId">
 	    사용자 아이디
+	    <a href="./cartList">장바구니</a>
 	     </div>
 	     
     </div>
