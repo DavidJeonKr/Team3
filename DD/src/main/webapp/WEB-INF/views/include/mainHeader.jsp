@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-	rel="stylesheet" />
+	rel="stylesheet"/>
     <title>DD</title>
-    <link rel="stylesheet" href="resources/css/common.css">
+    <link rel="stylesheet" href="./resources/css/common.css">
 </head>
 <body>
 	<header>
@@ -22,9 +22,9 @@
         <header id="header">
             <section class="h_inner">
                 <h1 class="logo">
-                    <a href="index.html">
+                    <a href="../">
                         <div class="logo_location">
-                            <img src="resources/imgs/main/DD.png" alt="DD" class="DDlogo">
+                            <img src="../resources/imgs/main/DD.png" alt="DD" class="DDlogo">
                         </div>
                     </a>            
                 </h1>
@@ -39,14 +39,12 @@
                 </div>
 
                 <div class="right_icons">
-                    <a href="index.html"><div class="sprite_home_icon"></div></a>
-                    <a href="./shop/main"><img src="resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
+                    <a href="../"><div class="sprite_home_icon"></div></a>
+                    <a href="../shop/main"><img src="../resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
                     <div class="dropdown">
-                        
                         <div onclick="myFunction()" class="sprite_setting_icon"></div>
-                        
                         <div id="myDropdown" class="dropdown-content">
-                          <a href="#">프로필 설정</a>
+                          <a href="../user/profile_edit_main">프로필 설정</a>
                           <a href="#">로그아웃</a>
                         </div>
                       </div>
@@ -60,14 +58,14 @@
                 <div class="hori_cont">
                     <div class="profile_wrap">
                         <div class="profile_img">
-                            <img src="resources/imgs/main/profile.jpg" alt="기본사진">
+                            <img src="../resources/imgs/main/profile.jpg" alt="기본사진">
                         </div>
                     </div>
 
                     <div class="detail">
                         <div class="top">
                             <div class="nickname">닉네임</div>
-                            <a href="./user/profile_edit" class="profile_edit">프로필 편집</a>
+                            <a href="../user/profile_edit_main" class="profile_edit">프로필 편집</a>
                         </div>
 
                         <ul class="middle">
@@ -98,10 +96,10 @@
 
                 <div class="content_main_bar">
                     <div class="content_bar">
-                        <a href="index" class="home">홈</a>
-                        <a href="./diary/calendar" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
-                        <a href="#" class="picture">사진첩</a>
-                        <a href="./board/main" class="board">게시판</a>
+                        <a href="../" class="home">홈</a>
+                        <a href="../diary/calendar" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
+                        <a href="" class="picture">사진첩</a>
+                        <a href="../board/main" class="board">게시판</a>
                     </div>
 
                     <div> <!--컨텐트 들어갈 div-->

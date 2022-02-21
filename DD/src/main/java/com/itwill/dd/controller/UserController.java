@@ -176,4 +176,9 @@ public class UserController {
 		
 	}
 	
+	@RequestMapping(value = "/profile_edit_main", method = RequestMethod.GET)
+	public void profileEdit() {
+		
+	}
+	
 }
