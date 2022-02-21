@@ -20,19 +20,54 @@
 
     <div id="wrap">
         <%@include file="../include/header.jsp" %>
-        <input type="hidden" name="n" value="${product.productId}">
+        
+        <form role="form" method="post">
+			<input type="hidden" name="productId" value="${product.productId}" id="productId">
+		</form>
+        
         <div class="content">
             <div class="content_list">
                 <img src="${pageContext.request.contextPath}/${product.productThumbImg}" alt="">
               
                 <span>${product.productDesc}</span>                
                 <div class="bg_select"> 
-                <button>장바구니 담기</button>
+                <input type="button" class="addCart_btn" value="장바구니 담기" />
                 </div>
             </div>
         </div>
 		<%@include file="../include/footer.jsp" %>
     </div>
+    
+    <script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		
+	
+	 <script>
+	  $(".addCart_btn").click(function(){
+	   var productId = $("#productId").val();
+	
+		  
+	      
+	   var data = {
+	     productId : productId
+	     };
+	   
+	   $.ajax({
+	    url : "./addCart",
+	    type : "post",
+	    data : data,
+	    success : function(result){
+	     alert("카트 담기 성공");
+	    },
+	    error : function(){
+	     alert("카트 담기 실패");
+	    }
+	   });
+	  });
+	 </script>
+	
     
 </body>
 </html>

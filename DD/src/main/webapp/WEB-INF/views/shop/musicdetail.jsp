@@ -41,25 +41,9 @@
                </thead>
                <tbody>
                    <tr>
-                       <td>The Beginning</td>
-                       <td><button class="plus" type="button">+</button></td>
-                   </tr>
-                   <tr>
-                    <td><span class="song_title">TITLE</span> Clock Strikes</td>
-                    <td><a href="">+</a></td>
-                </tr>
-                <tr>
-                    <td>Smiling Down</td>
-                    <td><a href="">+</a></td>
-                </tr>
-                <tr>
-                    <td>Deeper Deeper</td>
-                    <td><a href="">+</a></td>
-                </tr>
-                <tr>
-                    <td>Be The Light</td>
-                    <td><a href="">+</a></td>
-                </tr>
+	                   <td><span class="song_title">TITLE</span>${product.productSong}</td>
+	                   <td><a href="">+</a></td>
+               	   </tr>
                </tbody>
            </table>
         </div>

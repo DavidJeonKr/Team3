@@ -40,7 +40,7 @@
 
                 <div class="right_icons">
                     <a href="../diary/calendar"><div class="sprite_home_icon"></div></a>
-                    <a href="../shop/main"><img src="../resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
+                    <a href="../shop/main2"><img src="../resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
                     <div class="dropdown">
                         <div onclick="myFunction()" class="sprite_setting_icon"></div>
                         <div id="myDropdown" class="dropdown-content">

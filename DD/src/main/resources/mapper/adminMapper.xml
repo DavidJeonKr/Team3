@@ -12,8 +12,8 @@
 
 	<!-- 상품 등록 -->
 	<insert id="register">
-	insert into product (productname, productprice, productdesc, productImg, productThumbImg, catecode)
-	values (#{productName}, #{productPrice}, #{productDesc}, #{productImg}, #{productThumbImg}, ${cateCode})
+	insert into product (productname, productprice, productdesc, productImg, productThumbImg, catecode, productsong)
+	values (#{productName}, #{productPrice}, #{productDesc}, #{productImg}, #{productThumbImg}, #{cateCode}, #{productSong})
 	</insert>
 	
 	
@@ -32,7 +32,7 @@
 	    from product p
 	    inner join product_category c
 	           on p.catecode = c.catecode
-	 
+	 	order by productid desc
 	</select>
 	
 	
@@ -47,7 +47,7 @@
 	<!-- 상품 조회 -->
 	<select id="goodsDetail" resultType="com.itwill.dd.domain.ProductViewVO">
 	select
-	     p.productid, p.productname, p.cateCode, c.catecoderef, c.catename, productprice, productdesc, productimg, productthumbimg 
+	     p.productid, p.productname, p.cateCode, c.catecoderef, c.catename, productprice, productdesc, productimg, productthumbimg, productsong 
          from product p
          inner join product_category c
                  on p.catecode = c.catecode          
@@ -61,7 +61,8 @@
 		productprice = #{productPrice},
 		productdesc = #{productDesc},
 		productImg = #{productImg},
-		productThumbImg = #{productThumbImg}
+		productThumbImg = #{productThumbImg},
+		productsong = #{productSong}
 	where productid = #{productId} 
 	</update>
 

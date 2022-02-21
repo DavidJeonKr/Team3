@@ -9,6 +9,7 @@ public class ProductViewVO {
 	private String productImg;
 	private String productThumbImg;
 	private String cateCode;
+	private String productSong;
 	
 	private String cateCodeRef;
 	private String CateName;
@@ -68,16 +69,20 @@ public class ProductViewVO {
 	public void setProductThumbImg(String productThumbImg) {
 		this.productThumbImg = productThumbImg;
 	}
+
+	public String getProductSong() {
+		return productSong;
+	}
+	public void setProductSong(String productSong) {
+		this.productSong = productSong;
+	}
 	@Override
 	public String toString() {
 		return "ProductViewVO [productId=" + productId + ", productName=" + productName + ", productPrice="
 				+ productPrice + ", productDesc=" + productDesc + ", productImg=" + productImg + ", productThumbImg="
-				+ productThumbImg + ", cateCode=" + cateCode + ", cateCodeRef=" + cateCodeRef + ", CateName=" + CateName
-				+ "]";
+				+ productThumbImg + ", cateCode=" + cateCode + ", productSong=" + productSong + ", cateCodeRef="
+				+ cateCodeRef + ", CateName=" + CateName + "]";
 	}
-	
-	
-	
-	
+
 
 }

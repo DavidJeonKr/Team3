@@ -8,6 +8,7 @@ public class ProductVO {
 	private String productDesc;
 	private String productImg;
 	private String cateCode;
+	private String productSong;
 	
 	
 	// 썸네일 저장할 필드
@@ -59,13 +60,17 @@ public class ProductVO {
 		this.cateCode = cateCode;
 	}
 	
+	public String getProductSong() {
+		return productSong;
+	}
+	public void setProductSong(String productSong) {
+		this.productSong = productSong;
+	}
 	@Override
 	public String toString() {
 		return "ProductVO [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
 				+ ", productDesc=" + productDesc + ", productImg=" + productImg + ", cateCode=" + cateCode
-				+ ", productThumbImg=" + productThumbImg + "]";
+				+ ", productSong=" + productSong + ", productThumbImg=" + productThumbImg + "]";
 	}
-	
-	
-	
+
 }
