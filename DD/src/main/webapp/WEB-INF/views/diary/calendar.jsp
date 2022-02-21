@@ -28,7 +28,7 @@
 		</style>
 	</head>
 	<body>		
-		<%@ include file = "../mainHeader.jsp" %>
+		<%@ include file = "../include/mainHeader.jsp" %>
     
    		<section id="container">
     		<div id="main_container_2">
