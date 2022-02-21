@@ -23,22 +23,18 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String login(User user, Model model, HttpServletRequest request) {
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String main(User user, Model model, HttpServletRequest request) {
 		
 		User signInUser = userService.checkSignIn(user);
 		if(signInUser == null) {
 			return "redirect:/";
 		}else {
-			
-
 			// TODO: 로그인 유저 정보 넘기기
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", ((User) signInUser).getUserid());
 			return "redirect:/diary/calendar";
 		}
-			
-		
 		
 	}
 

@@ -31,12 +31,12 @@ public class UserController {
 	@Autowired private UserService userService;
 	@Autowired private JavaMailSenderImpl mailSender;
 	
-	@RequestMapping(value = "/signin", method = RequestMethod.GET)
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public void signin() {
 		log.info("signin Test");
 	}
 	
-	@RequestMapping(value = "/signin", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signin(@DateTimeFormat(pattern="yyyy-MM-dd") Date birthday1, User user) {
 		user.setBirthday(birthday1);
 		log.info("signin{USER:{}} POST ", user);
@@ -166,8 +166,20 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/profile_edit_main", method = RequestMethod.GET)
-	public void profileEdit(Model model) {
+	public void profileEdit(Model model, HttpSession session) {
+		String userid = (String) session.getAttribute("userid");
+		User userInfo = userService.userInfo(userid);
+		model.addAttribute("userInfo", userInfo);
 		
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logOut(HttpSession session) {
+		
+		session.removeAttribute("userid");
+		session.invalidate();
+		
+		return "redirect:/";
 	}
 	
 }

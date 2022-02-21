@@ -45,7 +45,7 @@
                         <div onclick="myFunction()" class="sprite_setting_icon"></div>
                         <div id="myDropdown" class="dropdown-content">
                           <a href="../user/profile_edit_main">프로필 설정</a>
-                          <a href="#">로그아웃</a>
+                          <a href="../user/logout">로그아웃</a>
                         </div>
                       </div>
                 </div>

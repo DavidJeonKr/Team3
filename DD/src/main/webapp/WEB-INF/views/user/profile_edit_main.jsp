@@ -35,7 +35,7 @@
     		 		<article class="edit_main">
     		 			<div class="edit_userid">
     		 				<div class="usericon"></div>
-    		 			userid
+    		 			${userInfo.userid}
     		 			</div>
     		 			<form action="./profile_edit_main" method="post">
     		 				<div>
@@ -43,7 +43,7 @@
     		 						<label for="realname">이름</label>
     		 					</aside>
     		 					<div>
-    		 						<input type="text" name="realname" value="" required/>
+    		 						<input type="text" name="realname" value="${userInfo.realname}" required/>
     		 					</div>
     		 				</div>
     		 				<div>
@@ -51,7 +51,7 @@
     		 						<label for="nickname">닉네임</label>
     		 					</aside>
     		 					<div>
-    		 						<input type="text" name="nickname" value="" required/>
+    		 						<input type="text" name="nickname" value="${userInfo.nickname}" required/>
     		 					</div>
     		 				</div>
     		 				<div>
@@ -59,7 +59,7 @@
     		 						<label for="birthday">생일</label>
     		 					</aside>
     		 					<div>
-    		 						<input type="date" name="birthday1" value="" required/>
+    		 						<input type="date" name="birthday1" value="${userInfo.birthday}" required/>
     		 					</div>
     		 				</div>
     		 				<div>
@@ -67,7 +67,7 @@
     		 						<label for="phone">전화번호</label>
     		 					</aside>
     		 					<div>
-    		 						<input type="text" name="phone" value="" required/>
+    		 						<input type="text" name="phone" value="${userInfo.phone}" required/>
     		 					</div>
     		 				</div>
     		 				<div>
