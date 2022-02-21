@@ -28,110 +28,27 @@
 		</style>
 	</head>
 	<body>		
-		<!-- 전체 section으로 묶음-->
-    <section id="container">
-        <!-- 상단 메뉴 바 -->
-        <header id="header">
-            <section class="h_inner">
-                <h1 class="logo">
-                    <a href="index.html">
-                        <div class="logo_location">
-                            <img src="resources/imgs/main/DD.png" alt="DD" class="DDlogo">
-                        </div>
-                    </a>            
-                </h1>
-                
-                <!-- 검색 창-->
-                <div class="search_field">
-                    <input type="text" placeholder="검색" tabindex="0">
-                    <div class="fake_field">
-                        <span class=sprite_small_search_icon></span>
-                        <span>검색</span>
-                    </div>
-                </div>
-
-                <div class="right_icons">
-                    <a href="index.html"><div class="sprite_home_icon"></div></a>
-                    <a href="./shop/main"><img src="resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
-                    <div class="dropdown">
-                        
-                        <div onclick="myFunction()" class="sprite_setting_icon"></div>
-                        
-                        <div id="myDropdown" class="dropdown-content">
-                          <a href="#">setting</a>
-                          <a href="#">LogOut</a>
-                        </div>
-                      </div>
-                </div>
-            </section>
-        </header>
-
-        <!-- 메인 내용-->
-        <div id="main_container">
-            <section class="b_inner">
-                <div class="hori_cont">
-                    <div class="profile_wrap">
-                        <div class="profile_img">
-                            <img src="resources/imgs/main/profile.jpg" alt="기본사진">
-                        </div>
-                    </div>
-
-                    <div class="detail">
-                        <div class="top">
-                            <div class="nickname">닉네임</div>
-                            <a href="profile_edit.html" class="profile_edit">프로필 편집</a>
-                        </div>
-
-                        <ul class="middle">
-                            <li>
-                                <span>게시판</span> 3
-                            </li>
-                            <li>
-                                <a href="friend.html">일촌</a> 3
-                            </li>
-                            <li>
-                               	 비스켓 3
-                            </li>
-                        </ul>
-                        <div class="bottom">
-                            <div class="real_name">
-                                real_name
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="main_right">
-                        <div class="music_player">
-                         	   음악 플레이어
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content_main">
-                    <div class="content_bar">
-                        <a href="index" class="home">홈</a>
-                        <a href="./diary/calendar" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
-                        <a href="#" class="picture">사진첩</a>
-                        <a href="./board/main" class="board">게시판</a>
-                    </div>
-				<br/>
-                	<!-- 달력 출력 위치 -->
-					<div style="text-align: center; width: 100%;" 
+		<%@ include file = "../mainHeader.jsp" %>
+    
+   		<section id="container">
+    		<div id="main_container_2">
+    		 <section class="b_inner">
+    		 	<div class="content_main">
+    		 		<!-- 달력 출력 위치 -->
+    		 		<div style="text-align: center; width: 100%;" 
 							id="calendar">
 					</div>
-                </div>
-
-            </section>
-        </div>
-    </section>
-    
-    
+    		 	</div>
+    		 </section>
+    	</div>
+    </section>	
+	
     <!-- Modal -->		
 		<!-- 밑의 id 값을 토대로 모달을 호출하게 된다.--> 
   		<div class="modal fade insertModal" id="scheduleModal" role="dialog">     		
     		<div class="modal-dialog">
 				<div class="modal-content">
+					<form id="modalForm" method="post">
      		 	<!-- Modal Header -->
          			 <div class="modal-header">
            				 <h4 class="modal-title">일정 등록</h4>
@@ -141,30 +58,36 @@
             				</button>
          			</div>    
         <!-- Modal body -->
-          <div class="modal-body">
+          <div class="modal-body">          
             <div class="form-group">
-              <label for="title">일정 메모:</label>
-              <input type="textbox" class="form-control" name="dname" id="dname"
-                placeholder="무슨 일정인가요?" required autofocus />
+              <label for="title">무슨 일정인가요?</label>
+              <input type="text" class="form-control" name="dname" id="dname"
+                placeholder="일정을 알려주세요" required autofocus />
             </div>
             <div class="form-group">
-              <label for="start">시작일:</label>
-              <input type="date" class="form-control" name="start_date" id="start_date" required /> 
+              <label for="start">시작일은 언제인가요?</label>
+              <input type="date" class="form-control" name="start_date" id="start_date"
+              placeholder="시작일을 언제인가요?" required /> 
             </div>
             <div class="form-group">
-              <label for="end">종료일:</label>
-              <input type="date" class="form-control" name="end_date" id="end_date" required /> 
+              <label for="end">종료일은 언제인가요?</label>
+              <input type="date" class="form-control" name="end_date_fake" id="end_date_fake"
+              placeholder="종료일은 언제인가요?" required /> 
+              <input style="display:none" type="date" class="form-control" name="end_date" id="end_date"
+              required /> 
+              <input type="hidden" name="userid" value="admin" />
             </div>           
           </div>
           <!-- Modal footer -->
           <div class="modal-footer">            
-            <button type="button" class="btn btn-danger rejectBtn"
-              onclick="updateEvent('insertModal', g_arg)">수정</button>
-            <button type="button" class="btn btn-dark float-right deleteBtn"
-              onclick="deleteEvent('insertModal', g_arg)">삭제</button>
-            <button type="button" class="btn btn-warning float-right insertBtn"
+            <button type="button" class="btn btn-danger updateBtn" id="updateBtn"
+              onclick="updateEvent()">수정</button>
+            <button type="button" class="btn btn-dark float-right deleteBtn" id="deleteBtn"
+              onclick="deleteEvent()">삭제</button>
+            <button type="submit" class="btn btn-warning float-right insertBtn" id="insertBtn"
               onclick="insertEvent()">등록</button>
           </div>
+          </form>
         </div>
       </div>
     </div>     
@@ -194,14 +117,20 @@
     
 	<!-- 달력 출력 스크립트 (Fullcalendar) -->
 	<script>	
-		
+		//테스트용 아이디 띄움	
 		var userid = $('#userid').text();
 		console.log(userid);
+		
 		var today = new Date();
 		var month = today.getMonth() + 1; //getMonth()는 9월이 8으로 나옴
 		var date = today.getDate();
 		var g_arg; //이벤트 글로벌 변수(모달창에서 호출하는 함수에서 참조하기 위함)
 		var calendar = null; //달력 변수
+		var dno;	// 일정 DB Index 번호
+		
+		var startDate;	//일정 추가 시 시작일
+		var end;	//일정 추가 시 종료일
+		var endDate; //일정 추가 시 표시할 종료일 수정용 
 		//var todayStr = today.getFullYear() + "-" + stringFormat(month) + "-" + stringFormat(date);
 		
 		$(document).ready(function() {	
@@ -228,66 +157,177 @@
 				nowIndicator : true, // 현재 시간 마크
 				locale : 'ko', // 한국어 설정	
 				dayMaxEvents: true,
-				weekNumbers: true,	// 몇 번째 주인지 표시
-			    //weekNumberCalculation: 'ISO',
+				weekNumbers: true,	// 몇 번째 주인지 표시			    
 				
 				select: function(arg) {
 			       console.log(arg);
-			       $('#scheduleModal').modal();   //id가 "insertModal"인 모달창을 열어준다. 			       
+			       $('#scheduleModal').modal({backdrop: "static"});   //id가 "insertModal"인 모달창을 열어준다.
+			       $('#updateBtn', '#deleteBtn').css('display', 'none');
+			       startDate = arg.startStr;		
+			       $('#start_date').val(startDate);
+			       console.log(startDate);			  //선택한 시작일 출력    
+			       			       
+			       endDate = arg.end;
 			       
-			        calendar.unselect()
-			      },
-			      eventClick: function(arg) {
-			    	console.log(arg);
+			       endDate.setDate(endDate.getDate()-1);
+			       console.log(endDate);				       
+			       function getFormatDate(endDate){
+			    	    var year = endDate.getFullYear();              //yyyy
+			    	    var month = (1 + endDate.getMonth());          //M
+			    	    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+			    	    var day = endDate.getDate();                   //d
+			    	    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+			    	    return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+			       }			       
+			       endDate = getFormatDate(endDate);			       
+			       $('#end_date_fake').val(endDate);		//선택한 종료일 출력
+			       
+			       var endReal = arg.end;				    
+				    endReal.setDate(endReal.getDate()+1);	//종료일 포맷 변경
+			    	function getFormatDate(endReal){
+				    	var year = endReal.getFullYear();              //yyyy
+				    	var month = (1 + endReal.getMonth());          //M
+				    	month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+				    	var day = endReal.getDate();                   //d
+				    	day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+				    	return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+				    }			       
+				    endReal = getFormatDate(endReal);
+				    console.log(endReal);
+				    $('#end_date').val(endReal);
+				    
+				    
+				    $('#end_date_fake').change(function(event){		//날짜 변경 반영		    	
+				    	var selectDate = new Date($('#end_date_fake').val());	
+					    console.log(selectDate);					   
+					    selectDate.setDate(selectDate.getDate()+1);				   
+					    function getFormatDate(selectDate){
+					    	var year = selectDate.getFullYear();              //yyyy
+					    	var month = (1 + selectDate.getMonth());          //M
+					    	month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+					    	var day = selectDate.getDate();                   //d
+					    	day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+					    	return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+					    }	
+					    selectDate = getFormatDate(selectDate);
+					    console.log(selectDate);
+					    $('#end_date').val(selectDate);
+				    });
+				   
+			     },
+								
+			     eventClick: function(arg) {  
+			    	dno = arg.event.id;
+			    	var dname = arg.event.title;
+			    	var start = arg.event.start;
+			    	var end = arg.event.end;
+			    	
+			    	$('#dname').val(dname);
+			    	
+			    	start.setDate(start.getDate());	//시작일 포맷 변경
+			    	function getFormatDate(start) {
+				    	var year = start.getFullYear();              //yyyy
+				    	var month = (1 + start.getMonth());          //M
+				    	month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+				    	var day = start.getDate();                   //d
+				    	day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+				    	return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+				    }
+			    	start = getFormatDate(start);			       
+				    $('#start_date').val(start);
+			    	
+			    	end.setDate(end.getDate()-1);	//종료일 포맷 변경
+			    	function getFormatDate(end){
+				    	var year = end.getFullYear();              //yyyy
+				    	var month = (1 + end.getMonth());          //M
+				    	month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+				    	var day = end.getDate();                   //d
+				    	day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+				    	return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+				    }			       
+				    end = getFormatDate(end);			       
+				    $('#end_date_fake').val(end);
+			    	
+			    	console.log(dno);
+			    	console.log(dname);
+			    	console.log(start);
+			    	console.log(end);
 				    $('#scheduleModal').modal();
-			      },
-				
-				events : 
-					
+				    $('#dname').val(dname)
+				    $('#start_date').val(start);
+				    $('#end_date_fake').val(end);
+				    
+				    var endReal = arg.event.end;
+				    
+				    endReal.setDate(endReal.getDate());	//종료일 포맷 변경
+			    	function getFormatDate(endReal){
+				    	var year = endReal.getFullYear();              //yyyy
+				    	var month = (1 + endReal.getMonth());          //M
+				    	month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+				    	var day = endReal.getDate();                   //d
+				    	day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+				    	return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+				    }			       
+				    endReal = getFormatDate(endReal);
+				    console.log(endReal);
+				    $('#end_date').val(endReal);
+				    
+				    $('#end_date_fake').change(function(event){		//날짜 변경 시 반영		    	
+				    	var selectDate = new Date($('#end_date_fake').val());	
+					    console.log(selectDate);					   
+					    selectDate.setDate(selectDate.getDate()+1);				   
+					    function getFormatDate(selectDate){
+					    	var year = selectDate.getFullYear();              //yyyy
+					    	var month = (1 + selectDate.getMonth());          //M
+					    	month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+					    	var day = selectDate.getDate();                   //d
+					    	day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+					    	return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+					    }	
+					    selectDate = getFormatDate(selectDate);
+					    console.log(selectDate);
+					    $('#end_date').val(selectDate);
+				    });
+				    
+				    
+			     },
+			     
+			     eventDrop: function (arg) {	//이벤트 드래그드랍 시 호출될 함수
+			    	 
+			     },
+			     
+			     eventResize: function (arg) {	//이벤트 사이즈 변경 시(일정변경) 호출될 함수
+			    	 $('#scheduleModal').modal(arg);
+			     },
+			     				
+				 events : 					
 					[						
 					<c:forEach items="${schedule}" var="s">
 					{
+						id: '${s.dno}',
 						title: '${s.dname}',
 					    start: '${s.start_date}',
 					    end: '${s.end_date}'					 
 					},
 					</c:forEach>
 					]
-					
-			      <%--
-					function getAllDiary() {
-					$.getJSON('/ex02/diary/calendar/'+userid, function(respText){
-						$('#calendar').empty();
-						var list = '';
-						$(respText).each(function() {
-							list +=								
-							'{' 
-							+ 'title: ' + this.dname + ','
-							+ 'start: ' + this.start_date + ','
-							+ 'end: ' + this.end_date +					 
-							'}';
-							
-						});
-						$('#calendar').html(list);
-					});
-					
-				}
-				getAllDiary();
-				--%>
+				
 			});
 			calendar.render();
 		});		
 		
 		//모달초기화
-		  function initModal(modal, arg) {
-		    $("." + modal + " #title").val("");
-		    $("." + modal + " #start_date").val("");
-		    $("." + modal + " #end_date").val("");		   
+		function initModal(modal, arg) {
+		    $("#dname").val("");		   	   
 		    $("." + modal).modal("hide");
-		    g_arg = null;
-		  }
-		
-		
+		   
+		}
+		<%--모달 datepicker
+		$(function(){
+			$("#start", "#end").datepicker();
+			
+		}); --%>
+			
 		//Modal 버튼 클릭 함수
 		function insertEvent() {
 			var dname = $('#dname').val();
@@ -297,7 +337,8 @@
 				return;
 			}
 			
-			var start_date = $('#start_date').val();
+			var start_date = document.querySelector('#start_date').val;
+			console(start_date);
 			if (start_date == 0) {
 				alert('시작일을 선택해주세요');
 				return;
@@ -308,37 +349,50 @@
 				alert('종료일을 선택해주세요');
 				return;
 			}
-			
-			$.ajax({				
-				// 요청 주소
-				url: '/diary/calendar',
-				// 요청 타입
-				type: 'POST',
-				// 요청 HTTP 헤더
-				headers: {
-						'Content-Type': 'application/json',
-						'X-HTTP-Method-Override': 'POST'
-				},
-				//요청에 포함되는 데이터 (JSON 문자열)
-				data: JSON.stringify({
-					'dname': dname,
-					'start_date': start_date,
-					'end_date': end_date					
-				}),
-				// 성공 응답(200 response)이 왔을 때 브라우저가 실행할 콜백함수
-				success: function (resp){
-					console.log(resp);
-					//$('#rtext').val();
-					//getAllDiary();
-					calendar.rendar();// 댓글 목록 업데이트
-				}			
-				
-			});
-			
-			
 		}
-		
-		
+			
+			//$('#insertBtn').click(function(){				
+			//	$("#modalForm").attr("action", "")	
+			//});
+
+			
+			
+			
+			function deleteEvent(){
+				console.log("되냐");
+				$.ajax({
+					type: "GET",
+					url: "delete?dno=" + dno,
+					success:function(){
+						console.log("삭제됨");
+						alert("삭제되었");
+						location.href='http://localhost:8181/ex02/diary/calendar';
+					}										
+				});	
+			}
+			
+			function updateEvent(){
+				console.log("되냐");
+				var data = 
+				{
+					dno : dno,
+					dname : $('#dname').val(),
+					start_date : $('#start_date').val(),
+					end_date : $('#end_date').val()	
+				}	//컨트롤에 넘길 데이터이름 : 데이터(input에 들어간 값)
+				
+				$.ajax({
+					type: "POST",
+					url: "update",
+					data: data,		
+					success:function() {
+						console.log("수정");
+						alert("수정되었습니다");
+						location.href='http://localhost:8181/ex02/diary/calendar';
+					}										
+				});	
+			}
+			
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 		
