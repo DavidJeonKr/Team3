@@ -182,7 +182,8 @@
     		url:"./checkid",
     		data : data,
     		success : function(result){
-    			
+    		
+    		
     		if(result == 'empty'){
     			$('.email_input_re_1').css('display','none');
     			$('.email_input_re_2').css('display','none');
