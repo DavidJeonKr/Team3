@@ -32,19 +32,19 @@ public class UserController {
 	@Autowired private JavaMailSenderImpl mailSender;
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public void signin() {
+	public void signup() {
 		log.info("signin Test");
 	}
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signin(@DateTimeFormat(pattern="yyyy-MM-dd") Date birthday1, User user) {
+	public String signup(@DateTimeFormat(pattern="yyyy-MM-dd") Date birthday1, User user) {
 		user.setBirthday(birthday1);
 		log.info("signin{USER:{}} POST ", user);
 		
 		// 회원가입 정보 저장
 		userService.registerNewUser(user);
 		
-		return "redirect:/user/login";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/checkid", method = RequestMethod.POST)
@@ -167,8 +167,9 @@ public class UserController {
 	
 	@RequestMapping(value = "/profile_edit_main", method = RequestMethod.GET)
 	public void profileEdit(Model model, HttpSession session) {
-		String userid = (String) session.getAttribute("userid");
-		User userInfo = userService.userInfo(userid);
+		User userid = (User) session.getAttribute("userid");
+		userid.getBirthday().toString();
+		User userInfo = userService.userInfo(userid.getUserid());
 		model.addAttribute("userInfo", userInfo);
 		
 	}

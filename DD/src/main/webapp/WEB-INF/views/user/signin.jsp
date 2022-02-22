@@ -90,7 +90,7 @@
 
                 <div class="bottom_box">
                     <div>
-                        <span>계정이 있나요?</span><a href="../"> 로그인</a>
+                        <span>계정이 있나요?</span><a href="./login"> 로그인</a>
                     </div>
                 </div>
 
@@ -162,7 +162,7 @@
     	}
     	
     	if(emailCheck && pwckcorCheck && pwckcorCheck && mailnumCheck && nameCheck && nickCheck && birthCheck && phoneCheck){
-    		$("#signin_form").attr("action", "./signup");
+    		$("#signin_form").attr("action", "./signin");
 			$("#signin_form").submit();	
     	}
     	return false;
@@ -182,7 +182,8 @@
     		url:"./checkid",
     		data : data,
     		success : function(result){
-    			
+    		
+    		
     		if(result == 'empty'){
     			$('.email_input_re_1').css('display','none');
     			$('.email_input_re_2').css('display','none');
