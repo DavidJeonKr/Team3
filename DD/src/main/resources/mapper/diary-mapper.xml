@@ -20,9 +20,9 @@
 
 	<!-- 일정 번호로 검색 -->
 	<select id="selectByDno" resultType="Diary">
-	SELECT ${COL_DNO}, ${COL_USERID}, ${COL_DNAME}, TO_CHAR(${COL_START_DATE}, 'YYYY-MM-DD') AS ${COL_START_DATE}, TO_CHAR(${COL_END_DATE}, 'YYYY-MM-DD') AS ${COL_END_DATE} FROM ${TABLE_DIARY}
+	<!--   SELECT ${COL_DNO}, ${COL_USERID}, ${COL_DNAME}, TO_CHAR(${COL_START_DATE}, 'YYYY-MM-DD') AS ${COL_START_DATE}, TO_CHAR(${COL_END_DATE}, 'YYYY-MM-DD') AS ${COL_END_DATE} FROM ${TABLE_DIARY}
 	WHERE ${COL_DNO} = #{dno} and ${COL_USERID} = #{userid}
-	ORDER BY ${COL_DNO}
+	ORDER BY ${COL_DNO} -->
 	</select>
 	
 	<!-- 일정 시작일로 검색 

@@ -21,7 +21,7 @@ public class DiaryDaoImpl implements DiaryDao{
 	@Override
 	public List<Diary> read(String userid) {
 		log.info("diaryDaoImpl.read() 호출");
-		return sqlSession.selectList(DIARY_NAMESPACE + ".selectAll");
+		return sqlSession.selectList(DIARY_NAMESPACE + ".selectAll", userid);
 	}
 	
 //	@Override
