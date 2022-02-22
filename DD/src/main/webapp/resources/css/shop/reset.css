@@ -10,7 +10,9 @@ img { vertical-align: top; }
 .clear::after { content: ""; display: block; clear:both; }
 
 #wrap{
-    width: 1200px;
-    margin: 0 auto;
+    width: 1010px;
+    margin: auto;
+    position: relative;
     
 }
+

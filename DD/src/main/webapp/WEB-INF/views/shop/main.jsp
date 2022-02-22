@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
     <link rel="stylesheet" href="../resources/css/shop/reset.css">
     <link rel="stylesheet" href="../resources/css/shop/shop.css">
+    <link rel="stylesheet" href="../resources/css/shop/footer.css">
+    <link rel="stylesheet" href="../resources/css/shop/header.css">
+    
     <script src="../resources/js/shop/jquery.min.js"></script>
     <script src="../resources/js/shop/shop.js" defer></script>
 
@@ -17,13 +20,22 @@
 
     <div id="wrap">
 		<%@include file="../include/header.jsp" %>
-        <div id="slider">
-            <ul class="slide">
-                <li><img src="../resources/imgs/shop/slider1.jpg" alt=""></li>
-                <li><img src="../resources/imgs/shop/background2.jpg" alt=""></li>
-                <li><img src="../resources/imgs/shop/background3.jpg" alt=""></li>
-            </ul>
+		<div class="main_content">
+			<div class="left_img">
+				<a href=""><img class="main_img" src="../resources/imgs/shop/cover6.jpg"></a>
+				<a href=""><img class="main_img" src="../resources/imgs/shop/cover7.jpg"></a>
+				<a href=""><img class="main_img" src="../resources/imgs/shop/background8.jpg"></a>
+				<a href=""><img class="main_img" src="../resources/imgs/shop/background7.jpg"></a>
+			</div>
+	        <div id="slider">
+	            <ul class="slide">
+	                <li><img src="../resources/imgs/shop/slider1.jpg" alt=""></li>
+	                <li><img src="../resources/imgs/shop/background2.jpg" alt=""></li>
+	                <li><img src="../resources/imgs/shop/background3.jpg" alt=""></li>
+	            </ul>
+	        </div>
         </div>
+        <div id="line"></div>
         <div id="main">
             <div class="inner">
                 <section class="con1 clear">

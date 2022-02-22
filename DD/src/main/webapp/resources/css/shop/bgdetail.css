@@ -1,41 +1,35 @@
 @charset "utf-8";
 
 .content_list img {
+	width: 800px;
     margin: auto;
     display: block;
 }
 
-.bg_select p {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.bg_select select {
-    font-size: 20px;
-    padding: 8px 20px;
-}
-
-.bg_select input {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 5px;
-}
-
-.bg_select {
-    float: right;
-    line-height: 50px;
-    text-align: right;
-    margin: 20px 130px 20px 0;
-}
 
 .content_list span {
     line-height: 50px;
     margin-top: 20px;
-    margin-left: 130px;
+    margin-left: 105px;
     display: block;
     font-weight: bold;
     display: block;
-    font-size: 20px;
+    font-size: 19px;
+    margin-bottom: 0;
+}
+
+.bg_select {
+	text-align: right;
+	margin-right: 100px;
+}
+
+.bg_select button {
+	margin-top: 15px;
+	padding: 8px;
+	font-size: 20px;
+	border-radius: 10px;
+	background-color: #eee;
+	border: none;
 }
 
 

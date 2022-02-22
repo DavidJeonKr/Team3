@@ -11,4 +11,6 @@ public interface UserService {
 	boolean isValidEmail(String userid);
 	
 	int updatePass(String userid, String password);
+	
+	User userInfo(String userid);
 }

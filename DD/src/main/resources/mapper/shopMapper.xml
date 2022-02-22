@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.dd.mapper.ShopMapper">
+
+	<!-- 카트 담기 -->
+	<insert id="addCart">
+		insert into cart (userid, productid)
+		values (#{userId}, #{productId})
+	</insert>
+	
+	<!-- 카트 리스트 -->
+	<select id="cartList" resultType="com.itwill.dd.domain.CartListVO">
+	
+		select
+	    row_number() over(order by c.cartNum desc) as num,
+	    c.cartnum, c.userid, c.productid,
+	    p.productname, p.productprice, p.productthumbimg
+		from cart c
+	    inner join product p
+	        on c.productid = p.productid   
+	    where c.userid = #{userid}
+	</select>
+
+</mapper>

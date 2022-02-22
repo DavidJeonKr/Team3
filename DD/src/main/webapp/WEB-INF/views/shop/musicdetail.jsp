@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
     <link rel="stylesheet" href="../resources/css/shop/reset.css">
     <link rel="stylesheet" href="../resources/css/shop/musicdetail.css">
+    <link rel="stylesheet" href="../resources/css/shop/footer.css">
+    <link rel="stylesheet" href="../resources/css/shop/header.css">
     <script src="../resources/js/shop/jquery.min.js"></script>
     <script src="../resources/js/shop/shop.js" defer></script>
 
@@ -19,17 +21,13 @@
     
     <div id="wrap">
         <%@include file="../include/header.jsp" %>
+        <input type="hidden" name="n" value="${product.productId}">
         <div class="content">
             <div class="main_img">
-                <img src="../resources/imgs/shop/cover1.jpg" alt="">
+                <img src="${pageContext.request.contextPath}/${product.productImg}" alt="">
             </div>
             <div>
-                <h2>人生 x 僕 = / Jinsei Kakete Bokuwa (인생 곱하기 나는)</h2>
-                <h4>ONE OK ROCK</h4><br>
-                <span>발매일 2013.03.06</span><br>
-                <span>장르 J-POP</span><br>
-                <span>발매사 A-Sketch</span><br>
-                <span>기획사 AMUSE Inc.</span><br>
+				${product.productDesc}
             </div>
         </div>
         <div class="list">
@@ -43,30 +41,22 @@
                </thead>
                <tbody>
                    <tr>
-                       <td>The Beginning</td>
-                       <td><a href="">+</a></td>
-                   </tr>
-                   <tr>
-                    <td><span class="song_title">TITLE</span> Clock Strikes</td>
-                    <td><a href="">+</a></td>
-                </tr>
-                <tr>
-                    <td>Smiling Down</td>
-                    <td><a href="">+</a></td>
-                </tr>
-                <tr>
-                    <td>Deeper Deeper</td>
-                    <td><a href="">+</a></td>
-                </tr>
-                <tr>
-                    <td>Be The Light</td>
-                    <td><a href="">+</a></td>
-                </tr>
+	                   <td><span class="song_title">TITLE</span>${product.productSong}</td>
+	                   <td><a href="">+</a></td>
+               	   </tr>
                </tbody>
            </table>
         </div>
        	<%@include file="../include/footer.jsp" %>
-
     </div>
+    
+    <script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+	
+	
+	</script>
 </body>
 </html>

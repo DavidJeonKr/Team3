@@ -11,7 +11,6 @@
 	<ul>
 		<li><a href="./register">상품 등록</a></li>
 		<li><a href="./list">상품 목록</a></li>
-		<li><a href="/admin/shop/orderList">주문 목록</a></li>
 	</ul>
 
 </body>

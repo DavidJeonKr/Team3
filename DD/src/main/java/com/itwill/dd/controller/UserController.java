@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +31,12 @@ public class UserController {
 	@Autowired private UserService userService;
 	@Autowired private JavaMailSenderImpl mailSender;
 	
-	@RequestMapping(value = "/signin", method = RequestMethod.GET)
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public void signin() {
 		log.info("signin Test");
 	}
 	
-	@RequestMapping(value = "/signin", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signin(@DateTimeFormat(pattern="yyyy-MM-dd") Date birthday1, User user) {
 		user.setBirthday(birthday1);
 		log.info("signin{USER:{}} POST ", user);
@@ -103,34 +105,21 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public void login() {
-		log.info("login Test");
-	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(User user, Model model) {
-		log.info("{}",user);
-		User signInUser = userService.checkSignIn(user);
-		if(signInUser == null) {
-			return "redirect:/user/login";
-		}else {
-			log.info("{}", signInUser);
-
-			// TODO: 로그인 유저 정보 넘기기
-
-			return "redirect:/";
-		}
-			
 		
-		
-	}
-	
 	
 	@RequestMapping(value = "/reset", method = RequestMethod.GET)
 	public void reset() {
 		log.info("reset Test");
 	}
+	
+	@RequestMapping(value = "/reset", method = RequestMethod.POST)
+	public String reset2() {
+		log.info("reset Test");
+		return "redirect:/";
+	}
+	
+	
 	/* 비밀번호 보내기 */
 	@RequestMapping(value="/passReset", method=RequestMethod.GET)
 	@ResponseBody
@@ -177,8 +166,20 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/profile_edit_main", method = RequestMethod.GET)
-	public void profileEdit() {
+	public void profileEdit(Model model, HttpSession session) {
+		String userid = (String) session.getAttribute("userid");
+		User userInfo = userService.userInfo(userid);
+		model.addAttribute("userInfo", userInfo);
 		
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logOut(HttpSession session) {
+		
+		session.removeAttribute("userid");
+		session.invalidate();
+		
+		return "redirect:/";
 	}
 	
 }

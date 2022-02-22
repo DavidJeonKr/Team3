@@ -23,7 +23,7 @@
                     </div>    
 
                     <!-- details input-->
-                    <form action="#" method="post">
+                    <form action="reset" method="post">
                         <h4 class="ask_reset">로그인에 문제가 있나요?</h4>
                         <div class="inform_reset">이메일 주소를 입력하시면 새로운<br> 비밀번호를 보내드립니다.</div>
                         <div>
@@ -50,7 +50,7 @@
                     
                 </div>
                 <div class="form_bottom">
-                    <a href="./login"> 
+                    <a href="../"> 
                         <div class="click_login">
                             로그인으로 돌아가기
                         </div>

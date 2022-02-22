@@ -1,10 +1,63 @@
 .content_main_edit{
 	background: white;
 	border:1px solid rgba(0,0,0,0.1);
+	display : flex;
 	flex-direction: row;
-	flex-grow: 1;
+	width:100%;
+	height: 600px;
+	
 }
 
 .edit_menu{
 	flex-basis: 236px;
+	list-style:none;
+	display :flex;
+	flex-direction:column;
+	border-right:1px solid rgba(0,0,0,0.1);
+	margin:0;
+	padding: 0;
+	
+	
+}
+
+
+.edit_menu div{
+	padding: 16px 16px 16px 30px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.edit_menu div:hover{
+	background: silver;
+}
+.edit_main{
+	
+}
+
+.edit_main .edit_userid{
+	margin:32px 0 0;
+}
+
+.usericon{
+	margin:2px 32px 0 124px;
+}
+
+.edit_main form{
+	margin-top:16px;
+}
+
+.edit_main div{
+	display: flex;
+	margin-bottom: 16px;
+}
+
+.edit_main aside{
+	padding-right: 32px;
+	padding-left: 32px;
+	text-align:right;
+	flex:0 0 194px;
+	font-size: 16px;
+	font-weight: 600;
+	margin-top: 6px;
+	line-height: 18px
 }

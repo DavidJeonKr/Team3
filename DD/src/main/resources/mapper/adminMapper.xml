@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.dd.mapper.AdminMapper">
-	<insert id="register">
-	insert into product (productname, productprice, productdesc)
-	values (#{productName}, #{productPrice}, #{productDesc})
-	</insert>
-	
-	<select id="goodsList" resultType="com.itwill.dd.domain.ProductVO">
-	select * from product order by productId desc
+
+	<!-- 카테고리 호출 -->
+	<select id="category" resultType="com.itwill.dd.domain.CategoryVO">
+	select * from product_category
+	start with cateCodeRef is null connect by prior cateCode = cateCodeRef 
 	
 	</select>
 
+
+	<!-- 상품 등록 -->
+	<insert id="register">
+	insert into product (productname, productprice, productdesc, productImg, productThumbImg, catecode, productsong)
+	values (#{productName}, #{productPrice}, #{productDesc}, #{productImg}, #{productThumbImg}, #{cateCode}, #{productSong})
+	</insert>
+	
+	
+	<!-- 상품 목록 -->
+	<!-- 
+	<select id="goodsList" resultType="com.itwill.dd.domain.ProductVO">
+	select * from product order by productId desc
+	</select>
+	 -->
+	
+	<!-- 상품 목록 -->
+	<select id="goodsList" resultType="com.itwill.dd.domain.ProductViewVO">
+	select
+	    p.productid, p.productname, p.catecode, c.catecoderef, c.catename, productPrice, productdesc, productimg,
+	    p.productimg, p.productthumbimg
+	    from product p
+	    inner join product_category c
+	           on p.catecode = c.catecode
+	 	order by productid desc
+	</select>
+	
+	
+	<!-- 상품 조회 -->
+	<!--   
+	<select id="goodsDetail" resultType="com.itwill.dd.domain.ProductVO">
+	select * from product where productid = #{productId}
+	</select>
+	 -->
+	
+	
+	<!-- 상품 조회 -->
+	<select id="goodsDetail" resultType="com.itwill.dd.domain.ProductViewVO">
+	select
+	     p.productid, p.productname, p.cateCode, c.catecoderef, c.catename, productprice, productdesc, productimg, productthumbimg, productsong 
+         from product p
+         inner join product_category c
+                 on p.catecode = c.catecode          
+         where p.productid = #{productId}
+	</select>
+
+	<!-- 상품 수정 -->
+	<update id="goodsUpdate">
+	update product
+	set productname = #{productName},
+		productprice = #{productPrice},
+		productdesc = #{productDesc},
+		productImg = #{productImg},
+		productThumbImg = #{productThumbImg},
+		productsong = #{productSong}
+	where productid = #{productId} 
+	</update>
+
+	<!-- 상품 삭제 -->
+	<delete id="goodsDelete">
+	delete product 
+	where productid = #{productId}
+	</delete>
 </mapper>
