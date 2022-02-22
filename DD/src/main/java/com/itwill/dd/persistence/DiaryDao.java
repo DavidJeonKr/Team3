@@ -7,7 +7,7 @@ import com.itwill.dd.domain.Diary;
 // CRUD 기능
 public interface DiaryDao {
 	
-	List<Diary> read();
+	List<Diary> read(String userid);
 	
 	//	List<Diary> read(String userid);
 	

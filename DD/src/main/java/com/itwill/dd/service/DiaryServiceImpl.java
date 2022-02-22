@@ -19,9 +19,9 @@ public class DiaryServiceImpl implements DiaryService {
 	private DiaryDao diaryDao;
 
 	@Override
-	public List<Diary> select() {
+	public List<Diary> select(String userid) {
 		log.info("DiaryService select() 호출");
-		return diaryDao.read();
+		return diaryDao.read(userid);
 	}
 	
 //	@Override

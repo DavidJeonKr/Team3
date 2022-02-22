@@ -6,7 +6,7 @@ import com.itwill.dd.domain.Diary;
 
 
 public interface DiaryService {
-	List<Diary> select();
+	List<Diary> select(String userid);
 	
 //	List<Diary> select(String userid);
 	
