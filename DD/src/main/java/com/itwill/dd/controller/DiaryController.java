@@ -2,6 +2,8 @@ package com.itwill.dd.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwill.dd.domain.Diary;
+import com.itwill.dd.domain.User;
 import com.itwill.dd.service.DiaryService;
 
 
@@ -34,10 +37,11 @@ public class DiaryController {
 //	}	
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-	public void main(Model model) {
+	public void main(HttpSession session, Model model) {
 		log.info("Diary main() 호출");		
-		
-		List<Diary> schedule = diaryService.select();
+		User user = (User)session.getAttribute("userid");
+		String userid = user.getUserid();
+		List<Diary> schedule = diaryService.select(userid);
 		model.addAttribute("schedule", schedule);
 		
 		for (Diary d:schedule) {

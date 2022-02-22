@@ -54,6 +54,11 @@
 						<label for="productPrice">상품가격</label>
 						<span>${product.productPrice}</span>
 					</div>
+					
+					<div class="inputArea">
+						<label for="productSong">노래제목</label>
+						<span>${product.productSong}</span>
+					</div>
 				
 					<div class="inputArea">
 						<label for="productDesc">상품소개</label>

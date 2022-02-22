@@ -19,7 +19,7 @@ public class DiaryDaoImpl implements DiaryDao{
 	private SqlSession sqlSession;	
 	
 	@Override
-	public List<Diary> read() {
+	public List<Diary> read(String userid) {
 		log.info("diaryDaoImpl.read() 호출");
 		return sqlSession.selectList(DIARY_NAMESPACE + ".selectAll");
 	}
