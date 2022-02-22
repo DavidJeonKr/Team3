@@ -162,7 +162,7 @@
     	}
     	
     	if(emailCheck && pwckcorCheck && pwckcorCheck && mailnumCheck && nameCheck && nickCheck && birthCheck && phoneCheck){
-    		$("#signin_form").attr("action", "./signin");
+    		$("#signin_form").attr("action", "./signup");
 			$("#signin_form").submit();	
     	}
     	return false;
