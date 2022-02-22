@@ -26,5 +26,17 @@
 	SET ${COL_PWD} = #{password} 
 	WHERE ${COL_USERID} = #{userid}
 	</update>
+	
+	<!-- 유저 정보 업데이트 -->
+	<update id="updateUser">
+	UPDATE ${TABLE_USERS} 
+	SET ${COL_REAL_NAME} = #{realname}, ${COL_NICKNAME} = #{nickname}, ${COL_BIRTHDAY} = #{birthday}, ${COL_PHONE} = #{phone}   
+	WHERE ${COL_USERID} = #{userid}
+	</update>
+	
+	<!-- 유저 정보 삭제 -->
+	<delete id="deleteUser">
+	DELETE FROM ${TABLE_USERS} WHERE ${COL_USERID} = #{userid}
+	</delete>
 
 </mapper>

@@ -1,12 +1,15 @@
 package com.itwill.dd.controller;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -168,10 +171,28 @@ public class UserController {
 	@RequestMapping(value = "/profile_edit_main", method = RequestMethod.GET)
 	public void profileEdit(Model model, HttpSession session) {
 		User userid = (User) session.getAttribute("userid");
+
 		userid.getBirthday().toString();
+
+
 		User userInfo = userService.userInfo(userid.getUserid());
 		model.addAttribute("userInfo", userInfo);
 		
+	}
+	
+	@RequestMapping(value = "/profile_edit_main", method = RequestMethod.POST)
+	public String porfileEdit(@DateTimeFormat(pattern="yyyy-MM-dd") Date birthday1, User user) {
+		user.setBirthday(birthday1);
+		userService.updateUserInfo(user);
+		return "redirect:/user/profile_edit_main";
+	}
+	
+	@RequestMapping(value="/deleteUserInfo", method = RequestMethod.GET)
+	@ResponseBody
+	public String deleteUser(String userid) {
+		log.info("{}",userid);
+		userService.deleteUserInf(userid);
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

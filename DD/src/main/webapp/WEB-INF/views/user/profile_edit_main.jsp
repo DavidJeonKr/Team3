@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +35,18 @@
     		 	
     		 		<article class="edit_main">
     		 			<div class="edit_userid">
-    		 				<div class="usericon"></div>
-    		 			${userInfo.userid}
+    		 				<div>
+    		 					<aside>
+    		 						<label for="userid">이메일</label>
+    		 					</aside>
+    		 					<div>
+    		 						<input type="text" name="userid" value="${userInfo.userid}" id="userid" disabled/>
+    		 					</div>
+    		 				</div>
+    		 			
     		 			</div>
     		 			<form action="./profile_edit_main" method="post">
+    		 			<input type="hidden" name="userid" value="${userInfo.userid}"/>
     		 				<div>
     		 					<aside>
     		 						<label for="realname">이름</label>
@@ -59,7 +68,9 @@
     		 						<label for="birthday">생일</label>
     		 					</aside>
     		 					<div>
-    		 						<input type="date" name="birthday1" value="${userInfo.birthday}" required/>
+    		 						<fmt:formatDate value="${userInfo.birthday}" pattern="yyyy-MM-dd" var="birthday"/>
+    		 						<input type="date" name="birthday1" value="${birthday}" required/>
+    		 						
     		 					</div>
     		 				</div>
     		 				<div>
@@ -75,7 +86,7 @@
     		 						
     		 					</aside>
     		 					<div>
-    		 						<input type="submit" value="수정">
+    		 						<input type="submit" value="수정"> <input type="button" id="delete" value="탈퇴하기">
     		 					</div>
     		 				</div>
     		 				
@@ -94,6 +105,26 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        $('#delete').click(function(){
+        	var userid = $('#userid').val();
+        	console.log(userid);
+        	if(confirm("정말로 탈퇴?")){
+        		$.ajax({
+            		type:"GET",
+            		url:"deleteUserInfo?userid=" + userid,
+            		success:function(){
+            			alert("삭제완료");
+            			location.href="http://localhost:8181/dd/";
+            		}
+            	});
+        	}else{
+        		return;
+        	}
+        	
+        	
+        });
+        	
+        
         
     </script>
 </body>

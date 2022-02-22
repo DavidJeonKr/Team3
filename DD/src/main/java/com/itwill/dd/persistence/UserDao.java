@@ -7,4 +7,6 @@ public interface UserDao {
 	User read(User user);
 	User checkUserEmail(String userid);
 	int updatePass(String userid, String password);
+	int updateUserInfo(User user);
+	int deleteUser(String userid);
 }

@@ -62,4 +62,15 @@ public class UserServiceImpl implements UserService{
 		return userDao.checkUserEmail(userid);
 	}
 
+	@Override
+	public int updateUserInfo(User user) {
+		
+		return userDao.updateUserInfo(user);
+	}
+
+	@Override
+	public int deleteUserInf(String userid) {
+		return userDao.deleteUser(userid);
+	}
+
 }

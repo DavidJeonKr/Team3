@@ -13,4 +13,8 @@ public interface UserService {
 	int updatePass(String userid, String password);
 	
 	User userInfo(String userid);
+	
+	int updateUserInfo(User user);
+	
+	int deleteUserInf(String userid);
 }

@@ -46,4 +46,15 @@ public class UserDaoImpl implements UserDao {
 		return sqlSession.update(USER_NAMESPACE + ".updatePass", params);
 	}
 
+	@Override
+	public int updateUserInfo(User user) {
+		log.info("{}",user);
+		return sqlSession.update(USER_NAMESPACE + ".updateUser", user);
+	}
+
+	@Override
+	public int deleteUser(String userid) {
+		return sqlSession.delete(USER_NAMESPACE + ".deleteUser", userid);
+	}
+
 }
