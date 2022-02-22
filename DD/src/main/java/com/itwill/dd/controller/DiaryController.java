@@ -39,8 +39,10 @@ public class DiaryController {
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public void main(HttpSession session, Model model) {
 		log.info("Diary main() 호출");		
+		
 		User user = (User)session.getAttribute("userid");
 		String userid = user.getUserid();
+		
 		List<Diary> schedule = diaryService.select(userid);
 		model.addAttribute("schedule", schedule);
 		
@@ -48,5 +50,33 @@ public class DiaryController {
 			log.info(d.toString());
 		}
 	}
+	
+	@RequestMapping(value = "/calendar", method = RequestMethod.POST)
+	public String insert(HttpSession session, Diary diary) {
+		log.info("Diary insert() 호출", diary);
+		
+		User user = (User)session.getAttribute("userid");
+		String userid = user.getUserid();
+		diary.setUserid(userid);
+		
+		diaryService.insert(diary);
+		return "redirect:/diary/calendar";
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(int dno) {
+		log.info("Diary delete(dno = {})", dno);
+		diaryService.delete(dno);
+		return "redirect:/diary/calendar";
+		
+	}	
+	
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(Diary diary) {
+		log.info("Diary update({})호출" , diary);
+		diaryService.update(diary);
+		return "redirect:/diary/calendar";
+	}
+	
 	
 }
