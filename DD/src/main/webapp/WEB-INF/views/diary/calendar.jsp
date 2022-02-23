@@ -138,6 +138,8 @@
 		$(document).ready(function() {	
 		//document.addEventListener('DOMContentLoaded', function() {
 			//var userid = $('#userid').val();
+			
+			
 			var calendarEl = document.getElementById('calendar');
 			calendar = new FullCalendar.Calendar(calendarEl, {
 				initialView : 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
@@ -162,8 +164,15 @@
 				weekNumbers: true,	// 몇 번째 주인지 표시			    
 				
 				select: function(arg) {
-			       console.log(arg);
+			       var sessionid = '${userid.userid}';
+			       var userinfoid = '${userInfo.userid}';
+			       console.log(sessionid);
+			       console.log(userinfoid);
+					if(sessionid == userinfoid){
+				   console.log(arg);
+				  
 			       $('#scheduleModal').modal({backdrop: "static"});   //id가 "insertModal"인 모달창을 열어준다.
+			       }
 			       $('#updateBtn', '#deleteBtn').css('display', 'none');
 			       startDate = arg.startStr;		
 			       $('#start_date').val(startDate);
@@ -294,14 +303,15 @@
 				    
 			     },
 			     
-			     eventDrop: function (arg) {	//이벤트 드래그드랍 시 호출될 함수
+			     eventDrop: function (arg) {	//이벤트 드래그드랍 시 호출될 함수			    	 
 			    	 $('#scheduleModal').modal(arg);
+			    	 
 			     },
 			     
 			     eventResize: function (arg) {	//이벤트 사이즈 변경 시(일정변경) 호출될 함수
 			    	 $('#scheduleModal').modal(arg);
 			     },
-			     				
+			     			
 				 events : 					
 					[						
 					<c:forEach items="${schedule}" var="s">

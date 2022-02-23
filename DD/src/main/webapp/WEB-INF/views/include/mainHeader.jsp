@@ -88,9 +88,9 @@
                         </div>
                     </div>
 
-                    <div clas="main_right">
+                    <div class="main_right">
                         <div class="music_player">
-                         	   음악 플레이어
+                        	
                         </div>
                     </div>
                 </div>
@@ -136,6 +136,9 @@ window.onclick = function(event) {
     }
   }
 }
+
+
+
 
 $('#search').on("change keyup paste", function(){
 	var search = $('#search').val();
