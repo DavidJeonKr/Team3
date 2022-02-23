@@ -1,5 +1,7 @@
 package com.itwill.dd.service;
 
+import java.util.List;
+
 import com.itwill.dd.domain.User;
 
 public interface UserService {
@@ -17,4 +19,8 @@ public interface UserService {
 	int updateUserInfo(User user);
 	
 	int deleteUserInf(String userid);
+
+	List<User> getSearchVal(String search);
+
+	
 }

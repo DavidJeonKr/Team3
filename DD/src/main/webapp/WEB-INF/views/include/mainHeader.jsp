@@ -22,7 +22,7 @@
         <header id="header">
             <section class="h_inner">
                 <h1 class="logo">
-                    <a href="../">
+                    <a href="../diary/calendar">
                         <div class="logo_location">
                             <img src="../resources/imgs/main/DD.png" alt="DD" class="DDlogo">
                         </div>
@@ -31,12 +31,13 @@
                 
                 <!-- 검색 창-->
                 <div class="search_field">
-                    <input type="text" placeholder="검색" tabindex="0">
+                    <input type="text" placeholder="검색" tabindex="0" id="search">
                     <div class="fake_field">
                         <span class=sprite_small_search_icon></span>
                         <span>검색</span>
                     </div>
                 </div>
+                <div id="searchVal"></div>
 
                 <div class="right_icons">
                     <a href="../diary/calendar"><div class="sprite_home_icon"></div></a>
@@ -64,7 +65,7 @@
 
                     <div class="detail">
                         <div class="top">
-                            <div class="nickname">닉네임</div>
+                            <div class="nickname">${userInfo.nickname}</div>
                             <a href="../user/profile_edit_main" class="profile_edit">프로필 편집</a>
                         </div>
 
@@ -135,6 +136,28 @@ window.onclick = function(event) {
     }
   }
 }
+
+$('#search').on("change keyup paste", function(){
+	var search = $('#search').val();
+	$.getJSON('/dd/diary/search/' + search, function(respText){
+		var list= '';
+		$(respText).each(function(){
+			list += '<div class="search_item">'
+				+'<a href="/dd/diary/calendar?userid='
+				+ this.userid
+				+'">'
+				+ this.realname
+				+ '</a>'
+				+ '</div>';
+				
+		});
+		console.log(list);
+		$('#searchVal').html(list);
+	});
+	
+});
+
+	
     </script>
 </body>
 </html>

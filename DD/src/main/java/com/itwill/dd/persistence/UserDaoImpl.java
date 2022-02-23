@@ -1,6 +1,7 @@
 package com.itwill.dd.persistence;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -56,5 +57,14 @@ public class UserDaoImpl implements UserDao {
 	public int deleteUser(String userid) {
 		return sqlSession.delete(USER_NAMESPACE + ".deleteUser", userid);
 	}
+
+	@Override
+	public List<User> getSearch(String search) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("keyword", "%" + search.toLowerCase() + "%");
+		return sqlSession.selectList(USER_NAMESPACE + ".search", params);
+	}
+
+	
 
 }
