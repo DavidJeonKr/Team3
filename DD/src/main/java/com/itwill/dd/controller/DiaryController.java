@@ -46,6 +46,7 @@ public class DiaryController {
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public void main(HttpSession session, Model model, String userid) {
 		log.info("Diary main() 호출");		
+
 		
 		User user = (User)session.getAttribute("userid");
 		String userid1 = user.getUserid();
@@ -107,6 +108,7 @@ public class DiaryController {
 		return "redirect:/diary/calendar";
 	}
 	
+
 	@RequestMapping(value = "/search/{search}", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> search(@PathVariable(name="search") String search) {
 		log.info("search:{}", search);
@@ -116,3 +118,7 @@ public class DiaryController {
 		return entity;
 	}
 }
+
+	
+
+

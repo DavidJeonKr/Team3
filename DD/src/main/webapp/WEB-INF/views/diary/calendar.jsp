@@ -29,7 +29,7 @@
 	</head>
 	<body>		
 		<%@ include file = "../include/mainHeader.jsp" %>
-    
+    	<br/>
    		<section id="container">
     		<div id="main_container_2">
     		 <section class="b_inner">
@@ -75,17 +75,19 @@
               placeholder="종료일은 언제인가요?" required /> 
               <input style="display:none" type="date" class="form-control" name="end_date" id="end_date"
               required /> 
-              <input type="hidden" name="userid" value="admin" />
+              <!--  <input type="hidden" name="userid" value="${signInUserId}" />-->
             </div>           
           </div>
           <!-- Modal footer -->
-          <div class="modal-footer">            
+          <div class="modal-footer">  
+          	  
             <button type="button" class="btn btn-danger updateBtn" id="updateBtn"
-              onclick="updateEvent()">수정</button>
-            <button type="button" class="btn btn-dark float-right deleteBtn" id="deleteBtn"
-              onclick="deleteEvent()">삭제</button>
+              	onclick="updateEvent()">수정</button>
+           	<button type="button" class="btn btn-dark float-right deleteBtn" id="deleteBtn"
+              	onclick="deleteEvent()">삭제</button>
             <button type="submit" class="btn btn-warning float-right insertBtn" id="insertBtn"
-              onclick="insertEvent()">등록</button>
+              	onclick="insertEvent()">등록</button>
+            
           </div>
           </form>
         </div>
@@ -293,7 +295,7 @@
 			     },
 			     
 			     eventDrop: function (arg) {	//이벤트 드래그드랍 시 호출될 함수
-			    	 
+			    	 $('#scheduleModal').modal(arg);
 			     },
 			     
 			     eventResize: function (arg) {	//이벤트 사이즈 변경 시(일정변경) 호출될 함수
@@ -359,20 +361,20 @@
 			
 			
 			function deleteEvent(){
-				console.log("되냐");
+				console.log("일정 삭제 중");
 				$.ajax({
 					type: "GET",
 					url: "delete?dno=" + dno,
 					success:function(){
-						console.log("삭제됨");
-						alert("삭제되었");
-						location.href='http://localhost:8181/ex02/diary/calendar';
+						console.log("삭제완료");
+						alert("선택하신 일정이 삭제되었습니다.");
+						location.href='http://localhost:8181/dd/diary/calendar';
 					}										
 				});	
 			}
 			
 			function updateEvent(){
-				console.log("되냐");
+				console.log("일정 수정 중");
 				var data = 
 				{
 					dno : dno,
@@ -386,9 +388,9 @@
 					url: "update",
 					data: data,		
 					success:function() {
-						console.log("수정");
-						alert("수정되었습니다");
-						location.href='http://localhost:8181/ex02/diary/calendar';
+						console.log("수정 완료");
+						alert("선택하신 일정이 수정되었습니다.");
+						location.href='http://localhost:8181/dd/diary/calendar';
 					}										
 				});	
 			}
