@@ -51,6 +51,18 @@
 	margin-bottom: 16px;
 }
 
+.edit_main input{
+	width: 300px;
+}
+
+#update{
+	width: 130px;
+	margin-right: 40px;
+}
+#delete{
+	width: 130px;
+}
+
 .edit_main aside{
 	padding-right: 32px;
 	padding-left: 32px;

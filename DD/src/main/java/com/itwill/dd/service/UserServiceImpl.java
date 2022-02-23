@@ -81,6 +81,12 @@ public class UserServiceImpl implements UserService{
 		return userDao.getSearch(search);
 	}
 
+	@Override
+	public boolean passCheck(String userid, String pass) {
+		
+		return passEncoder.matches(pass, userDao.checkUserEmail(userid).getPassword());
+	}
+
 	
 
 }

@@ -45,40 +45,31 @@
     		 				</div>
     		 			
     		 			</div>
-    		 			<form action="./profile_edit_main" method="post">
+    		 			<form id="pass_change_form" method="post">
     		 			<input type="hidden" name="userid" value="${userInfo.userid}"/>
     		 				<div>
     		 					<aside>
-    		 						<label for="realname">이름</label>
+    		 						<label for="pass">현재 비밀번호</label>
     		 					</aside>
     		 					<div>
-    		 						<input type="text" name="realname" value="${userInfo.realname}" required/>
+    		 						<input type="password" name="pass" id="pass" required/>
     		 					</div>
     		 				</div>
     		 				<div>
     		 					<aside>
-    		 						<label for="nickname">닉네임</label>
+    		 						<label for="newPass">새 비밀번호</label>
     		 					</aside>
     		 					<div>
-    		 						<input type="text" name="nickname" value="${userInfo.nickname}" required/>
+    		 						<input type="password" name="newPass" id="newPass" required/>
     		 					</div>
     		 				</div>
     		 				<div>
     		 					<aside>
-    		 						<label for="birthday">생일</label>
+    		 						<label for="newPassCk">새 비밀번호 확인</label>
     		 					</aside>
     		 					<div>
-    		 						<fmt:formatDate value="${userInfo.birthday}" pattern="yyyy-MM-dd" var="birthday"/>
-    		 						<input type="date" name="birthday1" value="${birthday}" required/>
+    		 						<input type="password" name="password" id="newPassCk" required/>
     		 						
-    		 					</div>
-    		 				</div>
-    		 				<div>
-    		 					<aside>
-    		 						<label for="phone">전화번호</label>
-    		 					</aside>
-    		 					<div>
-    		 						<input type="text" name="phone" value="${userInfo.phone}" required/>
     		 					</div>
     		 				</div>
     		 				<div>
@@ -86,8 +77,7 @@
     		 						
     		 					</aside>
     		 					<div>
-    		 						<input type="submit" value="수정" id="update"> 
-    		 						<input type="button" id="delete" value="탈퇴하기">
+    		 						<input type="button" value="비밀번호 변경" id="passEditBtn" > 
     		 					</div>
     		 				</div>
     		 				
@@ -106,25 +96,72 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        $('#delete').click(function(){
-        	var userid = $('#userid').val();
-        	console.log(userid);
-        	if(confirm("정말로 탈퇴하시겠습니까?")){
-        		$.ajax({
-            		type:"GET",
-            		url:"deleteUserInfo?userid=" + userid,
-            		success:function(){
-            			alert("삭제완료");
-            			location.href="http://localhost:8181/dd/";
-            		}
-            	});
-        	}else{
-        		return;
-        	}
-        	
-        	
-        });
-        	
+    // 유효성 검사 변수들
+    var passCheck = false;
+    var newPassCheck = false;
+    var newPassCkCheck = false;
+    
+    // 유효성 검사 함수
+    
+    
+    // 비밀번호 변경 버튼 클릭시
+    $('#passEditBtn').click(function(){
+    	var pass = $('#pass').val();
+    	var newPass = $('#newPass').val();
+    	var newPassCk = $('#newPassCk').val();
+    	
+    	if(pass==""){
+    		passCheck = false;
+    	}
+    	if(newPass==""|| newPass.length<8){
+    		newPassCheck = false;
+    	}else{
+    		newPassCheck = true;
+    	}
+    	if(newPassCk=="" || newPassCk!=newPass){
+    		newPassCkCheck=false;
+    	}else{
+    		newPassCkCheck=true;
+    	}
+    	
+    	if(!passCheck){
+    		alert('현재비밀번호를 확인해주세요')
+    	}else if(!newPassCheck){
+    		alert('8자리 이상의 비밀번호를 설정해주세요')
+    	}else if(!newPassCkCheck){
+    		alert('두 비밀번호가 일치하는지 확인해주세요')
+    	}else if(passCheck&&newPassCheck&&newPassCkCheck){
+    		$("#pass_change_form").attr("action", "./pass_change");
+			$("#pass_change_form").submit();
+			alert("비밀번호 변경완료.")
+    	}
+		return false;
+    	
+    });
+    
+    
+    $(document).ready(function () {
+	    $('#pass').change(function (event) {
+			
+			var data = { pass: $('#pass').val() };
+			
+			$.ajax({
+	    		type:"post",
+	    		url:"./checkpass",
+	    		data : data,
+	    		success : function(result){
+	    			if(result == 'success'){
+	    				passCheck = true;
+	    			}else{
+	    				passCheck=false;
+	    			}
+	    		}
+			});
+	    });
+    });
+	    
+    
+    
         $('#profile_edit').click(function(){
         	location.href="./profile_edit_main"
         });
