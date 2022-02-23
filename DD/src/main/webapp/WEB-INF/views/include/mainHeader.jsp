@@ -66,23 +66,33 @@
                     <div class="detail">
                         <div class="top">
                             <div class="nickname">${userInfo.nickname}</div>
-                            <a href="../user/profile_edit_main" class="profile_edit">프로필 편집</a>
+                            <c:if test="${userInfo.userid == userid.userid}">	
+                            	<a href="../user/profile_edit_main" class="profile_edit">프로필 편집</a>
+                            </c:if>
+                            
+                            <c:if test="${userInfo.userid != userid.userid}">
+                            	<form action="/dd/follow/add" method="">
+	                            	<input type="hidden" name= "followid" value="${userInfo.userid}"/>
+	                            	<input type="hidden" name= "followerid" value="${userid.userid}"/>
+	                            	<input type="submit" value="팔로우">
+                            	</form>
+                            </c:if>
                         </div>
 
                         <ul class="middle">
                             <li>
-                                <span>게시판</span> 3
+                                <span>팔로워</span>
                             </li>
                             <li>
-                                <a href="friend.html">일촌</a> 3
+                                <span>팔로우</span> 
                             </li>
                             <li>
-                               	 비스켓 3
+                               	 비스켓 ${userInfo.biscuit}
                             </li>
                         </ul>
                         <div class="bottom">
                             <div class="real_name">
-                                <span>realname</span>
+                                <span>${userInfo.realname}</span>
                             </div>
                            
                         </div>
@@ -142,7 +152,7 @@ window.onclick = function(event) {
 
 $('#search').on("change keyup paste", function(){
 	var search = $('#search').val();
-	$.getJSON('/dd/diary/search/' + search, function(respText){
+	$.getJSON('/dd/search/search/' + search, function(respText){
 		var list= '';
 		$(respText).each(function(){
 			list += '<div class="search_item">'

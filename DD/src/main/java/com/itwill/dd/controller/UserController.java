@@ -187,6 +187,35 @@ public class UserController {
 		return "redirect:/user/profile_edit_main";
 	}
 	
+	@RequestMapping(value = "/pass_change", method = RequestMethod.GET)
+	public void passEdit(Model model, HttpSession session) {
+		User userInfo = (User) session.getAttribute("userid");
+		model.addAttribute("userInfo", userInfo);
+	}
+	
+	@RequestMapping(value = "/pass_change", method = RequestMethod.POST)
+	public String passEdit(String userid, String password) {
+		
+		userService.updatePass(userid, password);
+		
+		return "redirect:/diary/calendar";
+	}
+	
+	@RequestMapping(value = "/checkpass", method=RequestMethod.POST)
+	@ResponseBody
+	public String passCheckToEdit(HttpSession session, String pass) {
+		User user = (User)session.getAttribute("userid");
+		log.info("{}",pass);
+		log.info("{}",userService.passCheck(user.getUserid(), pass));
+		if(userService.passCheck(user.getUserid(), pass)) {
+			return "success";
+		}else {
+			return "fail";
+		}
+		
+		
+	}
+	
 	@RequestMapping(value="/deleteUserInfo", method = RequestMethod.GET)
 	@ResponseBody
 	public String deleteUser(String userid) {

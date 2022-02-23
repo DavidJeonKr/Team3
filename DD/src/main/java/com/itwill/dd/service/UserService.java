@@ -22,5 +22,7 @@ public interface UserService {
 
 	List<User> getSearchVal(String search);
 
+	boolean passCheck(String userid, String pass);
+
 	
 }

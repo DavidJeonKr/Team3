@@ -108,15 +108,6 @@ public class DiaryController {
 		return "redirect:/diary/calendar";
 	}
 	
-
-	@RequestMapping(value = "/search/{search}", method = RequestMethod.GET)
-	public ResponseEntity<List<User>> search(@PathVariable(name="search") String search) {
-		log.info("search:{}", search);
-		List<User> result = userService.getSearchVal(search);
-		log.info("{}",result);
-		ResponseEntity<List<User>>entity = new ResponseEntity<>(result, HttpStatus.OK);
-		return entity;
-	}
 }
 
 	
