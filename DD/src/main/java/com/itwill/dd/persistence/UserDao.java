@@ -11,5 +11,6 @@ public interface UserDao {
 	int updatePass(String userid, String password);
 	int updateUserInfo(User user);
 	int deleteUser(String userid);
-	List<User> search();
+	List<User> getSearch(String search);
+	
 }

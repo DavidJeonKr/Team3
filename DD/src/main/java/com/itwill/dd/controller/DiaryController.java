@@ -1,5 +1,6 @@
 package com.itwill.dd.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -7,8 +8,11 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,27 +42,42 @@ public class DiaryController {
 //		
 //		return entity;	
 //	}	
-		
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-	public void main(HttpSession session, Model model) {
+	public void main(HttpSession session, Model model, String userid) {
 		log.info("Diary main() 호출");		
+
 		
-		User userinfo = (User)session.getAttribute("userid");
-		String userid = userinfo.getUserid();
+		User user = (User)session.getAttribute("userid");
+		String userid1 = user.getUserid();
 		
-		List<Diary> schedule = diaryService.select(userid);
-		model.addAttribute("schedule", schedule);
-		
-		for (Diary d:schedule) {
-			log.info(d.toString());
+		if(userid != null) {
+			if(userid.equals(userid1)) {
+				List<Diary> schedule = diaryService.select(userid1);
+				model.addAttribute("schedule", schedule);
+				model.addAttribute("userInfo", user);
+				
+				for (Diary d:schedule) {
+					log.info(d.toString());
+				}
+			}else {
+				List<Diary> schedule = diaryService.select(userid);
+				model.addAttribute("schedule", schedule);
+				User user2 = userService.userInfo(userid);
+				model.addAttribute("userInfo", user2);
+				for (Diary d:schedule) {
+					log.info(d.toString());
+				}
+			}
+		}else {
+			List<Diary> schedule = diaryService.select(userid1);
+			model.addAttribute("schedule", schedule);
+			model.addAttribute("userInfo", user);
+			
+			for (Diary d:schedule) {
+				log.info(d.toString());
+			}
 		}
-		
-		log.info("검색결과 호출");
-		
-		List<User> searchList = userService.search();
-		model.addAttribute("searchList", searchList);
-		
 		
 	}
 	
@@ -89,5 +108,17 @@ public class DiaryController {
 		return "redirect:/diary/calendar";
 	}
 	
-	
+
+	@RequestMapping(value = "/search/{search}", method = RequestMethod.GET)
+	public ResponseEntity<List<User>> search(@PathVariable(name="search") String search) {
+		log.info("search:{}", search);
+		List<User> result = userService.getSearchVal(search);
+		log.info("{}",result);
+		ResponseEntity<List<User>>entity = new ResponseEntity<>(result, HttpStatus.OK);
+		return entity;
+	}
 }
+
+	
+
+

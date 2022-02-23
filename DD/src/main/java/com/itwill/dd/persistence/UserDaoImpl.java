@@ -59,9 +59,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public List<User> search() {
-		log.info("UserDao Search ({}) 호출");
-		return sqlSession.selectList(USER_NAMESPACE + ".search");
+	public List<User> getSearch(String search) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("keyword", "%" + search.toLowerCase() + "%");
+		return sqlSession.selectList(USER_NAMESPACE + ".search", params);
 	}
+
+	
 
 }

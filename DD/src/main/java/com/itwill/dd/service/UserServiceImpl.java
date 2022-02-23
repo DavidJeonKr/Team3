@@ -76,9 +76,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> search() {
-		log.info("UserService search () 호출");
-		return userDao.search();
+	public List<User> getSearchVal(String search) {
+		
+		return userDao.getSearch(search);
 	}
+
+	
 
 }

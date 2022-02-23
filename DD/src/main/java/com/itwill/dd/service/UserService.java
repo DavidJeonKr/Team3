@@ -20,5 +20,7 @@ public interface UserService {
 	
 	int deleteUserInf(String userid);
 
-	List<User> search();
+	List<User> getSearchVal(String search);
+
+	
 }

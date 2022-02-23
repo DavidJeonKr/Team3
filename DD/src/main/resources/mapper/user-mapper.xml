@@ -39,9 +39,13 @@
 	DELETE FROM ${TABLE_USERS} WHERE ${COL_USERID} = #{userid}
 	</delete>
 	
-	<!-- 유저 전체 불러오기 -->
+	<!-- 유저 검색 -->
 	<select id="search" resultType="User">
-	SELECT * FROM ${TABLE_USERS}	
+	SELECT * FROM ${TABLE_USERS} WHERE ${COL_REAL_NAME} LIKE #{keyword} OR ${COL_NICKNAME} LIKE #{keyword}
 	</select>
-	
+
+        
+        
+       
+
 </mapper>
