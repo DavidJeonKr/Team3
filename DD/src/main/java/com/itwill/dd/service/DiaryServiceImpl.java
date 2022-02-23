@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.dd.domain.Diary;
+import com.itwill.dd.domain.User;
 import com.itwill.dd.persistence.DiaryDao;
 
 
@@ -56,5 +57,5 @@ public class DiaryServiceImpl implements DiaryService {
 		int result = diaryDao.delete(dno);
 		return result;
 	}
-	
+
 }

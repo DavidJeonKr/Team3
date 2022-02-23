@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.itwill.dd.domain.Diary;
 import com.itwill.dd.domain.User;
 import com.itwill.dd.service.DiaryService;
+import com.itwill.dd.service.UserService;
 
 
 @Controller
@@ -24,6 +25,8 @@ public class DiaryController {
 	
 	@Autowired
 	private DiaryService diaryService;
+	@Autowired
+	private UserService userService;
 	
 //	@RequestMapping(value = "/calendar/{userid}", method = RequestMethod.GET)
 //	public ResponseEntity<List<Diary>> readAllDiary(@PathVariable(name = "userid") String userid) {
@@ -35,13 +38,14 @@ public class DiaryController {
 //		
 //		return entity;	
 //	}	
+		
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public void main(HttpSession session, Model model) {
 		log.info("Diary main() 호출");		
 		
-		User user = (User)session.getAttribute("userid");
-		String userid = user.getUserid();
+		User userinfo = (User)session.getAttribute("userid");
+		String userid = userinfo.getUserid();
 		
 		List<Diary> schedule = diaryService.select(userid);
 		model.addAttribute("schedule", schedule);
@@ -49,6 +53,13 @@ public class DiaryController {
 		for (Diary d:schedule) {
 			log.info(d.toString());
 		}
+		
+		log.info("검색결과 호출");
+		
+		List<User> searchList = userService.search();
+		model.addAttribute("searchList", searchList);
+		
+		
 	}
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.POST)

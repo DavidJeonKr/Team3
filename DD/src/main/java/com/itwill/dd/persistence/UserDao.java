@@ -1,5 +1,7 @@
 package com.itwill.dd.persistence;
 
+import java.util.List;
+
 import com.itwill.dd.domain.User;
 
 public interface UserDao {
@@ -9,4 +11,5 @@ public interface UserDao {
 	int updatePass(String userid, String password);
 	int updateUserInfo(User user);
 	int deleteUser(String userid);
+	List<User> search();
 }

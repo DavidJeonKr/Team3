@@ -38,5 +38,10 @@
 	<delete id="deleteUser">
 	DELETE FROM ${TABLE_USERS} WHERE ${COL_USERID} = #{userid}
 	</delete>
-
+	
+	<!-- 유저 전체 불러오기 -->
+	<select id="search" resultType="User">
+	SELECT * FROM ${TABLE_USERS}	
+	</select>
+	
 </mapper>

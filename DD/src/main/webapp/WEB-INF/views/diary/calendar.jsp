@@ -362,6 +362,7 @@
 			
 			function deleteEvent(){
 				console.log("일정 삭제 중");
+				if(confirm("정말 삭제하시겠습니까?")) {
 				$.ajax({
 					type: "GET",
 					url: "delete?dno=" + dno,
@@ -370,7 +371,11 @@
 						alert("선택하신 일정이 삭제되었습니다.");
 						location.href='http://localhost:8181/dd/diary/calendar';
 					}										
-				});	
+				});
+				} else {
+					return;
+				
+				}
 			}
 			
 			function updateEvent(){
@@ -382,7 +387,7 @@
 					start_date : $('#start_date').val(),
 					end_date : $('#end_date').val()	
 				}	//컨트롤에 넘길 데이터이름 : 데이터(input에 들어간 값)
-				
+				if(confirm("정말 수정하시겠습니까?")) {
 				$.ajax({
 					type: "POST",
 					url: "update",
@@ -393,6 +398,9 @@
 						location.href='http://localhost:8181/dd/diary/calendar';
 					}										
 				});	
+				} else {
+					return;
+				}
 			}
 			
 	</script>
