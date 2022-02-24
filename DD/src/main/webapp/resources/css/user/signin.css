@@ -58,6 +58,11 @@
 		color : red;
 		display : none;
 	}
+	/* 이메일 형식이 맞지 않은 경우 */
+	.email_input_re_4{
+		color : red;
+		display : none;
+	}
 /* 이메일 인증 확인 */
 .email_check_re_1{
 	color:green;
