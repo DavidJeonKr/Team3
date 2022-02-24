@@ -23,6 +23,11 @@
     DELETE FROM ${TABLE_REPLIES} WHERE ${COL_CNO} = #{cno}
     </delete>
 
+	<!-- 게시판 삭제시 리플 전부 삭제 -->
+	<delete id="deleteAllReply">
+    DELETE FROM ${TABLE_REPLIES} WHERE ${COL_BNO} = #{bno}
+    </delete>
+
     <!-- 댓글 번호 cno 댓글의 게시글 번호 찾기 -->
     <select id="readBno" resultType="java.lang.Integer">
     SELECT ${COL_BNO} FROM ${TABLE_REPLIES}
