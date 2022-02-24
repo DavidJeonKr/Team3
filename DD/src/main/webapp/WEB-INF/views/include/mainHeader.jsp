@@ -37,15 +37,17 @@
                 </h1>
                 
                 <!-- 검색 창-->
-                <div class="search_field">
+                <div id="autocomplete" class="search_field">
                     <input type="text" placeholder="검색" tabindex="0" id="search">
                     <div class="fake_field">
                         <span class=sprite_small_search_icon></span>
                         <span>검색</span>
                     </div>
+                     <div id="searchBox"> 
+                    	<div id="searchVal"><!-- ajax로 불러올 검색결과 --></div>
+                    </div>
                 </div>
-                <div id="searchVal"></div>
-
+               
                 <div class="right_icons">
                     <a href="../diary/calendar"><div class="sprite_home_icon"></div></a>
                     <a href="../shop/main2"><img src="../resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
@@ -78,9 +80,11 @@
                             </c:if>
                             
                             <c:if test="${userInfo.userid != userid.userid}">
-	                            <div>
-	                            	<button id="followBtn" ></button>
-	                            </div>
+                            	<form action="/dd/follow/add" method="">
+	                            	<input type="hidden" name= "followid" value="${userInfo.userid}"/>
+	                            	<input type="hidden" name= "followerid" value="${userid.userid}"/>
+	                            	<input type="submit" value="팔로우">
+                            	</form>
                             </c:if>
                         </div>
 
@@ -136,9 +140,9 @@
 
                 <div class="content_main_bar">
                     <div class="content_bar">
-                        <a href="../diary/calendar?userid=${userInfo.userid}" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
+                        <a href="../diary/calendar" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
                         <a href="" class="picture">사진첩</a>
-                        <a href="../board/main?userid=${userInfo.userid}" class="board">게시판</a>
+                        <a href="../board/main" class="board">게시판</a>
                     </div>
 
                     <div> <!--컨텐트 들어갈 div-->
@@ -160,110 +164,49 @@
 	<script src="../resources/js/music/script.js"></script>
 	
     <script>
-    $(document).ready(function () {
-    	data={followid:'${userInfo.userid}'}
-    	$.ajax({
-    		url: '/dd/follow/check/',
-    		type: 'POST', 
-    		data: data,
-    		success: function (result) {
-    			if(result == "follow"){
-    				$('#followBtn').text('언팔로우');
-    			}else{
-    				$('#followBtn').text('팔로우');
-    			}
-    		}
-    	});
-
-    
         /* When the user clicks on the button,
-    	toggle between hiding and showing the dropdown content */
-    	function myFunction() {
-    	  document.getElementById("myDropdown").classList.toggle("show");
-    	}
-    	
-        // Close the dropdown menu if the user clicks outside of it
-    	window.onclick = function(event) {
-    	  if (!event.target.matches('.sprite_setting_icon')) {
-    	    var dropdowns = document.getElementsByClassName("dropdown-content");
-    	    var i;
-    	    for (i = 0; i < dropdowns.length; i++) {
-    	      var openDropdown = dropdowns[i];
-    	      if (openDropdown.classList.contains('show')) {
-    	        openDropdown.classList.remove('show');
-    	      }
-    	    }
-    	  }
-    	}
-    	
-        $('#search').on("change keyup paste", function(){
-    		var search = $('#search').val();
-    		$.getJSON('/dd/search/search/' + search, function(respText){
-    			var list= '';
-    			$(respText).each(function(){
-    				list += '<div class="search_item">'
-    					+'<a href="/dd/diary/calendar?userid='
-    					+ this.userid
-    					+'">'
-    					+ this.realname
-    					+ '</a>'
-    					+ '</div>';
-    					
-    			});
-    			console.log(list);
-    			$('#searchVal').html(list);
-    		});
-    		
-    	});
-    
-    
-        $('#followBtn').on('click', function(){
-        	if ($('#followBtn').text() == '팔로우'){
-        		follow(true);	
-        	}else{
-        		follow(false);
-        	}
-        	
-        });
-        
-
-
-        function follow(check){
-        	var link = document.location.href;
-
-        	data={followid:'${userInfo.userid}'}
-        	if(check){
-        		$.ajax({
-        			url:"/dd/follow/add/",
-        			type:"POST",
-        			data:data,
-        			success:function(result){
-        				if(result=="FollowOk"){
-        					$('#followBtn').text('팔로우');
-        					location.href=link;
-        				}
-        			}
-        		});
-        	}else{
-        		$.ajax({
-        			url:"/dd/follow/delete/",
-        			type:"POST",
-        			data:data,
-        			success:function(result){
-        				if(result=="UnFollowOk"){
-        					$('#followBtn').text('언팔로우');
-        					location.href=link;
-        					
-        				}
-        			}
-        		});
-        	}
-        		
-        }    
-    
-    
-    });
-    	
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.sprite_setting_icon')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+$('#search').on("change keyup paste", function(){
+	var search = $('#search').val();
+	$.getJSON('/dd/search/search/' + search, function(respText){
+		var list= '';
+		$(respText).each(function(){
+			list += '<a href="/dd/diary/calendar?userid='
+				+ this.userid
+				+'">'
+				+'<input class="search_item" value="'
+				//'<div class="search_item">'
+				+ this.realname				
+				+ '"/>'
+				+'<input class="search_item" value="'
+				+ this.nickname	
+				+ '"/>'
+				+ '</a>';
+				//+ '</div>';
+				
+		});
+		console.log(list);
+		$('#searchVal').html(list);
+	});
+	
+});
+	
     </script>
 </body>
 </html>

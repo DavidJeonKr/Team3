@@ -49,15 +49,15 @@ public class DiaryController {
 //		return entity;	
 //	}	
 	
-	private void test() throws Exception {
+	private List<Diary> test() throws Exception {
 		System.out.println("\n>>>>>>>>>>");
 		
 		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=Oo%2BES1TqVBZ%2BbXcx8awWhFBEOG4sTQdNtmIJXPbtnffK0pJsgpQo4ZcAgN3G2LgcBLPI9fGiVeKAmOR%2Bv8eDuw%3D%3D"); /*Service Key*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("solYear","UTF-8") + "=" + URLEncoder.encode("2019", "UTF-8")); /*연*/
-        urlBuilder.append("&" + URLEncoder.encode("solMonth","UTF-8") + "=" + URLEncoder.encode("02", "UTF-8")); /*월*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("30", "UTF-8")); /*한 페이지 결과 수*/
+        urlBuilder.append("&" + URLEncoder.encode("solYear","UTF-8") + "=" + URLEncoder.encode("2022", "UTF-8")); /*연*/
+//      urlBuilder.append("&" + URLEncoder.encode("solMonth","UTF-8") + "=" + URLEncoder.encode("02", "UTF-8")); /*월*/
         urlBuilder.append("&_type=json");
         URL url = new URL(urlBuilder.toString());
         
@@ -83,11 +83,16 @@ public class DiaryController {
         
         System.out.println(sb.toString());
         System.out.println("<<<<<<<<<<\n");
+        List<Diary> holiday = new ArrayList<>();
+        
+        return holiday;
 	}
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public void main(HttpSession session, Model model, String userid) throws Exception { 
 		test();
+		
+		
 		
 		log.info("Diary main() 호출");		
 		

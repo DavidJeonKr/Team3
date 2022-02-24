@@ -68,7 +68,8 @@ body{
     font-weight: 400;
     text-align: left;
     font-size: 14px;
-    outline: none;  
+    outline: none;     
+     
 }
 
 #header .search_field input:focus ~ .fake_field span:nth-child(1){
@@ -267,3 +268,40 @@ body{
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
+  
+  #autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+  
+  #searchBox {  	
+  	
+  	position: absolute;
+  	
+  	box-sizing: border-box;
+  	 
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  	
+  }
+  
+  #searchVal {
+  	display: flex;
+  	
+  	
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+ 
+  }
+  
+  .search_item {
+  	flex-direction: column;
+  }
