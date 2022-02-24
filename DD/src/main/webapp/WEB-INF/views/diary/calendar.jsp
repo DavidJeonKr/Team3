@@ -21,7 +21,8 @@
         	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
    		<!-- JQuery -->
    		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-   		
+   		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	
    		
    		<style>
 		
@@ -80,20 +81,22 @@
           </div>
           <!-- Modal footer -->
           <div class="modal-footer">  
-          	  
+          	<c:if test="${userInfo.userid == userid.userid}">  
             <button type="button" class="btn btn-danger updateBtn" id="updateBtn"
               	onclick="updateEvent()">수정</button>
            	<button type="button" class="btn btn-dark float-right deleteBtn" id="deleteBtn"
               	onclick="deleteEvent()">삭제</button>
             <button type="submit" class="btn btn-warning float-right insertBtn" id="insertBtn"
               	onclick="insertEvent()">등록</button>
+            </c:if>
             
           </div>
           </form>
         </div>
       </div>
     </div>     
-				
+	
+			
 	<!-- 드롭다운 스크립트 -->
 	<script>
        	/* When the user clicks on the button, 
@@ -117,11 +120,41 @@
 		}
     </script>
     
+    <!--  
+	<script>
+	$(document).ready(function () {	
+		
+		
+		var xhr = new XMLHttpRequest();
+		var url = 'http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo'; /*URL*/
+		var queryParams = '?' + encodeURIComponent('solYear') + '=' + encodeURIComponent('2022'); /**/
+		//queryParams += '&' + encodeURIComponent('solMonth') + '=' + encodeURIComponent('02'); /**/
+		queryParams += '&' + encodeURIComponent('serviceKey') + '='+'Oo%2BES1TqVBZ%2BbXcx8awWhFBEOG4sTQdNtmIJXPbtnffK0pJsgpQo4ZcAgN3G2LgcBLPI9fGiVeKAmOR%2Bv8eDuw%3D%3D'; /*Service Key*/
+		queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent('json'); 
+		queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100'); 
+		
+		console.log(url + queryParams);
+		
+		xhr.open('GET', url + queryParams);
+		xhr.onreadystatechange = function () {
+		    if (this.readyState == 4) {
+		        alert('Status: '+this.status+'\nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'\nBody: '+this.responseText);
+		        console.log(this.responseText);
+		    }
+		};
+		xhr.send('');
+
+	
+	});
+	</script>
+	-->
+
+
 	<!-- 달력 출력 스크립트 (Fullcalendar) -->
 	<script>	
 		//테스트용 아이디 띄움	
-		var userid = $('#userid').text();
-		console.log(userid);
+		var sessionid = '${userid.userid}';
+		var userinfoid = '${userInfo.userid}';
 		
 		var today = new Date();
 		var month = today.getMonth() + 1; //getMonth()는 9월이 8으로 나옴
@@ -164,8 +197,7 @@
 				weekNumbers: true,	// 몇 번째 주인지 표시			    
 				
 				select: function(arg) {
-			       var sessionid = '${userid.userid}';
-			       var userinfoid = '${userInfo.userid}';
+			       
 			       console.log(sessionid);
 			       console.log(userinfoid);
 					if(sessionid == userinfoid){
@@ -304,12 +336,15 @@
 			     },
 			     
 			     eventDrop: function (arg) {	//이벤트 드래그드랍 시 호출될 함수			    	 
+			    	 if(sessionid == userinfoid){
 			    	 $('#scheduleModal').modal(arg);
-			    	 
+			    	 }
 			     },
 			     
 			     eventResize: function (arg) {	//이벤트 사이즈 변경 시(일정변경) 호출될 함수
+			    	 if(sessionid == userinfoid){
 			    	 $('#scheduleModal').modal(arg);
+			    	 }
 			     },
 			     			
 				 events : 					
@@ -414,7 +449,6 @@
 			}
 			
 	</script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 		
 	</body>
 </html>
