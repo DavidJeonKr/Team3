@@ -13,6 +13,13 @@
 	rel="stylesheet"/>
     <title>DD</title>
     <link rel="stylesheet" href="../resources/css/common.css">
+    
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../resources/css/music/style.css" />
+    
 </head>
 <body>
 	<header>
@@ -99,9 +106,33 @@
                     </div>
 
                     <div class="main_right">
-                        <div class="music_player">
-                         	   음악 플레이어
-                        </div>
+                        
+                        	<div class="music-container" id="music-container">
+							      <div class="music-info">
+							        <h4 id="title"></h4>
+							        <div class="progress-container" id="progress-container">
+							          <div class="progress" id="progress"></div>
+							        </div>
+							      </div>
+							
+							      <audio src="../resources/music/Dynamite.mp3" id="audio"></audio>
+							
+							      <div class="img-container">
+							        <img src="../resources/music/images/Dynamite.jpg" alt="music-cover" id="cover" />
+							      </div>
+							      <div class="navigation">
+							        <button id="prev" class="action-btn">
+							          <i class="fas fa-backward"></i>
+							        </button>
+							        <button id="play" class="action-btn action-btn-big">
+							          <i class="fas fa-play"></i>
+							        </button>
+							        <button id="next" class="action-btn">
+							          <i class="fas fa-forward"></i>
+							        </button>
+							      </div>
+							    </div>
+                        
                     </div>
                 </div>
 
@@ -123,9 +154,13 @@
     </section>
     </header>
 	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js">
+	</script>
 	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js">
+	</script>
+	<script src="../resources/js/music/script.js"></script>
+	
     <script>
         /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
