@@ -38,13 +38,18 @@
         <property name="COL_FNO" value="fno"/>
         <property name="COL_FOLLOWID" value="followid"/>
         <property name="COL_FOLLOWERID" value="followerid"/>
+		
+		<!-- REPLIES 테이블 관련 상수들 -->
+        <!-- userid, bno는 기존에 정의된 프로퍼티를 사용 -->
+    	<property name="TABLE_REPLIES" value="replies"/>
+        <property name="COL_CNO" value="cno"/>
+        <property name="COL_RCONTENT" value="rcontent"/>
+        <property name="COL_REGDATE" value="regdate"/>
+		
 	</properties>
         
         
-        <!-- REPLIES 테이블 관련 상수들 -->
-        <!-- userid, bno는 기존에 정의된 프로퍼티를 사용 -->
-    	
-
+        
     <typeAliases>
         <package name="com.itwill.dd.domain"/>
     </typeAliases>
