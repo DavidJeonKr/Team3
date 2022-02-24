@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.dd.mapper.FollowMapper">
+
+	
+	
+	<!-- 팔로우 확인 -->
+	<select id="checkFollow" resultType="Follow">
+	SELECT * FROM ${TABLE_FOLLOW}
+	WHERE ${COL_FOLLOWID} = #{followid} AND ${COL_FOLLOWERID} = #{followerid}
+	</select>
+	
+	<!-- 팔로우 하기 -->
+	<insert id="add">
+	INSERT INTO ${TABLE_FOLLOW} (${COL_FOLLOWID}, ${COL_FOLLOWERID})
+	VALUES (#{followid}, #{followerid})
+	</insert>      
+	
+	<!-- 언팔로우 하기 -->  
+    <delete id="delete">
+    DELETE FROM ${TABLE_FOLLOW} 
+    WHERE ${COL_FOLLOWID}=#{followid} AND ${COL_FOLLOWERID} =#{followerid} 
+    </delete>    
+       
+
+</mapper>

@@ -34,6 +34,7 @@
         <property name="COL_BISCUIT" value="biscuit"/>
         
         <!-- follow관련 상수들 -->
+        <property name="TABLE_FOLLOW" value="follow"/>
         <property name="COL_FNO" value="fno"/>
         <property name="COL_FOLLOWID" value="followid"/>
         <property name="COL_FOLLOWERID" value="followerid"/>

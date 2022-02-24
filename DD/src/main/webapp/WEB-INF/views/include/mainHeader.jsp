@@ -78,11 +78,9 @@
                             </c:if>
                             
                             <c:if test="${userInfo.userid != userid.userid}">
-                            	<form action="/dd/follow/add" method="">
-	                            	<input type="hidden" name= "followid" value="${userInfo.userid}"/>
-	                            	<input type="hidden" name= "followerid" value="${userid.userid}"/>
-	                            	<input type="submit" value="팔로우">
-                            	</form>
+	                            <div>
+	                            	<button id="followBtn" ></button>
+	                            </div>
                             </c:if>
                         </div>
 
@@ -138,9 +136,9 @@
 
                 <div class="content_main_bar">
                     <div class="content_bar">
-                        <a href="../diary/calendar" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
+                        <a href="../diary/calendar?userid=${userInfo.userid}" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
                         <a href="" class="picture">사진첩</a>
-                        <a href="../board/main" class="board">게시판</a>
+                        <a href="../board/main?userid=${userInfo.userid}" class="board">게시판</a>
                     </div>
 
                     <div> <!--컨텐트 들어갈 div-->
@@ -162,44 +160,110 @@
 	<script src="../resources/js/music/script.js"></script>
 	
     <script>
+    $(document).ready(function () {
+    	data={followid:'${userInfo.userid}'}
+    	$.ajax({
+    		url: '/dd/follow/check/',
+    		type: 'POST', 
+    		data: data,
+    		success: function (result) {
+    			if(result == "follow"){
+    				$('#followBtn').text('언팔로우');
+    			}else{
+    				$('#followBtn').text('팔로우');
+    			}
+    		}
+    	});
+
+    
         /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.sprite_setting_icon')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-$('#search').on("change keyup paste", function(){
-	var search = $('#search').val();
-	$.getJSON('/dd/search/search/' + search, function(respText){
-		var list= '';
-		$(respText).each(function(){
-			list += '<div class="search_item">'
-				+'<a href="/dd/diary/calendar?userid='
-				+ this.userid
-				+'">'
-				+ this.realname
-				+ '</a>'
-				+ '</div>';
-				
-		});
-		console.log(list);
-		$('#searchVal').html(list);
-	});
-	
-});
-	
+    	toggle between hiding and showing the dropdown content */
+    	function myFunction() {
+    	  document.getElementById("myDropdown").classList.toggle("show");
+    	}
+    	
+        // Close the dropdown menu if the user clicks outside of it
+    	window.onclick = function(event) {
+    	  if (!event.target.matches('.sprite_setting_icon')) {
+    	    var dropdowns = document.getElementsByClassName("dropdown-content");
+    	    var i;
+    	    for (i = 0; i < dropdowns.length; i++) {
+    	      var openDropdown = dropdowns[i];
+    	      if (openDropdown.classList.contains('show')) {
+    	        openDropdown.classList.remove('show');
+    	      }
+    	    }
+    	  }
+    	}
+    	
+        $('#search').on("change keyup paste", function(){
+    		var search = $('#search').val();
+    		$.getJSON('/dd/search/search/' + search, function(respText){
+    			var list= '';
+    			$(respText).each(function(){
+    				list += '<div class="search_item">'
+    					+'<a href="/dd/diary/calendar?userid='
+    					+ this.userid
+    					+'">'
+    					+ this.realname
+    					+ '</a>'
+    					+ '</div>';
+    					
+    			});
+    			console.log(list);
+    			$('#searchVal').html(list);
+    		});
+    		
+    	});
+    
+    
+        $('#followBtn').on('click', function(){
+        	if ($('#followBtn').text() == '팔로우'){
+        		follow(true);	
+        	}else{
+        		follow(false);
+        	}
+        	
+        });
+        
+
+
+        function follow(check){
+        	var link = document.location.href;
+
+        	data={followid:'${userInfo.userid}'}
+        	if(check){
+        		$.ajax({
+        			url:"/dd/follow/add/",
+        			type:"POST",
+        			data:data,
+        			success:function(result){
+        				if(result=="FollowOk"){
+        					$('#followBtn').text('팔로우');
+        					location.href=link;
+        				}
+        			}
+        		});
+        	}else{
+        		$.ajax({
+        			url:"/dd/follow/delete/",
+        			type:"POST",
+        			data:data,
+        			success:function(result){
+        				if(result=="UnFollowOk"){
+        					$('#followBtn').text('언팔로우');
+        					location.href=link;
+        					
+        				}
+        			}
+        		});
+        	}
+        		
+        }    
+    
+    
+    });
+    	
     </script>
 </body>
 </html>

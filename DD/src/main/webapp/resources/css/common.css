@@ -224,6 +224,16 @@ body{
 }
 
 
+#followBtn{
+	background: #0095f6;
+	color : white;
+	border:none;
+	radius : 3px;
+	
+	
+}
+
+
 /*dropdown*/
 /* Dropdown Button */
   
