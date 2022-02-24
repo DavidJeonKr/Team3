@@ -73,3 +73,27 @@
 	margin-top: 6px;
 	line-height: 18px
 }
+
+#update{
+	background: #3897f0;
+    border-color: #3897f0;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#delete{
+	background: #3897f0;
+    border-color: #3897f0;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#passEditBtn{
+	background: #3897f0;
+    border-color: #3897f0;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}

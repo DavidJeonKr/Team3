@@ -19,95 +19,15 @@
 
 </head>
 <body>
-	 <!-- 전체 section으로 묶음-->
+
+<%@ include file = "../include/mainHeader.jsp" %>
+    
+    
     <section id="container">
-        <!-- 상단 메뉴 바 -->
-        <header id="header">
-            <section class="h_inner">
-                <h1 class="logo">
-                    <a href="index.html">
-                        <div class="logo_location">
-                            <img src="../resources/imgs/main/DD.png" alt="DD" class="DDlogo">
-                        </div>
-                    </a>            
-                </h1>
-                
-                <!-- 검색 창-->
-                <div class="search_field">
-                    <input type="text" placeholder="검색" tabindex="0">
-                    <div class="fake_field">
-                        <span class=sprite_small_search_icon></span>
-                        <span>검색</span>
-                    </div>
-                </div>
-
-                <div class="right_icons">
-                    <a href="index.html"><div class="sprite_home_icon"></div></a>
-                    <a href="./shop/main"><img src="../resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
-                    <div class="dropdown">
-                        
-                        <div onclick="myFunction()" class="sprite_setting_icon"></div>
-                        
-                        <div id="myDropdown" class="dropdown-content">
-                          <a href="#">setting</a>
-                          <a href="#">LogOut</a>
-                        </div>
-                      </div>
-                </div>
-            </section>
-        </header>
-
-        <!-- 메인 내용-->
-        <div id="main_container">
-            <section class="b_inner">
-                <div class="hori_cont">
-                    <div class="profile_wrap">
-                        <div class="profile_img">
-                            <img src="../resources/imgs/main/profile.jpg" alt="기본사진">
-                        </div>
-                    </div>
-
-                    <div class="detail">
-                        <div class="top">
-                            <div class="nickname">닉네임</div>
-                            <a href="profile_edit.html" class="profile_edit">프로필 편집</a>
-                        </div>
-
-                        <ul class="middle">
-                            <li>
-                                <span>게시판</span> 3
-                            </li>
-                            <li>
-                                <a href="friend.html">일촌</a> 3
-                            </li>
-                            <li>
-                               	 비스켓 3
-                            </li>
-                        </ul>
-                        <div class="bottom">
-                            <div class="real_name">
-                                real_name
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="main_right">
-                        <div class="music_player">
-                         	   음악 플레이어
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content_main">
-                    <div class="content_bar">
-                        <a href="index" class="home">홈</a>
-                        <a href="./diary/main" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
-                        <a href="#" class="picture">사진첩</a>
-                        <a href="./board/main" class="board">게시판</a>
-                    </div>
-	
-	<div class="container" style="margin-top: 40px;">
+    	<div id="main_container_2">
+    		 <section class="b_inner">
+    		 	<div class="content_main">
+    		 		<div class="container" style="margin-top: 40px;">
 		
 		
 		<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -132,7 +52,10 @@
 			
 		<div>
 			<form>
-				<!-- /board/insert POST submit -->
+				<div>
+                    <input type="hidden" id="bno" value="${board.bno}" />
+                </div>
+				
 				<div class="row">
 					<label for="title" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;">제목</label> 
 					<div class="col-11">
@@ -172,39 +95,206 @@
 				</div>
 				<hr>
 				
-				<div class="row" style="margin: 10px; margin-bottom: 50px; height:400px;">
+				<div class="row" style="margin: 10px; margin-bottom: 10px; height:300px;">
 					
 					<textarea class="form-control-plaintext" rows="5" name="content" required readonly>${board.content}</textarea>
 					
 				</div>
 				
-			
-                    
-				
+		
 			</form>
 		</div>
+		<hr/>
+		<div>
+			<p class="text-center">댓글 남기기</p>
+		</div>
+		<hr/>
+			
+		<div>			
+			<input type="text" id="rcontent" name="rcontent" placeholder="댓글 입력"  />
+                <%-- 로그인한 사용자 아이디를 input의 값으로 설정 --%>
+                <input type="text" id="reply_userid" name="userid" value="admin" readonly />
+                <button id="btn_create_reply" class="btn btn-dark">등록</button>
+                
+		</div>
+		<div class="row">
+			<div class="col-sm-8">			
+				<textarea style="height:50px" class="form-control" rows="5" id="comment" name="text"></textarea>
+			</div>
+			<div class="col-sm-1">
+				<input  style="height:50px;" type="text" id="reply_userid" name="userid" value="admin" readonly />
+			</div>
+			<div class="col-sm-2">
+				<button id="btn_create_reply" class="btn btn-dark">등록</button>
+			</div>
+			
+			
+			
+		</div>
+		
+		<hr/>
+           
+            <div id="replies">
+            </div>
 		
 
 	</div>
+    		 	</div>
+    		 </section>
+    	</div>
+    </section>
+    
+    
+	 
 
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-	<script>
-		$(document).ready(function() {
-
-			$('#menu-delete').click(function(event) {
-				event.preventDefault(); // 링크를 클릭했을 때의 기본 동작인 요청 보내기를 하지 않음.
-				var result = confirm('정말 삭제할까요?');
-				if (result) { // 사용자가 YES를 선택했을 때
-					location = $(this).attr('href'); // 원래 이동하려고 했던 요청 주소로 요청 보내기.
-				}
-			});
-		
-		});
-	</script>
+	  <script>
+        $(document).ready(function () {
+        	// input[id="bno"] 요소의 value 속성값을 읽음.
+        	var boardNo = $('#bno').val();
+        	
+        	// 게시글 번호(boardNo)에 달려 있는 모든 댓글 목록을 읽어오는 Ajax 함수 정의(선언)
+        	function getAllReplies() {
+        		// $.getJSON(요청URL, 콜백 함수): URL로 Ajax GET 요청을 보내고 
+        		// JSON 문자열을 응답으로 전달받아서 처리하는 함수.
+                $.getJSON('/dd/replies/all/' + boardNo, function (respText) {
+                    // console.log(data);
+                    // respText: REST Controller가 보내준 JSON 형식의 문자열 - 댓글들의 배열(array)
+                    
+                    $('#replies').empty(); // div[id="replies"]의 모든 하위 요소들을 삭제
+                    
+                    var list = ''; // div[id="replies"]의 하위 요소(HTML 코드)를 작성할 문자열.
+                    
+                    // 배열 respText의 원소들을 하나씩 꺼내서 콜백 함수를 호출.
+                    $(respText).each(function () {
+                    	var date = new Date(this.regdate); // JavaScript Date 객체 생성
+                    	var dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                    	list += '<div class="reply_item">'
+                    		   + '<input type="text" id="cno" name="cno" value="'
+                    		   + this.cno
+                    		   + '" readonly />'
+                    		   + '<input type="text" id="rcontent" name="rcontent" value="'
+                    		   + this.rcontent
+                    		   +'" />'
+                    		   + '<input type="text" id="userid" name="userid" value="'
+                    		   + this.userid
+                    		   + '" readonly />'
+                    		   + '<input type="text" id="regdate" name="regdate" value="'
+                    		   + dateStr
+                    		   + '" readonly />';
+                    	if (this.userid == 'admin') { // 댓글 작성자 아이디와 로그인한 사용자 아이디가 같으면
+                    		list += '<button class="reply_update">수정</button>'
+                    			  + '<button class="reply_delete">삭제</button>';
+                    	}
+                    	list += '</div>';
+                    });
+                    
+                    // 완성된 HTML 문자열(list)를 div[id="replies"]의 하위 요소로 추가
+                    $('#replies').html(list);
+                    
+                }); // end getJSON()
+        	
+        	} // end getAllReplies()
+        	
+        	getAllReplies(); // 함수 호출
+        	
+        	// 댓글 작성 완료 버튼 클릭 이벤트 처리
+        	$('#btn_create_reply').click(function (event) {
+        		// 댓글 내용을 읽음
+        		var replyText = $('#rcontent').val();
+        		if (replyText == '') { // 입력된 댓글 내용이 없으면
+        			alert('댓글 내용을 입력하세요...');
+        			$('#rcontent').focus();
+        			return; // 콜백 함수 종료
+        		}
+        		
+        		// 댓글 작성자 아이디
+        		var replier = $('#reply_userid').val();
+        		
+        		// 댓글 insert 요청을 Ajax 방식으로 보냄.
+        		$.ajax({
+        			// 요청 주소
+        			url: '/dd/replies',
+        			// 요청 타입
+        			type: 'POST',
+        			// 요청 HTTP 헤더
+        			headers: {
+        				'Content-Type': 'application/json',
+        				'X-HTTP-Method-Override': 'POST'
+        			},
+        			// 요청에 포함되는 데이터(JSON 문자열)
+        			data: JSON.stringify({
+        				'bno': boardNo,
+        				'rcontent': replyText,
+        				'userid': replier
+        			}),
+        			// 성공 응답(200 response)이 왔을 때 브라우저가 실행할 콜백 함수
+        			success: function (resp) {
+        				console.log(resp);
+        				$('#rcontent').val('');
+        				getAllReplies();  // 댓글 목록 업데이트
+        			}
+        		});
+        	});
+        	
+        	// 수정, 삭제 버튼에 대한 이벤트 리스너는 버튼들이 만들어진 이후에 등록이 되어야 함!
+        	$('#replies').on('click', '.reply_item .reply_update', function () {
+        		// 수정 버튼이 포함된 div 요소에 포함된 rno와 rtext를 찾아서 Ajax PUT 요청을  보냄.
+        		
+        		// $(this): 클래스 속성이 reply_update인 버튼 요소.
+        		var cno = $(this).prevAll('#cno').val();
+        		var rcontent = $(this).prevAll('#rcontent').val();
+        		
+        		$.ajax({
+        			// 요청 URL
+        			url: '/dd/replies/' + rno,
+        			// 요청 방식
+        			type: 'PUT',
+        			// 요청 패킷 헤더
+        			headers: {
+        				'Content-Type': 'application/json',
+        				'X-HTTP-Method-Override': 'PUT'
+        			},
+        			// 요청 패킷 데이터
+        			data: JSON.stringify({'rcontent': rcontent}),
+        			// 성공 응답 콜백 함수
+        			success: function () {
+        				alert(cno + ' 댓글 수정 성공!');
+        				getAllReplies(); // 댓글 목록 업데이트
+        			}
+        		});
+        	});
+        	
+        	// 댓글 삭제 버튼
+        	$('#replies').on('click', '.reply_item .reply_delete', function (event) {
+        		var cno = $(this).prevAll('#cno').val();
+        		var result = confirm(cno + '번 댓글을 정말 삭제할까요?');
+        		if (result) { // 확인(Yes) 버튼을 클릭했을 때
+        			$.ajax({
+        				// 요청 URL
+        				url: '/dd/replies/' + cno,
+        				// 요청 타입
+        				type: 'DELETE',
+        				// 요청 헤더
+        				headers: {
+        					'Content-Type': 'application/json',
+        					'X-HTTP-Method-Override': 'DELETE'
+        				},
+        				// 성공 응답 콜백 함수
+        				success: function () {
+        					alert(cno + '번 댓글 삭제 성공!');
+        					getAllReplies();
+        				}
+        			});
+        		}
+        	});
+        	
+        });
+        </script>
 	
 </body>
 </html> 

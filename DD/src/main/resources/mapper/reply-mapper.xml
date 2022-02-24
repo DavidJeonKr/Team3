@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.dd.mapper.ReplyMapper">
+
+    <insert id="insert">
+    INSERT INTO ${TABLE_REPLIES} (${COL_RCONTENT}, ${COL_USERID}, ${COL_BNO})
+    VALUES (#{rcontent}, #{userid}, #{bno})
+    </insert>
+
+    <select id="select" resultType="Reply">
+    SELECT * FROM ${TABLE_REPLIES}
+    WHERE ${COL_BNO} = #{bno}
+    ORDER BY ${COL_CNO} desc
+    </select>
+    
+    <update id="update">
+    UPDATE ${TABLE_REPLIES}
+    SET ${COL_RCONTENT} = #{rcontent}, ${COL_REGDATE} = sysdate
+    WHERE ${COL_CNO} = #{cno}
+    </update>
+    
+    <delete id="delete">
+    DELETE FROM ${TABLE_REPLIES} WHERE ${COL_CNO} = #{cno}
+    </delete>
+
+	<!-- 게시판 삭제시 리플 전부 삭제 -->
+	<delete id="deleteAllReply">
+    DELETE FROM ${TABLE_REPLIES} WHERE ${COL_BNO} = #{bno}
+    </delete>
+
+    <!-- 댓글 번호 cno 댓글의 게시글 번호 찾기 -->
+    <select id="readBno" resultType="java.lang.Integer">
+    SELECT ${COL_BNO} FROM ${TABLE_REPLIES}
+    WHERE ${COL_CNO} = #{cno}
+    </select>
+
+</mapper>

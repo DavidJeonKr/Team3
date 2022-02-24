@@ -16,6 +16,7 @@ import com.itwill.dd.domain.Board;
 public class BoardDaoImpl implements BoardDao {
 	private static final Logger logger = LoggerFactory.getLogger(BoardDaoImpl.class);
 	private static final String BOARD_NAMESPACE = "com.itwill.dd.mapper.BoardMapper";
+	private static final String REPLY_NAMESPACE = "com.itwill.dd.mapper.ReplyMapper";
 
 	@Autowired
 	private SqlSession sqlSession;
@@ -64,7 +65,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public int delete(int bno) {
 		logger.info("boardDaoImpl.delete(bno={})", bno);
-
+		sqlSession.delete(REPLY_NAMESPACE + ".deleteAllReply", bno);
 		return sqlSession.delete(BOARD_NAMESPACE + ".delete", bno);
 	}
 

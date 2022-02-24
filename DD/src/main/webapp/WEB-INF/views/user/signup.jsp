@@ -34,6 +34,7 @@
                         <span class="email_input_re_1">사용 가능한 이메일 입니다.</span>
                         <span class="email_input_re_2">이메일이 이미 존재합니다.</span>
                         <span class="email_input_re_3">이메일을 입력해주세요.</span>
+                        <span class="email_input_re_4">올바르지 못한 이메일 형식입니다.</span>
                         
                         <div class="mail_check">
 	                        <div>
@@ -182,21 +183,30 @@
     		url:"./checkid",
     		data : data,
     		success : function(result){
-    			
-    		if(result == 'empty'){
+    		
+    		if(!mailFormCheck(userid)){
+    			$('.email_input_re_1').css('display','none');
+    			$('.email_input_re_2').css('display','none');
+    			$('.email_input_re_3').css('display','none');
+    			$('.email_input_re_4').css('display','block');
+    			emailCheck = false;
+    		}	else if(result == 'empty'){
     			$('.email_input_re_1').css('display','none');
     			$('.email_input_re_2').css('display','none');
     			$('.email_input_re_3').css('display','block');
+    			$('.email_input_re_4').css('display','none');
     			emailCheck = false;
     		}else if(result == 'notFound'){
         		$('.email_input_re_1').css('display','block');
         		$('.email_input_re_2').css('display','none');
         		$('.email_input_re_3').css('display','none');
+        		$('.email_input_re_4').css('display','none');
         		emailCheck = true;
         	}else{
         		$('.email_input_re_1').css('display','none');
         		$('.email_input_re_2').css('display','block');
         		$('.email_input_re_3').css('display','none');
+        		$('.email_input_re_4').css('display','none');
         		emailCheck = false;
         		}	
     		}
