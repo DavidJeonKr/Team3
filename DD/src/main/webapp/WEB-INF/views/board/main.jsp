@@ -60,7 +60,7 @@
                             <tr>
                                 <td>${board.bno}</td>
                                 <td>
-                                <a href="./detail?bno=${board.bno}">${board.title}</a>
+                                <a href="./detail?bno=${board.bno}&userid=${userInfo.userid}">${board.title}</a>
                                  </td>
                                 
                                 <td>${board.userid}</td>

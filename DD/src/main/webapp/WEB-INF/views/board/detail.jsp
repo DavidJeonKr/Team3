@@ -190,7 +190,7 @@
                     		   + '<input type="text" id="regdate" name="regdate" value="'
                     		   + dateStr
                     		   + '" readonly />';
-                    	if (this.userid == '${userid.userid}') { // 댓글 작성자 아이디와 로그인한 사용자 아이디가 같으면
+                    	if (this.userid == '${userid.userid}') { 
                     		list += '<button class="reply_update">수정</button>'
                     			  + '<button class="reply_delete">삭제</button>';
                     	}

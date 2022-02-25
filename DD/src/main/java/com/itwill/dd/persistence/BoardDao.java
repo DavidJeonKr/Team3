@@ -2,7 +2,7 @@ package com.itwill.dd.persistence;
 import java.util.List;
 import com.itwill.dd.domain.Board;
 public interface BoardDao {
-		List<Board> read(String userid);
+	List<Board> read(String userid);
 	Board read(int bno);
 	int create(Board board);
 	int update(Board board);
