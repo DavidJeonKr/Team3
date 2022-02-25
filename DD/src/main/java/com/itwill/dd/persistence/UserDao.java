@@ -12,5 +12,9 @@ public interface UserDao {
 	int updateUserInfo(User user);
 	int deleteUser(String userid);
 	List<User> getSearch(String search);
+	int addFollow(String followid);
+	int addFollower(String followerid);
+	int deleteFollow(String followid);
+	int deleteFollower(String followerid);
 	
 }
