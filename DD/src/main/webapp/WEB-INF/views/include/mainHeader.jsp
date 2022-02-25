@@ -140,9 +140,9 @@
 
                 <div class="content_main_bar">
                     <div class="content_bar">
-                        <a href="../diary/calendar" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
+                        <a href="../diary/calendar?userid=${userInfo.userid}" class="diary">다이어리</a>	<%-- 다이어리 이동 --%>
                         <a href="" class="picture">사진첩</a>
-                        <a href="../board/main" class="board">게시판</a>
+                        <a href="../board/main?userid=${userInfo.userid}" class="board">게시판</a>
                     </div>
 
                     <div> <!--컨텐트 들어갈 div-->
