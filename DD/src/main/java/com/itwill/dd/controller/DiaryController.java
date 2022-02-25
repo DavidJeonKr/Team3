@@ -91,39 +91,39 @@ public class DiaryController {
         System.out.println(sb);
         System.out.println("<<<<<<<<<<\n");
        
-        JSONParser parser = new JSONParser();
-        JSONObject obj = (JSONObject)parser.parse(sb.toString());
-        JSONObject parseResponse = (JSONObject) obj.get("response");
-        JSONObject parseBody = (JSONObject) obj.get("body");
-        JSONObject parseItems = (JSONObject) obj.get("items");
-        JSONArray parseItem = (JSONArray) parseItems.get("item");
-        
-        JSONObject holidayList;
-        Diary d;
-        List<Diary> holiday = new ArrayList<Diary>();
-        
-        for(int i = 0 ; i < parseItem.size() ; i++) {
-        	holidayList = (JSONObject) parseItem.get(i);
-        	String dname = (String)holidayList.get("dateName");
-        	StringBuffer start = (StringBuffer)holidayList.get("locdate");
-        	StringBuffer end = (StringBuffer)holidayList.get("locdate");
-        	
-        	start.insert(4, "-");
-        	start.insert(6, "-");        	
-        	end.insert(4, "-");
-        	end.insert(6, "-");
-        	
-        	String start_date = start.toString();
-        	String end_date = end.toString();        	
-        	
-        	d = new Diary(0, "holiday", dname, start_date, end_date);
-        	holiday.add(d);
-        	System.out.println(holiday);
-        }
-        
-        rd.close();
-        conn.disconnect();
-        return holiday;
+//        JSONParser parser = new JSONParser();
+//        JSONObject obj = (JSONObject)parser.parse(sb.toString());
+//        JSONObject parseResponse = (JSONObject) obj.get("response");
+//        JSONObject parseBody = (JSONObject) obj.get("body");
+//        JSONObject parseItems = (JSONObject) obj.get("items");
+//        JSONArray parseItem = (JSONArray) parseItems.get("item");
+//        
+//        JSONObject holidayList;
+//        Diary d;
+//        List<Diary> holiday = new ArrayList<Diary>();
+//        
+//        for(int i = 0 ; i < parseItem.size() ; i++) {
+//        	holidayList = (JSONObject) parseItem.get(i);
+//        	String dname = (String)holidayList.get("dateName");
+//        	StringBuffer start = (StringBuffer)holidayList.get("locdate");
+//        	StringBuffer end = (StringBuffer)holidayList.get("locdate");
+//        	
+//        	start.insert(4, "-");
+//        	start.insert(6, "-");        	
+//        	end.insert(4, "-");
+//        	end.insert(6, "-");
+//        	
+//        	String start_date = start.toString();
+//        	String end_date = end.toString();        	
+//        	
+//        	d = new Diary(0, "holiday", dname, start_date, end_date);
+//        	holiday.add(d);
+//        	System.out.println(holiday);
+//        }
+//        
+//        rd.close();
+//        conn.disconnect();
+        return null;
 	}
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
