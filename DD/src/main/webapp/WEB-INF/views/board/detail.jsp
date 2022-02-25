@@ -35,8 +35,10 @@
 			<h4 style="margin-right: 40px;">글 상세보기</h4>
 			<ul class="navbar-nav">
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="./main">게시판 목록</a></li>
+				<c:if test="${userInfo.userid == userid.userid}">  
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" href="./update?bno=${board.bno}">수정</a></li>
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" id="menu-delete" href="./delete?bno=${board.bno}">삭제</a></li>
+				</c:if>
 			</ul>
 			
 			<div class="nav" style="margin-left: 300px">
@@ -188,7 +190,7 @@
                     		   + '<input type="text" id="regdate" name="regdate" value="'
                     		   + dateStr
                     		   + '" readonly />';
-                    	if (this.userid == 'admin') { // 댓글 작성자 아이디와 로그인한 사용자 아이디가 같으면
+                    	if (this.userid == '${userid.userid}') { // 댓글 작성자 아이디와 로그인한 사용자 아이디가 같으면
                     		list += '<button class="reply_update">수정</button>'
                     			  + '<button class="reply_delete">삭제</button>';
                     	}

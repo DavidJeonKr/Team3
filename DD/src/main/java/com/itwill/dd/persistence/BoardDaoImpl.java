@@ -57,6 +57,7 @@ public class BoardDaoImpl implements BoardDao {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("type", type);
 		params.put("keyword", "%" + keyword.toLowerCase() + "%");
+		params.put("userid", userid);
 		return sqlSession.selectList(BOARD_NAMESPACE + ".selectByKeyword", params);
 	}
 }

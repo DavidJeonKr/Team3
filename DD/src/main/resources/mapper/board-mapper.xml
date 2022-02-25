@@ -61,14 +61,17 @@
     	
         <if test="type == 1">
         WHERE lower(${COL_TITLE}) LIKE #{keyword} 
+       	    and ${COL_USERID} = #{userid} 
        
         </if>
         <if test="type == 2">
         WHERE lower(${COL_CONTENT}) LIKE #{keyword} 
+            and ${COL_USERID} = #{userid}
         </if>
         <if test="type == 3">
-        WHERE lower(${COL_TITLE}) LIKE #{keyword}
-            OR lower(${COL_CONTENT}) LIKE #{keyword} 
+        WHERE ( lower(${COL_TITLE}) LIKE #{keyword} OR lower(${COL_CONTENT}) LIKE #{keyword} ) 
+            AND ${COL_USERID} = #{userid}
+           
         </if>
     	  
     ORDER BY ${COL_BNO} DESC
