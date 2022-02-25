@@ -116,7 +116,7 @@
 		<div>			
 			<input type="text" id="rcontent" name="rcontent" placeholder="댓글 입력"  />
                 <%-- 로그인한 사용자 아이디를 input의 값으로 설정 --%>
-                <input type="text" id="reply_userid" name="userid" value="${userInfo.userid}" readonly />
+                <input type="text" id="reply_userid" name="userid" value="${userid.userid}" readonly />
                 <button id="btn_create_reply" class="btn btn-dark">등록</button>
                 
 		</div>
