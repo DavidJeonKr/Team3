@@ -17,10 +17,10 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired private BoardDao boardDao;
 
 	@Override
-	public List<Board> select() {
+	public List<Board> select(String userid) {
 		log.info("select() 호출");
 
-		return boardDao.read();
+		return boardDao.read(userid);
 	}
 	
 	@Override
@@ -53,8 +53,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public List<Board> select(int searchType, String searchKeyword) {
+	public List<Board> select(int searchType, String searchKeyword, String userid) {
 		log.info("select(searchType={},searchKeyword={}) 호출", searchType, searchKeyword);
-		return boardDao.read(searchType, searchKeyword);
+		return boardDao.read(searchType, searchKeyword, userid);
 	}
 }
