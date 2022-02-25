@@ -11,7 +11,7 @@ public class CartListVO {
 	private int num;
 	private String productName;
 	private int productPrice;
-	private String ProductThumbImg;
+	private String productThumbImg;
 	
 	public int getNum() {
 		return num;
@@ -32,10 +32,10 @@ public class CartListVO {
 		this.productPrice = productPrice;
 	}
 	public String getProductThumbImg() {
-		return ProductThumbImg;
+		return productThumbImg;
 	}
 	public void setProductThumbImg(String productThumbImg) {
-		ProductThumbImg = productThumbImg;
+		this.productThumbImg = productThumbImg;
 	}
 	public int getCartNum() {
 		return cartNum;
@@ -65,7 +65,7 @@ public class CartListVO {
 	public String toString() {
 		return "CartListVO [cartNum=" + cartNum + ", userId=" + userId + ", productId=" + productId + ", cartStock="
 				+ cartStock + ", num=" + num + ", productName=" + productName + ", productPrice=" + productPrice
-				+ ", ProductThumbImg=" + ProductThumbImg + "]";
+				+ ", ProductThumbImg=" + productThumbImg + "]";
 	}
 
 	

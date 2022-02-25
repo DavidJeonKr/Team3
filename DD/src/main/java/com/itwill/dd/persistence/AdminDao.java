@@ -3,6 +3,7 @@ package com.itwill.dd.persistence;
 import java.util.List;
 
 import com.itwill.dd.domain.CategoryVO;
+
 import com.itwill.dd.domain.ProductVO;
 import com.itwill.dd.domain.ProductViewVO;
 
@@ -26,4 +27,5 @@ public interface AdminDao {
 	// 상품 삭제
 	int productDelete(int productId);
 	
+
 }

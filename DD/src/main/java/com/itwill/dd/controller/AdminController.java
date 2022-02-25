@@ -125,6 +125,8 @@ public class AdminController {
 	public String postGoodsRegister(ProductVO product, MultipartFile file) throws Exception {
 		log.info("postGoodsRegister 호출");
 		
+		log.info("product: " + product);
+		
 		// 이미지 등록
 		String imgUploadPath = uploadPath + File.separator + "/imgUpload";
 		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);

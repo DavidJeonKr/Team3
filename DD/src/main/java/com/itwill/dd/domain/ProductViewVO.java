@@ -10,12 +10,29 @@ public class ProductViewVO {
 	private String productThumbImg;
 	private String cateCode;
 	private String productSong;
+	private String productSong2;
+	private String productSong3;
 	
 	private String cateCodeRef;
 	private String CateName;
 	
+	
+	
+	
+	public String getProductSong2() {
+		return productSong2;
+	}
+	public void setProductSong2(String productSong2) {
+		this.productSong2 = productSong2;
+	}
+	public String getProductSong3() {
+		return productSong3;
+	}
+	public void setProductSong3(String productSong3) {
+		this.productSong3 = productSong3;
+	}
 	public int getProductId() {
-		return productId;
+		return productId;	
 	}
 	public void setProductId(int productId) {
 		this.productId = productId;
@@ -80,8 +97,9 @@ public class ProductViewVO {
 	public String toString() {
 		return "ProductViewVO [productId=" + productId + ", productName=" + productName + ", productPrice="
 				+ productPrice + ", productDesc=" + productDesc + ", productImg=" + productImg + ", productThumbImg="
-				+ productThumbImg + ", cateCode=" + cateCode + ", productSong=" + productSong + ", cateCodeRef="
-				+ cateCodeRef + ", CateName=" + CateName + "]";
+				+ productThumbImg + ", cateCode=" + cateCode + ", productSong=" + productSong + ", productSong2="
+				+ productSong2 + ", productSong3=" + productSong3 + ", cateCodeRef=" + cateCodeRef + ", CateName="
+				+ CateName + "]";
 	}
 
 
