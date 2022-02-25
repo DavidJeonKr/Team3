@@ -120,34 +120,6 @@
 		}
     </script>
     
-    <!--  
-	<script>
-	$(document).ready(function () {	
-		
-		
-		var xhr = new XMLHttpRequest();
-		var url = 'http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo'; /*URL*/
-		var queryParams = '?' + encodeURIComponent('solYear') + '=' + encodeURIComponent('2022'); /**/
-		//queryParams += '&' + encodeURIComponent('solMonth') + '=' + encodeURIComponent('02'); /**/
-		queryParams += '&' + encodeURIComponent('serviceKey') + '='+'Oo%2BES1TqVBZ%2BbXcx8awWhFBEOG4sTQdNtmIJXPbtnffK0pJsgpQo4ZcAgN3G2LgcBLPI9fGiVeKAmOR%2Bv8eDuw%3D%3D'; /*Service Key*/
-		queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent('json'); 
-		queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100'); 
-		
-		console.log(url + queryParams);
-		
-		xhr.open('GET', url + queryParams);
-		xhr.onreadystatechange = function () {
-		    if (this.readyState == 4) {
-		        alert('Status: '+this.status+'\nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'\nBody: '+this.responseText);
-		        console.log(this.responseText);
-		    }
-		};
-		xhr.send('');
-
-	
-	});
-	</script>
-	-->
 
 
 	<!-- 달력 출력 스크립트 (Fullcalendar) -->

@@ -54,20 +54,26 @@
 					</tr>
 				</thead>
 				<tbody>
+				
 					<c:forEach var="board" items="${boardList}">
+						<c:if test="${board.userid == userInfo.userid}">
                             <tr>
                                 <td>${board.bno}</td>
                                 <td>
-                                <a href="./detail?bno=${board.bno}">${board.title}</a>
+                                <a href="./detail?bno=${board.bno}&userid=${userInfo.userid}">${board.title}</a>
                                  </td>
+                                
                                 <td>${board.userid}</td>
+                                
                                 <td>
                                     <fmt:formatDate value="${board.regdate}" pattern="yyyy/MM/dd HH:mm"/>
                                 </td>
                                 <td>${board.view_cnt}</td>
                                 <td>${board.like_cnt}</td>
                             </tr>
+                            </c:if>
                         </c:forEach>
+                      
 				</tbody>
 			</table>
 
@@ -86,10 +92,10 @@
 			</div>
 
 			<div>
-				
+				<c:if test="${userInfo.userid == userid.userid}">  
 				<button class="btn btn-dark float-right" type="submit"><a href="./insert">새 글 작성</a></button>
 				<a href="./insert">새 글 작성</a>
-				
+				</c:if>
 				
 			</div>
 		</div>

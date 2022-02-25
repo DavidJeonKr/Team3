@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.itwill.dd.domain.Follow;
 import com.itwill.dd.persistence.FollowDao;
+import com.itwill.dd.persistence.UserDao;
 
 
 
@@ -12,6 +13,7 @@ import com.itwill.dd.persistence.FollowDao;
 public class FollowServiceImpl implements FollowService{
 	
 	@Autowired FollowDao followDao;
+	@Autowired UserDao userDao;
 	@Override
 	public boolean checkFollow(String followid, String followerid) {
 		Follow followCk =  followDao.getFollow(followid, followerid);
@@ -26,6 +28,8 @@ public class FollowServiceImpl implements FollowService{
 	public boolean addFollow(String followid, String followerid) {
 		int addFol = followDao.addFollow(followid, followerid);
 		if(addFol == 1) {
+			userDao.addFollow(followid);
+			userDao.addFollower(followerid);
 			return true;
 		}else {
 			return false;
@@ -37,7 +41,10 @@ public class FollowServiceImpl implements FollowService{
 	public boolean deleteFollow(String followid, String followerid) {
 		int deleteFol = followDao.deleteFollow(followid, followerid);
 		if(deleteFol == 1) {
+			userDao.deleteFollow(followid);
+			userDao.deleteFollower(followerid);
 			return true;
+			
 		}else {
 			return false;
 		}
