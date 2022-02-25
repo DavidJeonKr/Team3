@@ -9,11 +9,11 @@ public class ProductVO {
 	private String productImg;
 	private String cateCode;
 	private String productSong;
+
 	
 	
 	// 썸네일 저장할 필드
 	private String productThumbImg;
-	
 	
 	public int getProductId() {
 		return productId;
@@ -70,7 +70,9 @@ public class ProductVO {
 	public String toString() {
 		return "ProductVO [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
 				+ ", productDesc=" + productDesc + ", productImg=" + productImg + ", cateCode=" + cateCode
-				+ ", productSong=" + productSong + ", productThumbImg=" + productThumbImg + "]";
+				+ ", productSong=" + productSong
+				+ ", productThumbImg=" + productThumbImg + "]";
 	}
+
 
 }

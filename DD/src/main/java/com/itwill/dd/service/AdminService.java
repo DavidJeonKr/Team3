@@ -25,5 +25,5 @@ public interface AdminService {
 	
 	// 상품 삭제
 	int goodsDelete(int productId);
-	
+
 }

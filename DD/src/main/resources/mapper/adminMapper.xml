@@ -23,18 +23,23 @@
 	select * from product order by productId desc
 	</select>
 	 -->
-	
+	 
+	 	
 	<!-- 상품 목록 -->
 	<select id="goodsList" resultType="com.itwill.dd.domain.ProductViewVO">
+	
 	select
-	    p.productid, p.productname, p.catecode, c.catecoderef, c.catename, productPrice, productdesc, productimg,
+	    p.productid, p.productname, p.catecode, c.catecoderef, c.catename, productPrice, productdesc, productimg, productsong,
 	    p.productimg, p.productthumbimg
-	    from product p
+	      
+	   	from product p
 	    inner join product_category c
-	           on p.catecode = c.catecode
-	 	order by productid desc
+	           on p.catecode = c.catecode	 
+	    order by productid desc
 	</select>
 	
+	
+
 	
 	<!-- 상품 조회 -->
 	<!--   

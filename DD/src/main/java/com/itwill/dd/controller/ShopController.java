@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.dd.domain.CartListVO;
 import com.itwill.dd.domain.CartVO;
+import com.itwill.dd.domain.ProductVO;
 import com.itwill.dd.domain.ProductViewVO;
 import com.itwill.dd.domain.User;
+import com.itwill.dd.persistence.ShopDao;
 import com.itwill.dd.service.AdminService;
 import com.itwill.dd.service.ShopService;
 
@@ -45,17 +47,16 @@ public class ShopController {
 		List<ProductViewVO> list = adminService.goodsList();
 		
 		model.addAttribute("list", list);
+
 		
 		
 	}
 	
-	@RequestMapping(value = "/music", method = RequestMethod.GET)
-	public void shopMusic() {
+	@RequestMapping(value = "/music2", method = RequestMethod.GET)
+	public void shopMusic(Model model) {
+		List<ProductVO> musicList = shopService.musicList();
 		
-	}
-	
-	@RequestMapping(value = "/background", method = RequestMethod.GET)
-	public void shopBackground() {
+		model.addAttribute("musicList", musicList);
 		
 	}
 	
@@ -100,13 +101,153 @@ public class ShopController {
 		
 	}
 	
-	// 상품 조회
-	@RequestMapping(value = "/bgdetail", method = RequestMethod.GET)
-	public void shopBgDetail(@RequestParam("n") int productId, Model model) {
+	// 카트 삭제
+	@ResponseBody
+	@RequestMapping(value = "/deleteCart", method = RequestMethod.POST)
+	public int deleteCart(HttpSession session,
+	     @RequestParam(value = "chbox[]") List<String> chArr, CartVO cart) throws Exception {
+	 log.info("delete cart");
+	 
+	 User user = (User)session.getAttribute("userid");
+	 String userId = user.getUserid();
+	 
+	 int result = 0;
+	 int cartNum = 0;
+	 
+	 // Ajax에서 전송받는 배열 chbox를 chArr로 받은뒤, for문으로 chArr이 가지고 있는 값의 갯수 만큼 반복
+	 if(user != null) {
+		 cart.setUserId(userId);
+		  
+		 for(String s : chArr) {   
+			 cartNum = Integer.parseInt(s);
+			 cart.setCartNum(cartNum);
+			 shopService.deleteCart(cart);
+		 }   
+		 result = 1;
+		 }  
+		 return result;  
+	 }
+	
+	// 결제
+	@RequestMapping(value = "/payment", method = RequestMethod.POST)
+	public int payment(HttpSession session, @RequestParam(value = "chbox[]")List<String> chArr ) {
+		int result = 0;
 		
-		ProductViewVO product = adminService.goodsDetail(productId);
+		return result;
+	}
+	
+	// 검색
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public void search(Model model, String keyword) {
 		
-		model.addAttribute("product", product);
+		List<ProductVO> list = shopService.search(keyword);
+		
+		model.addAttribute("list", list);
 		
 	}
+	
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public void myPage() {
+		
+	}
+	
+
+	
+	/*
+	@ResponseBody
+	@RequestMapping(value = "/paymentCart1", method = RequestMethod.POST)
+	public int payment(HttpSession session, @RequestParam(value = "chbox[]") List<String> chArr, PaymentVO payment) {
+		
+		User user = (User)session.getAttribute("userid");
+		String userId = user.getUserid();
+		
+		int result = 0;
+		int userPrnum = 0;
+		
+		 if(user != null) {
+			 payment.setUserId(userId);
+			  
+			 for(String s : chArr) {   
+				 userPrnum = Integer.parseInt(s);
+				 payment.setUserPrnum(userPrnum);
+				 shopService.addPayment(payment);
+			 }   
+			 result = 1;
+			
+			 }  
+			 return result;  
+	}*/
+	
+	/*
+	// 결제
+	@ResponseBody
+	@RequestMapping(value = "/paymentCart", method = RequestMethod.POST)
+	public int payment2(HttpSession session,
+	     @RequestParam(value = "chbox[]") List<String> chArr, CartVO payment) throws Exception {
+	
+	 
+	 User user = (User)session.getAttribute("userid");
+	 String userId = user.getUserid();
+	 
+	 int result = 0;
+	 int cartNum = 0;
+	 
+	 // Ajax에서 전송받는 배열 chbox를 chArr로 받은뒤, for문으로 chArr이 가지고 있는 값의 갯수 만큼 반복
+	 if(user != null) {
+		 payment.setUserId(userId);
+		  
+		 for(String s : chArr) {   
+			 cartNum = Integer.parseInt(s);
+			 payment.setCartNum(cartNum);
+			 shopService.addPayment(payment);
+		 }   
+		 result = 1;
+		 deleteCart(session, chArr, payment);
+		 }  
+		 return result;  
+	 }*/
+	
+
+	
+	/*
+	// 결제 리스트
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public void profile(HttpSession session, Model model) {
+		
+		User user = (User)session.getAttribute("userid");
+		String userId = user.getUserid();
+		
+		List<PaymentVO> buyList = shopService.buyList(userId);
+		log.info("buyList" + buyList);
+		model.addAttribute("buyList", buyList);
+		
+	}*/
+	
+	
+	/*
+	@ResponseBody
+	@RequestMapping(value = "/deletePayment", method = RequestMethod.POST)
+	public int deletePayment(HttpSession session,
+	     @RequestParam(value = "chbox[]") List<String> chArr, PaymentVO payment) throws Exception {
+	 log.info("delete cart");
+	 
+	 User user = (User)session.getAttribute("userid");
+	 String userId = user.getUserid();
+	 
+	 int result = 0;
+	 int userPrnum = 0;
+	 
+	 // Ajax에서 전송받는 배열 chbox를 chArr로 받은뒤, for문으로 chArr이 가지고 있는 값의 갯수 만큼 반복
+	 if(user != null) {
+		 payment.setUserId(userId);
+		  
+		 for(String s : chArr) {   
+			 userPrnum = Integer.parseInt(s);
+			 payment.setUserPrnum(userPrnum);
+			 shopService.deletePayment(payment);
+		 }   
+		 result = 1;
+		 }  
+		 return result;  
+	 }*/
 }

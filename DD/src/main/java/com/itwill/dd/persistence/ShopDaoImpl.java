@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.itwill.dd.domain.CartListVO;
 import com.itwill.dd.domain.CartVO;
+import com.itwill.dd.domain.ProductVO;
+import com.itwill.dd.domain.User;
 
 @Repository
 public class ShopDaoImpl implements ShopDao {
@@ -30,5 +32,53 @@ public class ShopDaoImpl implements ShopDao {
 
 		return sql.selectList(NAMESPACE + ".cartList", userId);
 	}
+
+	// 카트 삭제
+	@Override
+	public int deleteCart(CartVO cart) {
+
+		return sql.delete(NAMESPACE + ".deleteCart", cart);
+	}
+
+	// 검색
+	@Override
+	public List<ProductVO> search(String keyword) {
+		
+		keyword = "%" + keyword + "%";
+		
+		return sql.selectList(NAMESPACE + ".search", keyword);
+	}
+
+	// 음악 리스트
+	@Override
+	public List<ProductVO> musicList() {
+		
+		return sql.selectList(NAMESPACE +".musicList");
+	}
+
+
+	
+
+	/*
+	// 결제 담기
+	@Override
+	public int addPayment(CartVO payment) {
+		
+		return sql.insert(NAMESPACE + ".paymentProduct", payment);
+	}
+
+	// 결제 리스트
+	@Override
+	public List<PaymentVO> buyList(String userId) {
+
+		return sql.selectList(NAMESPACE + ".buyList", userId);
+	}
+
+	// 결제 리스트 삭제
+	@Override
+	public int deletePayment(PaymentVO payment) {
+
+		return sql.delete(NAMESPACE + ".deletePayment", payment);
+	} */	
 
 }
