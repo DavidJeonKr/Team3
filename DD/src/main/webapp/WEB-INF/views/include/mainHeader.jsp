@@ -230,6 +230,7 @@
 		});
 		
 		function follow(check){
+			var link = document.location.href;
 			data={followerid:'${userInfo.userid}'}
 			if(check){
 				$.ajax({
@@ -239,6 +240,7 @@
 		    		success: function (result) {
 		    			if(result == "FollowOk"){
 		    				$('#followBtn').text('언팔로우');
+		    				location.href = link;
 		    			}
 		    		}
 		    	});
@@ -250,6 +252,7 @@
 		    		success: function (result) {
 		    			if(result == "UnFollowOk"){
 		    				$('#followBtn').text('팔로우');
+		    				location.href = link;
 		    			}
 		    		}
 		    	});
