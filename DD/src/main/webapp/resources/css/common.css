@@ -294,14 +294,16 @@ body{
   
   #searchVal {
   	display: flex;
-  	
+  	flex-direction: column;
   	
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
  
   }
-  
   .search_item {
-  	flex-direction: column;
+  width: 50px;
+  }
+  .search_item:nth-child(2){
+  	display:inline-block;
   }
