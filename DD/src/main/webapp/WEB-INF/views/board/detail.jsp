@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
@@ -34,8 +35,10 @@
 			<h4 style="margin-right: 40px;">글 상세보기</h4>
 			<ul class="navbar-nav">
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="./main">게시판 목록</a></li>
+				<c:if test="${userInfo.userid == userid.userid}">  
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" href="./update?bno=${board.bno}">수정</a></li>
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" id="menu-delete" href="./delete?bno=${board.bno}">삭제</a></li>
+				</c:if>
 			</ul>
 			
 			<div class="nav" style="margin-left: 300px">
@@ -113,21 +116,22 @@
 		<div>			
 			<input type="text" id="rcontent" name="rcontent" placeholder="댓글 입력"  />
                 <%-- 로그인한 사용자 아이디를 input의 값으로 설정 --%>
-                <input type="text" id="reply_userid" name="userid" value="admin" readonly />
+                <input type="text" id="reply_userid" name="userid" value="${userInfo.userid}" readonly />
                 <button id="btn_create_reply" class="btn btn-dark">등록</button>
                 
 		</div>
-		<div class="row">
+		<!--  
+		  <div class="row">
 			<div class="col-sm-8">			
 				<textarea style="height:50px" class="form-control" rows="5" id="comment" name="text"></textarea>
 			</div>
 			<div class="col-sm-1">
-				<input  style="height:50px;" type="text" id="reply_userid" name="userid" value="admin" readonly />
+				<input  style="height:50px;" type="text" id="reply_userid" name="userid" value="${userInfo.userid}" readonly />
 			</div>
 			<div class="col-sm-2">
 				<button id="btn_create_reply" class="btn btn-dark">등록</button>
 			</div>
-			
+		-->	
 			
 			
 		</div>
@@ -186,7 +190,7 @@
                     		   + '<input type="text" id="regdate" name="regdate" value="'
                     		   + dateStr
                     		   + '" readonly />';
-                    	if (this.userid == 'admin') { // 댓글 작성자 아이디와 로그인한 사용자 아이디가 같으면
+                    	if (this.userid == '${userid.userid}') { // 댓글 작성자 아이디와 로그인한 사용자 아이디가 같으면
                     		list += '<button class="reply_update">수정</button>'
                     			  + '<button class="reply_delete">삭제</button>';
                     	}

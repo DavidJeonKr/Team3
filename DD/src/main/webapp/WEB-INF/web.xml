@@ -48,5 +48,10 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 세션 시간 무제한 -->
+	<session-config>
+		<session-timeout>-1</session-timeout>
+	</session-config>
 
 </web-app>

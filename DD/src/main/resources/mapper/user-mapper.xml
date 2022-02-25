@@ -44,8 +44,32 @@
 	SELECT * FROM ${TABLE_USERS} WHERE ${COL_REAL_NAME} LIKE #{keyword} OR ${COL_NICKNAME} LIKE #{keyword}
 	</select>
 
-        
-        
+    <!-- 팔로우 숫자 올리기 -->
+    <update id="addFollowCnt">
+	UPDATE ${TABLE_USERS} 
+	SET ${COL_FOLLOWCNT} = ${COL_FOLLOWCNT} + 1    
+	WHERE ${COL_USERID} = #{followid}
+	</update>
+	
+    <!-- 팔로워 숫자 올리기 -->    
+    <update id="addFollowerCnt">
+	UPDATE ${TABLE_USERS} 
+	SET ${COL_FOLLOWERCNT} = ${COL_FOLLOWERCNT} + 1    
+	WHERE ${COL_USERID} = #{followerid}
+	</update>        
+	
+	<!-- 팔로우 숫자 줄이기 -->
+	<update id="deleteFollowCnt">
+	UPDATE ${TABLE_USERS} 
+	SET ${COL_FOLLOWCNT} = ${COL_FOLLOWCNT} - 1    
+	WHERE ${COL_USERID} = #{followid}
+	</update>
+	<!-- 팔로워 숫자 줄이기 -->
+	<update id="deleteFollowerCnt">
+	UPDATE ${TABLE_USERS} 
+	SET ${COL_FOLLOWERCNT} = ${COL_FOLLOWERCNT} - 1    
+	WHERE ${COL_USERID} = #{followerid}
+	</update>   
        
 
 </mapper>

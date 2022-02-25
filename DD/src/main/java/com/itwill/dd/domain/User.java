@@ -11,11 +11,14 @@ public class User {
 	private Date regdate;
 	private String nickname;
 	private int biscuit;
+	private int followcnt;
+	private int followercnt;
+	
 	
 	public User() {}
 	
 	public User(String userid, String password, String realname, String nickname, Date birthday, String phone, Date regdate,
-			 int biscuit) {
+			 int biscuit, int followcnt, int followercnt) {
 		super();
 		this.userid = userid;
 		this.password = password;
@@ -25,6 +28,8 @@ public class User {
 		this.regdate = regdate;
 		this.nickname = nickname;
 		this.biscuit = biscuit;
+		this.followcnt = followcnt;
+		this.followercnt = followercnt;
 	}
 	public String getUserid() {
 		return userid;
@@ -74,11 +79,24 @@ public class User {
 	public void setBiscuit(int biscuit) {
 		this.biscuit = biscuit;
 	}
-	
+	public int getFollowcnt() {
+		return followcnt;
+	}
+	public void setFollowcnt(int followcnt) {
+		this.followcnt = followcnt;
+	}
+	public int getFollowercnt() {
+		return followercnt;
+	}
+
+	public void setFollowercnt(int followercnt) {
+		this.followercnt = followercnt;
+	}
+
 	@Override
 	public String toString() {
 		
-		return String.format("USER{userid=%s, pwd=%s, realname=%s, birthday=%s, nickname=%s, phone=%s, biscuit=%d}",
-				this.userid, this.password, this.realname, this.birthday, this.nickname, this.phone, this.biscuit);
+		return String.format("USER{userid=%s, pwd=%s, realname=%s, birthday=%s, nickname=%s, phone=%s, biscuit=%d, followcnt=%d, followercnt=%d}",
+				this.userid, this.password, this.realname, this.birthday, this.nickname, this.phone, this.biscuit, this.followcnt, this.followercnt);
 	}
 }
