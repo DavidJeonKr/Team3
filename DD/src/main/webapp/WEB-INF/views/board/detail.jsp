@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
@@ -113,21 +114,22 @@
 		<div>			
 			<input type="text" id="rcontent" name="rcontent" placeholder="댓글 입력"  />
                 <%-- 로그인한 사용자 아이디를 input의 값으로 설정 --%>
-                <input type="text" id="reply_userid" name="userid" value="admin" readonly />
+                <input type="text" id="reply_userid" name="userid" value="${userInfo.userid}" readonly />
                 <button id="btn_create_reply" class="btn btn-dark">등록</button>
                 
 		</div>
-		<div class="row">
+		<!--  
+		  <div class="row">
 			<div class="col-sm-8">			
 				<textarea style="height:50px" class="form-control" rows="5" id="comment" name="text"></textarea>
 			</div>
 			<div class="col-sm-1">
-				<input  style="height:50px;" type="text" id="reply_userid" name="userid" value="admin" readonly />
+				<input  style="height:50px;" type="text" id="reply_userid" name="userid" value="${userInfo.userid}" readonly />
 			</div>
 			<div class="col-sm-2">
 				<button id="btn_create_reply" class="btn btn-dark">등록</button>
 			</div>
-			
+		-->	
 			
 			
 		</div>

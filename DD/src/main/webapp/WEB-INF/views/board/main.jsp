@@ -60,7 +60,9 @@
                                 <td>
                                 <a href="./detail?bno=${board.bno}">${board.title}</a>
                                  </td>
+                                
                                 <td>${board.userid}</td>
+                                
                                 <td>
                                     <fmt:formatDate value="${board.regdate}" pattern="yyyy/MM/dd HH:mm"/>
                                 </td>
