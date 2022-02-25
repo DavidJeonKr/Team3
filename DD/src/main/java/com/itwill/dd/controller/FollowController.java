@@ -37,10 +37,10 @@ public class FollowController {
 	
 	@RequestMapping(value="/check", method = RequestMethod.POST)
 	@ResponseBody
-	public String followCk(String followid, HttpSession session) {
+	public String followCk(String followerid, HttpSession session) {
 		User signInUser = (User)session.getAttribute("userid");
-		log.info("{}",followid);
-		if(followService.checkFollow(followid, signInUser.getUserid())) {
+		log.info("{}",followerid);
+		if(followService.checkFollow(signInUser.getUserid(),followerid)) {
 			return "follow";
 		}else {
 			return "unfollow";
@@ -50,10 +50,10 @@ public class FollowController {
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	@ResponseBody
-	public String followAdd(String followid, HttpSession session) {
+	public String followAdd(String followerid, HttpSession session) {
 		User signInUser = (User)session.getAttribute("userid");
-		log.info("{}",followid);
-		if(followService.addFollow(followid, signInUser.getUserid())) {
+		log.info("{}",followerid);
+		if(followService.addFollow(signInUser.getUserid(), followerid)) {
 			return "FollowOk";
 		}else {
 			return "FollowNotOk";
@@ -63,10 +63,10 @@ public class FollowController {
 	
 	@RequestMapping(value="/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public String followDelete(String followid, HttpSession session) {
+	public String followDelete(String followerid, HttpSession session) {
 		User signInUser = (User)session.getAttribute("userid");
-		log.info("{}",followid);
-		if(followService.deleteFollow(followid, signInUser.getUserid())) {
+		log.info("{}",followerid);
+		if(followService.deleteFollow(signInUser.getUserid(), followerid)) {
 			return "UnFollowOk";
 		}else {
 			return "UnFollowNotOk";

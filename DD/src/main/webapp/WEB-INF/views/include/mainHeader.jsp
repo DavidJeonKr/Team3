@@ -86,10 +86,10 @@
 
                         <ul class="middle">
                             <li>
-                                <span>팔로워</span>
+                                <span>팔로워</span> ${userInfo.followercnt}
                             </li>
                             <li>
-                                <span>팔로우</span> 
+                                <span>팔로우</span> ${userInfo.followcnt}
                             </li>
                             <li>
                                	 비스켓 ${userInfo.biscuit}
@@ -163,7 +163,7 @@
     $(document).ready(function () {
     	
     	// 팔로우 확인하기
-    	data={followid:'${userInfo.userid}'}
+    	data={followerid:'${userInfo.userid}'}
     	$.ajax({
     		url: '/dd/follow/check/',
     		type: 'POST', 
@@ -230,7 +230,7 @@
 		});
 		
 		function follow(check){
-			data={followid:'${userInfo.userid}'}
+			data={followerid:'${userInfo.userid}'}
 			if(check){
 				$.ajax({
 		    		url: '/dd/follow/add/',

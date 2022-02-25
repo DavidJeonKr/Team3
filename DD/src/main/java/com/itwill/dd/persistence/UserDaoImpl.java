@@ -65,6 +65,27 @@ public class UserDaoImpl implements UserDao {
 		return sqlSession.selectList(USER_NAMESPACE + ".search", params);
 	}
 
+	@Override
+	public int addFollow(String followid) {
+		return sqlSession.update(USER_NAMESPACE + ".addFollowCnt", followid);
+	}
+
+	@Override
+	public int addFollower(String followerid) {
+		return sqlSession.update(USER_NAMESPACE + ".addFollowerCnt", followerid);
+	}
+
+	@Override
+	public int deleteFollow(String followid) {
+		return sqlSession.delete(USER_NAMESPACE + ".deleteFollowCnt", followid);
+	}
+
+	@Override
+	public int deleteFollower(String followerid) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(USER_NAMESPACE + ".deleteFollowerCnt", followerid);
+	}
+
 	
 
 }
