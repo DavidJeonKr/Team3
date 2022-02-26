@@ -2,17 +2,18 @@
 
 .title {
     position: absolute;
-    left: 35px;
+    left: 10px;
     top: -50px;
 }
 
 .content {
-    top: 100px;
+    top: 40px;
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-left: 10px;
 }
 
 .content_list {
@@ -25,12 +26,34 @@
     margin-right: 20px;
 }
 
-.content_list span {
-    line-height: 25px;
+.content_list:nth-child(1), .content_list:nth-child(2) {
+	margin-top: 0;
+}
+
+.content_list div {
+    line-height: 30px;
     padding-left: 20px;
-    width: 250px;
+    width: 300px;
+    height: 170px;
+}
+
+.content_list div h2 {
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+.content_list div h3 {
+	font-size: 16px;
+	color: lightgreen;	
+}
+
+.content_list div span:nth-child(7), .content_list div span:nth-child(9) {
+	display: none;
 }
 
 .content img {
     width: 180px;
 }
+
+
+

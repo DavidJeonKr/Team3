@@ -1,7 +1,7 @@
 package com.itwill.dd.domain;
 
 public class CategoryVO {
-	
+	 
 	private String cateName;
 	private String cateCode;
 	private String cateCodeRef;

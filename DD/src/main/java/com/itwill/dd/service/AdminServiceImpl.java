@@ -15,7 +15,7 @@ import com.itwill.dd.persistence.AdminDao;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-
+ 
 	private static final Logger log = LoggerFactory.getLogger(AdminServiceImpl.class);
 	
 	@Autowired

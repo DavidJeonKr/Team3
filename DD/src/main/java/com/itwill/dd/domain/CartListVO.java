@@ -2,7 +2,7 @@ package com.itwill.dd.domain;
 
 public class CartListVO {
 
-	
+	 
 	private int cartNum;
 	private String userId;
 	private int productId;

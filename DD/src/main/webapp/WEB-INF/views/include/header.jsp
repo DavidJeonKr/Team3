@@ -11,9 +11,10 @@
 	    <header>
             <a href="./main2"><img src="../resources/imgs/shop/logo.png" alt=""></a>
             <ul class="main_menu">
+            <c:if test="${userid.nickname == '세지'}">
             	<li><a href="../admin/goods/main">관리자 페이지</a></li>
-                <li><a href="./music">MUSIC</a></li>
-                <li><a href="./background">BACKGROUND</a></li>
+            </c:if>
+                <li><a href="./music2">MUSIC</a></li>
             </ul>
         </header>
 </body>

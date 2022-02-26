@@ -9,7 +9,7 @@
 	
 	</select>
 
-
+ 
 	<!-- 상품 등록 -->
 	<insert id="register">
 	insert into product (productname, productprice, productdesc, productImg, productThumbImg, catecode, productsong)
@@ -63,6 +63,7 @@
 	<update id="goodsUpdate">
 	update product
 	set productname = #{productName},
+		catecode = #{cateCode},
 		productprice = #{productPrice},
 		productdesc = #{productDesc},
 		productImg = #{productImg},

@@ -93,8 +93,9 @@
 	margin-bottom: 0px;
 }
 
-.con1_title{
+.con1_title, .con2_title {
     color: gray; margin: 0 5px 10px 5px;
+    font-size: 20px;
 }
 
 .hotList, .originalList {
@@ -105,10 +106,10 @@
     width: 250px; 
     margin-right: 20px; position: relative;
 }
-.hotList li:nth-child(1){
+.hotList li:nth-child(1), .originalList:nth-child(1){
     margin-left: 5px;
 }
-.hotList li:nth-child(5){
+.hotList li:nth-child(5), .originalList:nth-child(5){
     margin-right: 5px;
 }
 .hotList li img, .originalList li img{
@@ -128,29 +129,30 @@
 	transition: .5s;
 }
 
-.hotList li span h4, .originalList li span h4{
+.hotList li span h4, .originalList li h4{
 	font-size: 17px;
 	margin-top: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 3px;
 
 	}
 
 .hotList li span, .originalList li span{
-   display: block; 
-    width: 100%; height: 130px;
+    display: block; 
+    width: 100%; height: 80px;
     margin-top: 0;
 }
 
-.hotList li span a, .originalList li span a {
+.hotList li span a, .originalList li a {
 	color: black;
 }
+
 
 #main .inner .con2{
     margin-top: 0; 
 }
 
 .con2_title{
-    color: gray; margin: 0 5px 10px 0;
+	margin-top: 5px;
 }
 
 
@@ -161,13 +163,14 @@
 .left_img ul li {
 	position: relative;
 }
-.hotList li span a .songtitle {
+.hotList li span a .songtitle, .originalList li span a .songtitle {
 	padding: 0 5px;
 	border-radius: 10px;
 	border: 1px solid lightgreen;
 	display:inline-block;
 	color: lightgreen;
-	margin: 5px 5px 0 0;
+	margin: 0 5px 0 0;
+	font-size: 13px;
 }
 .minititle p {
 	display: inline-block;
@@ -196,12 +199,110 @@
 #main .inner .minititle:hover p {
 	text-decoration: underline;
 }
-
 .userId {
+	padding: 10px;
 	border-radius: 10px;
 	width: 150px;
-	height: 200px;
+	height: 130px;
 	border: 1px solid #ccc;
 	position: absolute;
 	top: 13%;
 	right: -100px;
+}
+
+.userId p {
+	margin-left: 10px;
+	padding: 8px;
+	margin-top: 0;
+}
+
+.userId_text:nth-child(1) {
+	color: black;
+}
+
+.userId_text:hover {
+	background-color: rgb(228, 225, 225);
+    border-radius: 10px;
+    color: #fff;
+}
+
+.originalList h4:hover {
+	text-decoration: underline;
+}
+
+#search_box {
+	border-radius: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+} 
+
+.ranking {
+	line-height: 20px;
+	font-size: 18px;
+}
+
+.ranking div:nth-child(1) {
+	margin-top: 10px;
+}
+
+.ranking div a {
+	color: black;
+}
+
+.ranking:nth-of-type(1) tr:nth-child(1) td, .ranking:nth-of-type(1) tr:nth-child(2) td {
+	color:lightgreen;
+}
+
+.ranking td:nth-child(1):hover {
+	line-height: 50px;	
+	width: 300px;
+	font-size: 22px;
+}
+.search {
+	position: absolute;
+	top: 48%;
+	width: 350px;
+	right: -300px;
+}
+
+.ranking img {
+	width:50px;
+	display: none;
+}
+
+.ranking td:hover .ranking_img {
+	display: inline-block;
+	
+}
+
+
+#modal .modal-window {
+	background: #fff;
+	border: 0.5px solid black;
+	width: 500px;
+	height: 370px;
+	position: absolute;
+	top: 200px;
+	left: -100px;
+	padding: 10px;
+}
+
+#modal .close-area {
+	margin-top: 7px;
+	display: inline;
+	float: right;
+	padding: 2px 5px;
+	cursor: pointer;
+	border: 1px solid black;
+}
+        
+#modal .content {
+	
+	
+}
+
+
+
+
+
+
