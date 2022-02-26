@@ -1,7 +1,7 @@
 package com.itwill.dd.domain;
 
 public class ProductViewVO {
-	
+	 
 	private int productId;
 	private String productName;
 	private int productPrice;
