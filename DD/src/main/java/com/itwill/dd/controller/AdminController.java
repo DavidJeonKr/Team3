@@ -131,18 +131,20 @@ public class AdminController {
 		String imgUploadPath = uploadPath + File.separator + "/imgUpload";
 		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
 		String fileName = null;
-
+		log.info(imgUploadPath);
+		  log.info(ymdPath);
+		  log.info(fileName);
 		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
 		 fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
 		} else {
 		 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
 		}
-
+		log.info("이미지 등록");
 		product.setProductImg(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
 		product.setProductThumbImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 		
 		adminService.register(product);
-		
+		log.info("등록 완료");
 		return "redirect:/admin/goods/list";
 	}
 	
@@ -192,15 +194,18 @@ public class AdminController {
 		  // 기존 파일을 삭제
 		  new File(uploadPath + req.getParameter("productImg")).delete();
 		  new File(uploadPath + req.getParameter("productThumbImg")).delete();
-		  
+		  log.info("기존파일삭제 완료");
 		  // 새로 첨부한 파일을 등록
 		  String imgUploadPath = uploadPath + File.separator + "imgUpload";
 		  String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
 		  String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
 		  
+		  log.info(imgUploadPath);
+		  log.info(ymdPath);
+		  log.info(fileName);
 		  product.setProductImg(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
 		  product.setProductThumbImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
-		  
+		  log.info("새 파일등록 완료");
 		 } else {  // 새로운 파일이 등록되지 않았다면
 		  // 기존 이미지를 그대로 사용
 		  product.setProductImg(req.getParameter("productImg"));
@@ -209,7 +214,7 @@ public class AdminController {
 		 }
 		 
 		adminService.goodsUpdate(product);
-		
+		log.info("업데이트 완료");
 		return "redirect:/admin/goods/list";
 	}
 	
