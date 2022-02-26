@@ -63,6 +63,7 @@
 	<update id="goodsUpdate">
 	update product
 	set productname = #{productName},
+		catecode = #{cateCode},
 		productprice = #{productPrice},
 		productdesc = #{productDesc},
 		productImg = #{productImg},
