@@ -9,7 +9,7 @@
 	
 	</select>
 
-
+ 
 	<!-- 상품 등록 -->
 	<insert id="register">
 	insert into product (productname, productprice, productdesc, productImg, productThumbImg, catecode, productsong)

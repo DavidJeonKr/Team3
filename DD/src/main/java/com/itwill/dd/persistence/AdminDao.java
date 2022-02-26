@@ -8,7 +8,7 @@ import com.itwill.dd.domain.ProductVO;
 import com.itwill.dd.domain.ProductViewVO;
 
 public interface AdminDao {
-	
+	 
 	// 카테고리
 	List<CategoryVO> category();
 	

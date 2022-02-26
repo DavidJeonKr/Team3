@@ -15,7 +15,7 @@ import com.itwill.dd.domain.ProductViewVO;
 
 @Repository
 public class AdminDaoImpl implements AdminDao {
-
+ 
 	private static final String NAMESPACE = "com.itwill.dd.mapper.AdminMapper";
 
 	private static final Logger log = LoggerFactory.getLogger(AdminDaoImpl.class);

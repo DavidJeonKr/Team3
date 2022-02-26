@@ -46,7 +46,7 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	// servlet-context.xml에서 설정한 uploadPath 추가
+	// servlet-context.xml에서 설정한 uploadPath 추가 
 	@Resource(name="uploadPath")
 	private String uploadPath;
 		
