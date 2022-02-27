@@ -52,7 +52,7 @@
 					<form id="modalForm" method="post">
      		 	<!-- Modal Header -->
          			 <div class="modal-header">
-           				 <h4 class="modal-title">일정 등록</h4>
+           				 <h4 class="modal-title">일정 관리</h4>
             				<button type="button" class="close"
               					onclick="initModal('insertModal', g_arg)"
             				> &times;
@@ -88,9 +88,9 @@
               	onclick="deleteEvent()">삭제</button>
             <button type="submit" class="btn btn-warning float-right insertBtn" id="insertBtn"
               	onclick="insertEvent()">등록</button>
-            </c:if>
-            
+            </c:if>            
           </div>
+          
           </form>
         </div>
       </div>
@@ -173,11 +173,14 @@
 			       console.log(sessionid);
 			       console.log(userinfoid);
 					if(sessionid == userinfoid){
-				   console.log(arg);
-				  
-			       $('#scheduleModal').modal({backdrop: "static"});   //id가 "insertModal"인 모달창을 열어준다.
-			       }
-			       $('#updateBtn', '#deleteBtn').css('display', 'none');
+				   		console.log(arg);
+				   		$('#scheduleModal').modal({backdrop: "static"});   //id가 "scheduleModal"인 모달창을 열어준다.
+			       		
+				  	}
+					$("#insertBtn").css("display", "");
+					$("#updateBtn").css("display", "none");
+					$("#deleteBtn").css("display", "none");
+					
 			       startDate = arg.startStr;		
 			       $('#start_date').val(startDate);
 			       console.log(startDate);			  //선택한 시작일 출력    
@@ -232,6 +235,10 @@
 			     },
 								
 			     eventClick: function(arg) {  
+			    	$("#insertBtn").css("display", "none");
+			    	$("#updateBtn").css("display", "");
+					$("#deleteBtn").css("display", "");
+			    	 
 			    	dno = arg.event.id;
 			    	var dname = arg.event.title;
 			    	var start = arg.event.start;
@@ -267,7 +274,7 @@
 			    	console.log(dname);
 			    	console.log(start);
 			    	console.log(end);
-				    $('#scheduleModal').modal();
+				    $('#scheduleModal').modal({backdrop: "static"});
 				    $('#dname').val(dname)
 				    $('#start_date').val(start);
 				    $('#end_date_fake').val(end);
@@ -308,15 +315,121 @@
 			     },
 			     
 			     eventDrop: function (arg) {	//이벤트 드래그드랍 시 호출될 함수			    	 
-			    	 if(sessionid == userinfoid){
-			    	 $('#scheduleModal').modal(arg);
-			    	 }
+			    	console.log(arg.event.end.toISOString());
+					console.log("일정 Drop");
+			    	
+					var resizeStart = arg.event.start;
+					console.log(resizeStart);
+					function getFormatDate(resizeStart) {
+					    var year = resizeStart.getFullYear();              //yyyy
+					    var month = (1 + resizeStart.getMonth());          //M
+					    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+					    var day = resizeStart.getDate();                   //d
+					    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+					    return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+					}
+					
+					resizeStart = getFormatDate(resizeStart);
+					console.log(resizeStart);
+					 
+					var resizeEnd = arg.event.end;				    
+					console.log(resizeEnd);	//종료일 포맷 변경
+				    function getFormatDate(resizeEnd) {
+					    var year = resizeEnd.getFullYear();              //yyyy
+					    var month = (1 + resizeEnd.getMonth());          //M
+					    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+					    var day = resizeEnd.getDate();                   //d
+					    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+					    return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+					}
+					
+				    resizeEnd = getFormatDate(resizeEnd);
+					console.log(resizeEnd);		 
+					
+					var data = 
+						{
+							dno : arg.event.id,
+							dname : arg.event.title,
+							start_date : resizeStart,
+							end_date : resizeEnd	
+						}	//컨트롤에 넘길 데이터이름 : 데이터
+					console.log(data);
+					
+					if(confirm("해당 일정을 정말 수정하시겠습니까?")) {
+						$.ajax({
+							type: "POST",
+							url: "update",
+							data: data,		
+							success:function() {
+								console.log("수정 완료");
+								alert("선택하신 일정이 수정되었습니다.");
+								location.href='http://localhost:8181/dd/diary/calendar';
+							}						
+						});	
+						
+					} else {
+						return;
+					}
+			    	 
 			     },
 			     
-			     eventResize: function (arg) {	//이벤트 사이즈 변경 시(일정변경) 호출될 함수
-			    	 if(sessionid == userinfoid){
-			    	 $('#scheduleModal').modal(arg);
-			    	 }
+			     eventResize: function (arg) {	//이벤트 사이즈 변경 시(일정변경) 호출될 함수			    	 					 
+					console.log(arg.event.end.toISOString());
+					console.log("일정사이즈 수정");
+					 
+					var resizeStart = arg.event.start;
+					console.log(resizeStart);
+					function getFormatDate(resizeStart) {
+					    var year = resizeStart.getFullYear();              //yyyy
+					    var month = (1 + resizeStart.getMonth());          //M
+					    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+					    var day = resizeStart.getDate();                   //d
+					    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+					    return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+					}
+					
+					resizeStart = getFormatDate(resizeStart);
+					console.log(resizeStart);
+					 
+					var resizeEnd = arg.event.end;				    
+					console.log(resizeEnd);	//종료일 포맷 변경
+				    function getFormatDate(resizeEnd) {
+					    var year = resizeEnd.getFullYear();              //yyyy
+					    var month = (1 + resizeEnd.getMonth());          //M
+					    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+					    var day = resizeEnd.getDate();                   //d
+					    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+					    return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+					}
+					
+				    resizeEnd = getFormatDate(resizeEnd);
+					console.log(resizeEnd);		 
+					
+					var data = 
+						{
+							dno : arg.event.id,
+							dname : arg.event.title,
+							start_date : resizeStart,
+							end_date : resizeEnd	
+						}	//컨트롤에 넘길 데이터이름 : 데이터
+					console.log(data);
+					 
+					if(confirm("해당 일정을 정말 수정하시겠습니까?")) {
+						$.ajax({
+							type: "POST",
+							url: "update",
+							data: data,		
+							success:function() {
+								console.log("수정 완료");
+								alert("선택하신 일정이 수정되었습니다.");
+								location.href='http://localhost:8181/dd/diary/calendar';
+							}						
+						});	
+						
+					} else {
+						return;
+					}					 
+					 
 			     },
 			     			
 				 events : 					
@@ -339,13 +452,11 @@
 		function initModal(modal, arg) {
 		    $("#dname").val("");		   	   
 		    $("." + modal).modal("hide");
+		    $("#insertBtn").css("display", "");			    	
+			$("#updateBtn").css("display", "");
+			$("#deleteBtn").css("display", "");
 		   
 		}
-		<%--모달 datepicker
-		$(function(){
-			$("#start", "#end").datepicker();
-			
-		}); --%>
 			
 		//Modal 버튼 클릭 함수
 		function insertEvent() {
@@ -395,7 +506,7 @@
 				}
 			}
 			
-			function updateEvent(){
+			function updateEvent() {
 				console.log("일정 수정 중");
 				var data = 
 				{

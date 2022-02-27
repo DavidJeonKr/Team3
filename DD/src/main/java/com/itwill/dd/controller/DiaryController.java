@@ -56,41 +56,41 @@ public class DiaryController {
 //		return entity;	
 //	}	
 	
-	public List<Diary> getHoliday() throws Exception {
-		System.out.println("\n>>>>>>>>>>");
-		
-		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=Oo%2BES1TqVBZ%2BbXcx8awWhFBEOG4sTQdNtmIJXPbtnffK0pJsgpQo4ZcAgN3G2LgcBLPI9fGiVeKAmOR%2Bv8eDuw%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("30", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("solYear","UTF-8") + "=" + URLEncoder.encode("2022", "UTF-8")); /*연*/
-//      urlBuilder.append("&" + URLEncoder.encode("solMonth","UTF-8") + "=" + URLEncoder.encode("02", "UTF-8")); /*월*/
-        urlBuilder.append("&_type=json");
-        URL url = new URL(urlBuilder.toString());
-        
-        System.out.println(url);
-        
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setRequestProperty("Content-type", "application/json");
-        System.out.println("Response code: " + conn.getResponseCode());
-        
-        BufferedReader rd;
-        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        } else {
-            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-        }
-        
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = rd.readLine()) != null) {
-            sb.append(line);
-        }
-        
-        System.out.println(sb);
-        System.out.println("<<<<<<<<<<\n");
-       
+//	public List<Diary> getHoliday() throws Exception {
+//		System.out.println("\n>>>>>>>>>>");
+//		
+//		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo"); /*URL*/
+//        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=Oo%2BES1TqVBZ%2BbXcx8awWhFBEOG4sTQdNtmIJXPbtnffK0pJsgpQo4ZcAgN3G2LgcBLPI9fGiVeKAmOR%2Bv8eDuw%3D%3D"); /*Service Key*/
+//        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
+//        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("30", "UTF-8")); /*한 페이지 결과 수*/
+//        urlBuilder.append("&" + URLEncoder.encode("solYear","UTF-8") + "=" + URLEncoder.encode("2022", "UTF-8")); /*연*/
+////      urlBuilder.append("&" + URLEncoder.encode("solMonth","UTF-8") + "=" + URLEncoder.encode("02", "UTF-8")); /*월*/
+//        urlBuilder.append("&_type=json");
+//        URL url = new URL(urlBuilder.toString());
+//        
+//        System.out.println(url);
+//        
+//        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//        conn.setRequestMethod("GET");
+//        conn.setRequestProperty("Content-type", "application/json");
+//        System.out.println("Response code: " + conn.getResponseCode());
+//        
+//        BufferedReader rd;
+//        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+//            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//        } else {
+//            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+//        }
+//        
+//        StringBuilder sb = new StringBuilder();
+//        String line;
+//        while ((line = rd.readLine()) != null) {
+//            sb.append(line);
+//        }
+//        
+//        System.out.println(sb);
+//        System.out.println("<<<<<<<<<<\n");
+//       
 //        JSONParser parser = new JSONParser();
 //        JSONObject obj = (JSONObject)parser.parse(sb.toString());
 //        JSONObject parseResponse = (JSONObject) obj.get("response");
@@ -123,12 +123,12 @@ public class DiaryController {
 //        
 //        rd.close();
 //        conn.disconnect();
-        return null;
-	}
+//        return null;
+//	}
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public void main(HttpSession session, Model model, String userid) throws Exception { 
-		getHoliday();
+//		getHoliday();
 		
 		
 		

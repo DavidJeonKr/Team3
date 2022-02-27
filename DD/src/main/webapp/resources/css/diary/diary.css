@@ -1488,3 +1488,23 @@ A VERTICAL event
 .modal-footer {
 	display: inline-block;
     }
+
+#insertBtn {
+	background-color: #343a40;
+    border-color: #343a40;
+    color: white;
+}
+
+#deleteBtn {
+	/*background-color: red;*/
+	background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#updateBtn {
+	/*background-color: yellow;*/
+	background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+    
