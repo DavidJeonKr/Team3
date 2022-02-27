@@ -24,7 +24,6 @@
 				<ul>
 					<li>${userid.nickname}님 환영합니다.</li>
 					<li><a href="../user/logout">로그아웃</a></li>
-					<li><a href="./profile2">개인정보</a></li>
 					
 				</ul>
 			</aside>
