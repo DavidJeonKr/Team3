@@ -161,6 +161,19 @@
 	
     <script>
     $(document).ready(function () {
+    	var str = window.location.pathname.slice(4,5)
+    	if(str == "d"){
+    		$('.diary').css({
+    			"color" : "black",
+    			"border-top" : "solid 1px black"
+    		});
+    	}else if(str=="b"){
+    		$('.board').css({
+    			"color" : "black",
+    			"border-top" : "solid 1px black"
+    		});
+    	}
+    	console.log();
     	
     	// 팔로우 확인하기
     	data={followerid:'${userInfo.userid}'}
