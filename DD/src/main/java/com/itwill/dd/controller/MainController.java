@@ -33,7 +33,7 @@ public class MainController {
 			// TODO: 로그인 유저 정보 넘기기
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", signInUser);
-			return "redirect:/diary/calendar";
+			return "redirect:/diary/calendar?userid="+user.getUserid();
 		}
 		
 	}

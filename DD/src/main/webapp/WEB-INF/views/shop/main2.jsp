@@ -14,7 +14,7 @@
     
     <script src="../resources/js/shop/jquery.min.js"></script>
     <script src="../resources/js/shop/shop.js" defer></script>
-    
+     
     <style>
     #wrap footer {
     	margin-top: 170px;

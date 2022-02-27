@@ -29,7 +29,7 @@
     		 				<div id="profile_edit">프로필 설정</div>
     		 			</li>
     		 			<li>
-							<div id="pass_change">비밀번호 변경</div>
+							<div style="border-left: solid black 5px; font-weight: 600;" id="pass_change">비밀번호 변경</div>
     		 			</li>
     		 		</ul>
     		 	

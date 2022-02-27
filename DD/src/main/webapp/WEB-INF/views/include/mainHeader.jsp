@@ -29,7 +29,7 @@
         <header id="header">
             <section class="h_inner">
                 <h1 class="logo">
-                    <a href="../diary/calendar">
+                    <a href="../diary/calendar?userid=${userid.userid}">
                         <div class="logo_location">
                             <img src="../resources/imgs/main/DD.png" alt="DD" class="DDlogo">
                         </div>
@@ -49,7 +49,7 @@
                 </div>
                
                 <div class="right_icons">
-                    <a href="../diary/calendar"><div class="sprite_home_icon"></div></a>
+                    <a href="../diary/calendar?userid=${userid.userid}"><div class="sprite_home_icon"></div></a>
                     <a href="../shop/main2"><img src="../resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
                     <div class="dropdown">
                         <div onclick="myFunction()" class="sprite_setting_icon"></div>
@@ -161,6 +161,19 @@
 	
     <script>
     $(document).ready(function () {
+    	var str = window.location.pathname.slice(4,5)
+    	if(str == "d"){
+    		$('.diary').css({
+    			"color" : "black",
+    			"border-top" : "solid 1px black"
+    		});
+    	}else if(str=="b"){
+    		$('.board').css({
+    			"color" : "black",
+    			"border-top" : "solid 1px black"
+    		});
+    	}
+    	console.log();
     	
     	// 팔로우 확인하기
     	data={followerid:'${userInfo.userid}'}

@@ -34,10 +34,10 @@
 		<nav class="navbar navbar-expand-sm bg-light navbar-light">
 			<h4 style="margin-right: 40px;">글 상세보기</h4>
 			<ul class="navbar-nav">
-				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="./main">게시판 목록</a></li>
+				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="./main?userid=${userInfo.userid}">게시판 목록</a></li>
 				<c:if test="${userInfo.userid == userid.userid}">  
-				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" href="./update?bno=${board.bno}">수정</a></li>
-				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" id="menu-delete" href="./delete?bno=${board.bno}">삭제</a></li>
+				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" href="./update?bno=${board.bno}&userid=${userInfo.userid}">수정</a></li>
+				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" id="menu-delete" href="./delete?bno=${board.bno}&userid=${userInfo.userid}">삭제</a></li>
 				</c:if>
 			</ul>
 			

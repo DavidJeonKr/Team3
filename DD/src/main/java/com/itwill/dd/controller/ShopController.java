@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,14 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.dd.domain.CartListVO;
 import com.itwill.dd.domain.CartVO;
+import com.itwill.dd.domain.PaymentProductList;
 import com.itwill.dd.domain.ProductVO;
 import com.itwill.dd.domain.ProductViewVO;
 import com.itwill.dd.domain.User;
 import com.itwill.dd.persistence.ShopDao;
 import com.itwill.dd.service.AdminService;
 import com.itwill.dd.service.ShopService;
-
-
 
 
 @Controller
@@ -129,11 +128,36 @@ public class ShopController {
 	 }
 	
 	// 결제
+	@ResponseBody
 	@RequestMapping(value = "/payment", method = RequestMethod.POST)
-	public int payment(HttpSession session, @RequestParam(value = "chbox[]")List<String> chArr ) {
-		int result = 0;
+	public int payment(HttpSession session, @RequestParam(value = "chbox[]")List<String> chArr, CartVO cart ) throws Exception {
 		
-		return result;
+		User user = (User)session.getAttribute("userid");
+		String userId = user.getUserid();
+		
+		
+		
+		int result = 0;
+		int cartNum = 0;
+		
+		 if(user != null) {
+			 cart.setUserId(userId);
+			  
+			 for(String s : chArr) {   
+				
+				 cartNum = Integer.parseInt(s);
+				 cart.setCartNum(cartNum);
+				 log.info("cart" + cart);
+				 shopService.paymentProduct(cart);
+				 
+				 shopService.updateViscuit(userId);
+				 deleteCart(session, chArr, cart);
+			 }   
+			 result = 1;
+			 }  
+			 return result;  
+	
+		
 	}
 	
 	// 검색
@@ -146,8 +170,17 @@ public class ShopController {
 		
 	}
 	
+	// 내 정보
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public void myPage() {
+	public void myPage(HttpSession session, Model model) {
+		
+		User user = (User)session.getAttribute("userid");
+		String userId = user.getUserid();
+		
+		List<PaymentProductList> addList = shopService.paymentProductList(userId);
+		
+		model.addAttribute("addList", addList);
+		
 		
 	}
 	
@@ -224,11 +257,11 @@ public class ShopController {
 	}*/
 	
 	
-	/*
+	
 	@ResponseBody
 	@RequestMapping(value = "/deletePayment", method = RequestMethod.POST)
 	public int deletePayment(HttpSession session,
-	     @RequestParam(value = "chbox[]") List<String> chArr, PaymentVO payment) throws Exception {
+	     @RequestParam(value = "chbox[]") List<String> chArr, PaymentProductList payment) throws Exception {
 	 log.info("delete cart");
 	 
 	 User user = (User)session.getAttribute("userid");
@@ -249,5 +282,5 @@ public class ShopController {
 		 result = 1;
 		 }  
 		 return result;  
-	 }*/
+	 }
 }
