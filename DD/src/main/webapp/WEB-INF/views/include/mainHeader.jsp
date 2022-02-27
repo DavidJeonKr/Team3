@@ -29,7 +29,7 @@
         <header id="header">
             <section class="h_inner">
                 <h1 class="logo">
-                    <a href="../diary/calendar">
+                    <a href="../diary/calendar?userid=${userid.userid}">
                         <div class="logo_location">
                             <img src="../resources/imgs/main/DD.png" alt="DD" class="DDlogo">
                         </div>
@@ -49,7 +49,7 @@
                 </div>
                
                 <div class="right_icons">
-                    <a href="../diary/calendar"><div class="sprite_home_icon"></div></a>
+                    <a href="../diary/calendar?userid=${userid.userid}"><div class="sprite_home_icon"></div></a>
                     <a href="../shop/main2"><img src="../resources/imgs/main/shop.jpg" alt="shop" class="shop"></a>
                     <div class="dropdown">
                         <div onclick="myFunction()" class="sprite_setting_icon"></div>

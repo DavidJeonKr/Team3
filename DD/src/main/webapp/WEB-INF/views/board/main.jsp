@@ -35,6 +35,7 @@
                         <option value="2">내용</option>
                         <option value="3">제목+내용</option>
                     </select>
+                    <input type="hidden" name="userid" value="${userInfo.userid}" />
 					<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" required />
 					<button class="btn btn-dark" type="submit">Search</button>
 				</form>

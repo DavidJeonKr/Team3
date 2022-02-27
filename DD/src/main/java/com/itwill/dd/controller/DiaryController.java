@@ -127,43 +127,21 @@ public class DiaryController {
 	}
 	
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-	public void main(HttpSession session, Model model, String userid) throws Exception { 
+	public void main(Model model, String userid) throws Exception { 
 		getHoliday();
 		
-		
-		
 		log.info("Diary main() 호출");		
+
 		
-		User user = (User)session.getAttribute("userid");
-		String userid1 = user.getUserid();
-		
-		if(userid != null) {
-			if(userid.equals(userid1)) {
-				List<Diary> schedule = diaryService.select(userid1);
-				model.addAttribute("schedule", schedule);
-				model.addAttribute("userInfo", user);
-				
-				for (Diary d:schedule) {
-					log.info(d.toString());
-				}
-			}else {
-				List<Diary> schedule = diaryService.select(userid);
-				model.addAttribute("schedule", schedule);
-				User user2 = userService.userInfo(userid);
-				model.addAttribute("userInfo", user2);
-				for (Diary d:schedule) {
-					log.info(d.toString());
-				}
-			}
-		}else {
-			List<Diary> schedule = diaryService.select(userid1);
-			model.addAttribute("schedule", schedule);
-			model.addAttribute("userInfo", user);
-			
-			for (Diary d:schedule) {
-				log.info(d.toString());
-			}
+		List<Diary> schedule = diaryService.select(userid);
+		model.addAttribute("schedule", schedule);
+		model.addAttribute("userInfo", userService.userInfo(userid));
+		for (Diary d:schedule) {
+			log.info(d.toString());
 		}
+		
+		
+
 		
 	}
 	
