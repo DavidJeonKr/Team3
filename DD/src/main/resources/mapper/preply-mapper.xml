@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.dd.mapper.PreplyMapper">
+
+	<insert id="insert">
+	INSERT INTO ${TABLE_PREPLIES} (${COL_RPCONTENT}, ${COL_USERID}, ${COL_PTNO})
+	VALUES (#{rpcontent}, #{userid}, #{ptno})
+	</insert>
+	
+	<select id="select" resultType="Preply">
+		SELECT * FROM ${TABLE_PREPLIES}
+		WHERE ${COL_PTNO} = #{ptno}
+		ORDER BY ${COL_RPTNO} desc
+	</select>
+	
+	
+
+</mapper>

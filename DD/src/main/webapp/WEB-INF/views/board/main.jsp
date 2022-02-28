@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="../resources/css/common.css">
 
 
+
 </head>
 <body>
 <%@ include file = "../include/mainHeader.jsp" %>
@@ -61,7 +62,9 @@
                             <tr>
                                 <td>${board.bno}</td>
                                 <td>
-                                <a href="./detail?bno=${board.bno}&userid=${userInfo.userid}">${board.title}</a>
+                                <div id="tagg">
+                                <a href="./detail?bno=${board.bno}&userid=${userInfo.userid}" style="color:black">${board.title}</a>
+                                 </div>
                                  </td>
                                 
                                 <td>${board.userid}</td>
@@ -78,10 +81,9 @@
 				</tbody>
 			</table>
 
-			<br/>
-			<br/>
+			
 						
-
+			<!--  
 			<div >
 				<ul class="pagination justify-content-center">
 					<li class="page-item "><a class="page-link text-secondary" href="#">Previous</a></li>
@@ -91,11 +93,14 @@
 					<li class="page-item"><a class="page-link text-secondary" href="#">Next</a></li>
 				</ul>
 			</div>
-
+			-->
+			
 			<div>
 				<c:if test="${userInfo.userid == userid.userid}">  
-				<button class="btn btn-dark float-right" type="submit"><a href="./insert">새 글 작성</a></button>
-				<a href="./insert">새 글 작성</a>
+				<button class="btn btn-dark float-right" type="submit"><a href="./insert" style="text-decoration:none; color:white">새 글 작성</a></button>
+				<br/>
+				<br/>
+				<br/>
 				</c:if>
 				
 			</div>

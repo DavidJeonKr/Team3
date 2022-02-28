@@ -47,6 +47,15 @@
         <property name="COL_CNO" value="cno"/>
         <property name="COL_RCONTENT" value="rcontent"/>
         <property name="COL_REGDATE" value="regdate"/>
+        
+                        <!-- PHOTOS 테이블 관련 상수 -->
+		<property name="TABLE_PHOTOS" value="photos"/>
+        <property name="COL_PTNO" value="ptno"/>
+        
+        <!-- PREPLIES 테이블 관련 상수 -->
+        <property name="TABLE_PREPLIES" value="preplies"/>
+  		<property name="COL_RPTNO" value="rptno"/>
+  		<property name="COL_RPCONTENT" value="rpcontent"/> 
 		
 	</properties>
         

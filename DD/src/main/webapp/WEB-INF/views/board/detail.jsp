@@ -17,6 +17,7 @@
 	rel="stylesheet" />
 <link rel="stylesheet" href="../resources/css/common.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="../resources/css/board/board.css">
 
 </head>
 <body>
@@ -112,40 +113,52 @@
 			<p class="text-center">댓글 남기기</p>
 		</div>
 		<hr/>
-			
+		
+		<!--	
 		<div>			
 			<input type="text" id="rcontent" name="rcontent" placeholder="댓글 입력"  />
                 <%-- 로그인한 사용자 아이디를 input의 값으로 설정 --%>
+                <div style="display: none;">
                 <input type="text" id="reply_userid" name="userid" value="${userid.userid}" readonly />
+                </div>
                 <button id="btn_create_reply" class="btn btn-dark">등록</button>
                 
 		</div>
-		<!--  
-		  <div class="row">
-			<div class="col-sm-8">			
-				<textarea style="height:50px" class="form-control" rows="5" id="comment" name="text"></textarea>
-			</div>
-			<div class="col-sm-1">
-				<input  style="height:50px;" type="text" id="reply_userid" name="userid" value="${userInfo.userid}" readonly />
-			</div>
-			<div class="col-sm-2">
-				<button id="btn_create_reply" class="btn btn-dark">등록</button>
-			</div>
-		-->	
+		-->
 			
-			
-		</div>
 		
-		<hr/>
-           
+		  <div class="row">
+			
+			
+			<div id="re_input">			
+				<textarea id="rcontent" name="rcontent" style="height:50px" class="form-control" rows="5" placeholder="댓글 입력"></textarea>
+			</div>
+			<div  style="display: none;">
+				<input  style="height:50px;" type="text" id="reply_userid" name="userid" value="${userid.userid}" readonly />
+			</div>
+			<div>
+				<button id="btn_create_reply" class="btn btn-dark btn-lg">
+					<p id="register1" style="font-size:14px; text-center;">등록</p>
+				</button>
+		    </div>
+			
+		  </div>
+
+			
+			<hr/>
             <div id="replies">
             </div>
+			
+		
+		
+		
 		
 
 	</div>
+		</section>
     		 	</div>
-    		 </section>
-    	</div>
+    		 
+    	
     </section>
     
     
@@ -177,8 +190,8 @@
                     $(respText).each(function () {
                     	var date = new Date(this.regdate); // JavaScript Date 객체 생성
                     	var dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-                    	list += '<div class="reply_item">'
-                    		   + '<input type="text" id="cno" name="cno" value="'
+                    	list += '<div class="reply_item" style="margin:5px">'
+                    		   + '<input  style="display: none;" type="text" id="cno" name="cno" value="'
                     		   + this.cno
                     		   + '" readonly />'
                     		   + '<input type="text" id="rcontent" name="rcontent" value="'
@@ -255,7 +268,7 @@
         		
         		$.ajax({
         			// 요청 URL
-        			url: '/dd/replies/' + rno,
+        			url: '/dd/replies/' + cno,
         			// 요청 방식
         			type: 'PUT',
         			// 요청 패킷 헤더
@@ -267,7 +280,7 @@
         			data: JSON.stringify({'rcontent': rcontent}),
         			// 성공 응답 콜백 함수
         			success: function () {
-        				alert(cno + ' 댓글 수정 성공!');
+        				alert('댓글 수정 성공!');
         				getAllReplies(); // 댓글 목록 업데이트
         			}
         		});
@@ -276,7 +289,7 @@
         	// 댓글 삭제 버튼
         	$('#replies').on('click', '.reply_item .reply_delete', function (event) {
         		var cno = $(this).prevAll('#cno').val();
-        		var result = confirm(cno + '번 댓글을 정말 삭제할까요?');
+        		var result = confirm('댓글을 정말 삭제할까요?');
         		if (result) { // 확인(Yes) 버튼을 클릭했을 때
         			$.ajax({
         				// 요청 URL
@@ -290,7 +303,7 @@
         				},
         				// 성공 응답 콜백 함수
         				success: function () {
-        					alert(cno + '번 댓글 삭제 성공!');
+        					alert('댓글 삭제 성공!');
         					getAllReplies();
         				}
         			});
@@ -301,4 +314,4 @@
         </script>
 	
 </body>
-</html> 
+</html>

@@ -34,8 +34,9 @@
 			<h4 style="margin-right: 40px;">글 수정</h4>
 			<ul class="navbar-nav">
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="./main?userid=${userInfo.userid}">게시판 목록</a></li>
+				<!--  
 				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" id="menu-delete" href="./delete?bno=${board.bno}&userid=${userInfo.userid}">삭제</a></li>
-				
+				-->
 			</ul>
 			
 			<div class="nav" style="margin-left: 300px">
@@ -123,7 +124,7 @@
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-		
+	<!--  
 	<script>
 		$(document).ready(function() {
 
@@ -137,5 +138,6 @@
 		
 		});
 	</script>
+	-->
 </body>
 </html> 
