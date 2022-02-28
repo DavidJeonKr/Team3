@@ -56,7 +56,7 @@
       				<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
 				
-				<div class="form-group w-25" > <!-- style="display: none;" -->
+				<div class="form-group w-25" style="display: none;" > <!-- style="display: none;" -->
 						<label for="userid">userid:</label>
                         <input type="text" class="form-control" name="userid" value="${userid.userid}" required readonly />
                         <p>나중에 이 부분 숨길부분 /일단 admin으로 고정-> userid</p>
