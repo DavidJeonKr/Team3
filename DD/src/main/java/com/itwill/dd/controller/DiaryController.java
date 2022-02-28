@@ -154,22 +154,29 @@ public class DiaryController {
 		diary.setUserid(userid);
 		
 		diaryService.insert(diary);
-		return "redirect:/diary/calendar";
+		return "redirect:/diary/calendar?userid=" + userid;
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(int dno) {
+	public String delete(int dno, HttpSession session) {
 		log.info("Diary delete(dno = {})", dno);
 		diaryService.delete(dno);
-		return "redirect:/diary/calendar";
+		
+		User user = (User)session.getAttribute("userid");
+		String userid = user.getUserid();		
+		
+		return "redirect:/diary/calendar?userid=" + userid;
 		
 	}	
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(Diary diary) {
+	public String update(Diary diary, HttpSession session) {
 		log.info("Diary update({})호출" , diary);
 		diaryService.update(diary);
-		return "redirect:/diary/calendar";
+		User user = (User)session.getAttribute("userid");
+		String userid = user.getUserid();		
+		
+		return "redirect:/diary/calendar?userid=" + userid;
 	}
 	
 }

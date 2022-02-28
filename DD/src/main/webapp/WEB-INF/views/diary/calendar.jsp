@@ -363,7 +363,7 @@
 							success:function() {
 								console.log("수정 완료");
 								alert("선택하신 일정이 수정되었습니다.");
-								location.href='http://localhost:8181/dd/diary/calendar';
+								location.href='http://localhost:8181/dd/diary/calendar?userid=${userid.userid}';
 							}						
 						});	
 						
@@ -422,7 +422,7 @@
 							success:function() {
 								console.log("수정 완료");
 								alert("선택하신 일정이 수정되었습니다.");
-								location.href='http://localhost:8181/dd/diary/calendar';
+								location.href='http://localhost:8181/dd/diary/calendar?userid=${userid.userid}';
 							}						
 						});	
 						
@@ -497,7 +497,7 @@
 					success:function(){
 						console.log("삭제완료");
 						alert("선택하신 일정이 삭제되었습니다.");
-						location.href='http://localhost:8181/dd/diary/calendar';
+						location.href='http://localhost:8181/dd/diary/calendar?userid=${userid.userid}';
 					}										
 				});
 				} else {
@@ -523,7 +523,7 @@
 					success:function() {
 						console.log("수정 완료");
 						alert("선택하신 일정이 수정되었습니다.");
-						location.href='http://localhost:8181/dd/diary/calendar';
+						location.href='http://localhost:8181/dd/diary/calendar?userid=${userid.userid}';
 					}										
 				});	
 				} else {
