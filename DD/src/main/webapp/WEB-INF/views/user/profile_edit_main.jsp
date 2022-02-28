@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="../resources/css/user/profile_edit.css">
 	<link rel="stylesheet" href="../resources/css/common.css">
     <title>DD</title>
-    
+    <link rel="shortcut icon" href="../resources/imgs/favicon.ico">
 </head>
 <body>
     <%@ include file = "../include/mainMenuHeader.jsp" %>

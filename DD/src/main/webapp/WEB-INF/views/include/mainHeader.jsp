@@ -20,9 +20,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
     />
     <link rel="stylesheet" href="../resources/css/music/style.css" />
-    <style>
     
-    </style>
     
 </head>
 <body>
@@ -148,16 +146,20 @@
                     <div> <!--컨텐트 들어갈 div-->
 						
                     </div>
-                    
-                    <!-- 모달 만들기 -->
-                    
+    
                 </div>
-
+                    
             </section>
             
         </div>
+        
+        
+        
     </section>
     </header>
+    
+    
+    
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js">
 	</script>
@@ -182,8 +184,6 @@
     		});
     	}
     	console.log();
-    	
-    	// 모달 띄우기
     	
     	
     	// 팔로우 확인하기
