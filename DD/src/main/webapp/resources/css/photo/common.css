@@ -1,0 +1,248 @@
+body{
+    background: #fafafa;
+}
+
+.DDlogo{
+    display: inline-block;
+    height: 90px;
+    width: 150px;
+}
+
+.sprite_home_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -104px -260px;
+    width: 25px;
+    height: 25px;
+}
+
+.sprite_setting_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -321px -26px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.shop{
+    width: 30px;
+    height: 30px;
+}
+
+
+
+#container {
+    background: #fafafa;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#header{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background: white;
+    border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+#header .h_inner {
+    width: 975px;
+    height: 90px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header .search_field input {
+    width: 185px;
+    height: 28px;
+    background: #fafafa;
+    border: solid 1px #dbdbdb;
+    border-radius: 3px;
+    padding: 3px 30px 3px 30px;
+    color: black;
+    font-weight: 400;
+    text-align: left;
+    font-size: 14px;
+    outline: none;  
+}
+
+#header .search_field input:focus ~ .fake_field span:nth-child(1){
+    transform:translateX(-75px);
+}
+#header .search_field input:focus ~ .fake_field span:nth-child(2){
+    display: none;
+}
+#header .search_field input::placeholder {
+    font-size: 0;
+    color: gray;
+    text-indent: 10px;
+
+}
+
+#header .search_field input:focus::placeholder {
+    font-size: 15px;
+}
+
+#header .right_icons {
+    width: 132px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header .right_icons > div > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#header .fake_field {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: gray;
+    pointer-events: none;
+}
+
+
+#main_container {
+    /*height: 100vh;*/
+    padding-top: 135px;
+    display: flex;
+    justify-content: center;
+    order: 1;
+}
+
+
+#main_container .b_inner{
+    width:935px;
+    position: relative;
+}
+
+.hori_cont{
+    display:flex;
+    
+}
+
+.profile_wrap{
+    width:30%;
+}
+.profile_img{
+    width: 152px;
+    height: 152px;
+    overflow:hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.profile_img img{
+    width: 100%;
+    height: 100%;
+}
+
+.detail .top{
+    display: flex;
+    align-items: center;
+}
+
+.detail .nickname{
+    font-size: 35px;
+    font-weight: 200;
+    display: inline-block;
+    padding-right: 25px;
+}
+.detail .top >a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dbdbdb;
+    padding:5px;
+    border-radius: 3px;
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    
+    
+}
+
+.detail .middle{
+    display: flex;
+    padding-left: 0;
+}
+.detail .middle li{
+    display: inline-block;
+    margin-right: 35px;
+}
+.detail .middle a{
+    text-decoration: none;
+    color: black;
+}
+.detail .real_name{
+    font-weight: bolder;
+}
+
+
+.content_main{
+    margin-top: 50px;
+}
+.content_bar{
+    padding-top: 15px;
+    text-align: center;
+    border-top: 1px solid #d3d3d3;
+}
+
+.content_bar > a{
+    margin-right: 45px;
+}
+
+.content_bar a{
+    padding-top: 14.5px;
+    text-decoration: none;
+    color: gray;
+}
+
+.content_bar .home{
+    border-top : 1.5px solid black;
+    color:black;
+}
+
+
+/*dropdown*/
+/* Dropdown Button */
+  
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
