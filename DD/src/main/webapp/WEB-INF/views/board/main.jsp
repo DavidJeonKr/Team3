@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>DD</title>
-
+<link rel="shortcut icon" href="../resources/imgs/favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
