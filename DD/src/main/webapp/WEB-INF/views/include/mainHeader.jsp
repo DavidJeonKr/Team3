@@ -21,13 +21,7 @@
     />
     <link rel="stylesheet" href="../resources/css/music/style.css" />
     <style>
-    .modal{
-    	position:absolute;
-    	width:100%; height:100%;
-    	background:rgba(0,0,0,0.8);
-    	top:0; left:0;
-    	display:none;
-    }
+    
     </style>
     
 </head>
@@ -156,11 +150,7 @@
                     </div>
                     
                     <!-- 모달 만들기 -->
-                    <div class="modal">
-                    	<div class="modal_content" >
-                    	내용입력
-                    	</div>
-                    </div>
+                    
                 </div>
 
             </section>
@@ -194,12 +184,7 @@
     	console.log();
     	
     	// 모달 띄우기
-    	$('#followModal').click(function(){
-    		$('.modal').fadeIn();
-    	});
-    	$('#followerModal').click(function(){
-    		$('.modal').fadeIn();
-    	});
+    	
     	
     	// 팔로우 확인하기
     	data={followerid:'${userInfo.userid}'}
