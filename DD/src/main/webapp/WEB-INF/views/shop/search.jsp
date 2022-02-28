@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-
+<link rel="shortcut icon" type="imge/x-icon" href="../resources/imgs/favicon.ico">
 <link rel="stylesheet" href="../resources/css/shop/reset.css">	
 <link rel="stylesheet" href="../resources/css/admin/main.css">
 <script src="../resources/js/shop/jquery.min.js"></script>

@@ -7,11 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  
-
+<link rel="shortcut icon" type="imge/x-icon" href="../resources/imgs/favicon.ico">
 <link rel="stylesheet" href="../resources/css/shop/reset.css">	
 <link rel="stylesheet" href="../resources/css/admin/main.css">
 <script src="../resources/js/shop/jquery.min.js"></script>
 <script src="../resources/js/shop/shop.js" defer></script>
+
 
 </head>
 <body>
@@ -22,7 +23,7 @@
 		<section id="container">
 			<aside>
 				<ul>
-					<li>${userid.nickname}님 환영합니다.</li>
+					<li><a href="./mypage">${userid.nickname}님 환영합니다.</a></li>
 					<li><a href="../user/logout">로그아웃</a></li>
 				</ul>
 			</aside>
@@ -60,7 +61,7 @@
 					
 					<div class="total">
 						총 합계: ${sum}원
-						<input type="button" value="결제하기" id="payment">
+					<input type="button" value="결제하기" id="payment">	
 					</div>
 					
 			</div>
@@ -138,10 +139,11 @@
 					checkArr.push($(this).attr("data-cartNum"));
 				});
 				
+				
 				/*
 				var productId = new Array();
 				$("input[class='chBox']:checked").each(function () {
-					productId.push($(this).attr("data-productId"));
+					productId.push($(".productId").val());
 				});
 					*/
 										

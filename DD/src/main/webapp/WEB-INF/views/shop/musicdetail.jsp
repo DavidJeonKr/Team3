@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
     <link rel="stylesheet" href="../resources/css/shop/reset.css">
     <link rel="stylesheet" href="../resources/css/shop/musicdetail.css">
+    <link rel="shortcut icon" type="imge/x-icon" href="../resources/imgs/favicon.ico">
     <link rel="stylesheet" href="../resources/css/shop/footer.css">
     <link rel="stylesheet" href="../resources/css/shop/header.css">
     <script src="../resources/js/shop/jquery.min.js"></script>
