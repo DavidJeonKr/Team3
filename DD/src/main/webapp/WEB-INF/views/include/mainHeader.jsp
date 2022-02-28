@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
     />
     <link rel="stylesheet" href="../resources/css/music/style.css" />
+    <style>
+    .modal{
+    	position:absolute;
+    	width:100%; height:100%;
+    	background:rgba(0,0,0,0.8);
+    	top:0; left:0;
+    	display:none;
+    }
+    </style>
     
 </head>
 <body>
@@ -86,10 +96,10 @@
 
                         <ul class="middle">
                             <li>
-                                <span>팔로워</span> ${userInfo.followercnt}
+                                <span id="followerModal">팔로워</span> ${userInfo.followercnt}
                             </li>
                             <li>
-                                <span>팔로우</span> ${userInfo.followcnt}
+                                <span id="followModal">팔로우</span> ${userInfo.followcnt}
                             </li>
                             <li>
                                	 비스켓 ${userInfo.biscuit}
@@ -144,6 +154,13 @@
                     <div> <!--컨텐트 들어갈 div-->
 						
                     </div>
+                    
+                    <!-- 모달 만들기 -->
+                    <div class="modal">
+                    	<div class="modal_content" >
+                    	내용입력
+                    	</div>
+                    </div>
                 </div>
 
             </section>
@@ -161,6 +178,7 @@
 	
     <script>
     $(document).ready(function () {
+    	// 현제 페이지에 따라 css 적용하기
     	var str = window.location.pathname.slice(4,5)
     	if(str == "d"){
     		$('.diary').css({
@@ -174,6 +192,14 @@
     		});
     	}
     	console.log();
+    	
+    	// 모달 띄우기
+    	$('#followModal').click(function(){
+    		$('.modal').fadeIn();
+    	});
+    	$('#followerModal').click(function(){
+    		$('.modal').fadeIn();
+    	});
     	
     	// 팔로우 확인하기
     	data={followerid:'${userInfo.userid}'}
