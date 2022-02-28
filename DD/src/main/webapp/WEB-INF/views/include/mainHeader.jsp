@@ -20,15 +20,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
     />
     <link rel="stylesheet" href="../resources/css/music/style.css" />
-    <style>
-    .modal{
-    	position:absolute;
-    	width:100%; height:100%;
-    	background:rgba(0,0,0,0.8);
-    	top:0; left:0;
-    	display:none;
-    }
-    </style>
+    
     
 </head>
 <body>
@@ -154,20 +146,20 @@
                     <div> <!--컨텐트 들어갈 div-->
 						
                     </div>
-                    
-                    <!-- 모달 만들기 -->
-                    <div class="modal">
-                    	<div class="modal_content" >
-                    	내용입력
-                    	</div>
-                    </div>
+    
                 </div>
-
+                    
             </section>
             
         </div>
+        
+        
+        
     </section>
     </header>
+    
+    
+    
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js">
 	</script>
@@ -193,13 +185,6 @@
     	}
     	console.log();
     	
-    	// 모달 띄우기
-    	$('#followModal').click(function(){
-    		$('.modal').fadeIn();
-    	});
-    	$('#followerModal').click(function(){
-    		$('.modal').fadeIn();
-    	});
     	
     	// 팔로우 확인하기
     	data={followerid:'${userInfo.userid}'}
