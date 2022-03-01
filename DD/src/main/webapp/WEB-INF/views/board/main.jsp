@@ -49,10 +49,10 @@
 					<tr>
 						<th>글 번호</th>
 						<th>글 제목</th>
-						<th>작성자</th>
+						<!-- <th>작성자</th> -->
 						<th>작성일</th>
 						<th>조회수</th>
-						<th>좋아요수</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -62,18 +62,13 @@
                             <tr>
                                 <td>${board.bno}</td>
                                 <td>
-                                <div id="tagg">
                                 <a href="./detail?bno=${board.bno}&userid=${userInfo.userid}" style="color:black">${board.title}</a>
-                                 </div>
-                                 </td>
-                                
-                                <td>${board.userid}</td>
+                                </td>
                                 
                                 <td>
                                     <fmt:formatDate value="${board.regdate}" pattern="yyyy/MM/dd HH:mm"/>
                                 </td>
                                 <td>${board.view_cnt}</td>
-                                <td>${board.like_cnt}</td>
                             </tr>
                             </c:if>
                         </c:forEach>
@@ -97,12 +92,14 @@
 			
 			<div>
 				<c:if test="${userInfo.userid == userid.userid}">  
-				<button class="btn btn-dark float-right" type="submit"><a href="./insert" style="text-decoration:none; color:white">새 글 작성</a></button>
-				<br/>
-				<br/>
-				<br/>
+					<button class="btn btn-dark float-right" type="submit">
+						<a href="./insert" style="text-decoration:none; color:white">새 글 작성</a>
+				</button>
 				</c:if>
 				
+				<br/>
+				<br/>
+				<br/>
 			</div>
 		</div>
 

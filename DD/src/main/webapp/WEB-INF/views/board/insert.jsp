@@ -44,7 +44,7 @@
 				<!-- /board/insert POST submit -->
 				<div class="form-group">
 					<label for="title">title:</label> 
-					<input type="text" class="form-control" name="title" placeholder="제목 입력" required>
+					<input type="text" class="form-control" name="title" placeholder="제목 입력 (40자까지 입력가능)" maxlength='40' required >
 					<div class="valid-feedback">Valid.</div>
 					<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
@@ -77,11 +77,9 @@
 	 
 	
 
-	<script>
-// Disable form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
+<script>
+	// Disable form submissions if there are invalid fields
+	(function() {'use strict'; window.addEventListener('load', function() {
     // Get the forms we want to add validation styles to
     var forms = document.getElementsByClassName('needs-validation');
     // Loop over them and prevent submission

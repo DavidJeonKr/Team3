@@ -16,7 +16,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
 <link rel="stylesheet" href="../resources/css/common.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 <link rel="stylesheet" href="../resources/css/board/board.css">
 
 </head>
@@ -35,18 +35,20 @@
 		<nav class="navbar navbar-expand-sm bg-light navbar-light">
 			<h4 style="margin-right: 40px;">글 상세보기</h4>
 			<ul class="navbar-nav">
-				<li class="nav-item" style="font-size: 14px; margin-right: 20px;" ><a class="nav-link" href="./main?userid=${userInfo.userid}">게시판 목록</a></li>
+					<li class="nav-item" style="font-size: 14px; margin-right: 20px;" >
+						<a class="nav-link" href="./main?userid=${userInfo.userid}">게시판 목록</a>
+					</li>
 				<c:if test="${userInfo.userid == userid.userid}">  
-				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" href="./update?bno=${board.bno}&userid=${userInfo.userid}">수정</a></li>
-				<li class="nav-item" style="font-size: 14px; margin-right: 20px;"><a class="nav-link" id="menu-delete" href="./delete?bno=${board.bno}&userid=${userInfo.userid}">삭제</a></li>
+					<li class="nav-item" style="font-size: 14px; margin-right: 20px;">
+						<a class="nav-link" href="./update?bno=${board.bno}&userid=${userInfo.userid}">수정</a>
+					</li>
+					<li class="nav-item" style="font-size: 14px; margin-right: 20px;">
+						<a class="nav-link" id="menu-delete" href="./delete?bno=${board.bno}&userid=${userInfo.userid}">삭제</a>
+					</li>
 				</c:if>
 			</ul>
 			
-			<div class="nav" style="margin-left: 300px">
-				<button type="button" class="btn btn-dark" style="margin-left: 100px; ">
-					<i  class="fas fa-thumbs-up"></i>
-				</button>
-			</div>
+			
 		</nav>
 
 		<br/>
@@ -85,10 +87,12 @@
 						<input type="text" id="view_cnt" class="form-control-plaintext" name="view_cnt" value="${board.view_cnt}" style="font-size: 12px; font-weight: 600;" readonly>
 					</div>
 					
+					<!--  
 					<label for="like_cnt" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;" >좋아요</label> 
 					<div class="col-1">
 						<input type="text" id="like_cnt" class="form-control-plaintext" name="like_cnt" value="${board.like_cnt}" style="font-size: 12px; font-weight: 600;" readonly>
 					</div>
+					-->
 				</div>
 				
 				<div class="row" >
@@ -130,12 +134,18 @@
 		  <div class="row">
 			
 			
-			<div id="re_input">			
-				<textarea id="rcontent" name="rcontent" style="height:50px" class="form-control" rows="5" placeholder="댓글 입력"></textarea>
+			<div >
+				<textarea id="rcontent" style="width:800px; margin-left: 20px; margin-right: 20px;" class="DOC_TEXT" 
+						  name="rcontent" class="form-control" placeholder="내용을 200자 이내로 기재해주세요.">
+				</textarea>
+				<br />
+				<span style="color:#aaa; margin-left:30px" id="counter">(0 / 최대 200자)</span>
 			</div>
+			
 			<div  style="display: none;">
 				<input  style="height:50px;" type="text" id="reply_userid" name="userid" value="${userid.userid}" readonly />
 			</div>
+			
 			<div>
 				<button id="btn_create_reply" class="btn btn-dark btn-lg">
 					<p id="register1" style="font-size:14px; text-center;">등록</p>
@@ -143,17 +153,13 @@
 		    </div>
 			
 		  </div>
-
-			
+		
 			<hr/>
+			<hr/>
+            
+            
             <div id="replies">
             </div>
-			
-		
-		
-		
-		
-
 	</div>
 		</section>
     		 	</div>
@@ -164,6 +170,32 @@
     
 	 
 
+	<script>
+		$(document).ready(function() {
+
+			$('#menu-delete').click(function(event) {
+				event.preventDefault(); // 링크를 클릭했을 때의 기본 동작인 요청 보내기를 하지 않음.
+				var result = confirm('정말 삭제할까요?');
+				if (result) { // 사용자가 YES를 선택했을 때
+					location = $(this).attr('href'); // 원래 이동하려고 했던 요청 주소로 요청 보내기.
+				}
+			});
+		
+		});
+	</script>
+
+	<script>
+	$('.DOC_TEXT').keyup(function (e){
+	    var content = $(this).val();
+	    $('#counter').html("("+content.length+" / 최대 200자)");    //글자수 실시간 카운팅
+
+	    if (content.length > 200){
+	        alert("최대 200자까지 입력 가능합니다.");
+	        $(this).val(content.substring(0, 200));
+	        $('#counter').html("(200 / 최대 200자)");
+	    }
+	});
+	</script>
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
