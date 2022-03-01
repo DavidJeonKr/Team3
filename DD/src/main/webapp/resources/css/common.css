@@ -23,6 +23,15 @@ body{
     cursor: pointer;
 }
 
+.sprite_search_icon {
+    display: inline-block;
+    background: url('../imgs/main/background01.png') no-repeat -286px -286px;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+}
+
+
 .shop{
     width: 30px;
     height: 30px;
@@ -229,7 +238,7 @@ body{
 	background: #0095f6;
 	color : white;
 	border:none;
-	radius : 3px;
+	border-radius : 5px;
 	
 	
 }
@@ -288,8 +297,7 @@ body{
   /*position the autocomplete items to be the same width as the container:*/
   top: 100%;
   left: 0;
-  right: 0;
-  	
+  right: 0;  	
   }
   
   #searchVal {
@@ -306,4 +314,47 @@ body{
   }
   .search_item:nth-child(2){
   	display:inline-block;
+  }
+  
+  
+  #followModal{
+  cursor: pointer;
+  }
+  #followerModal{
+  cursor: pointer;
+  }
+  
+  .allFollowContet{
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  }
+  
+  .followRealname{
+  	color:black;
+  	font-size: large;
+  }
+  
+  .folowNickname{
+  color:gray;
+  font-size:small;
+  
+  }
+  .followBtnModal{
+  	background: #0095f6;
+	color : white;
+	border:none;
+	border-radius : 5px;
+	
+  }
+  .searchAll{
+  display:flex;
+  margin:5px;
+  }
+  #searchRealName{
+  	color:black;
+  }
+  #searchNickName{
+  color:gray;
+  font-size:small;
   }

@@ -1,5 +1,7 @@
 package com.itwill.dd.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +52,15 @@ public class FollowServiceImpl implements FollowService{
 		}
 	
 		
+	}
+	@Override
+	public List<Follow> followList(String followid) {
+		return followDao.followList(followid);
+	}
+	@Override
+	public List<Follow> followerList(String followerid) {
+		
+		return followDao.followerList(followerid);
 	}
 	
 }
