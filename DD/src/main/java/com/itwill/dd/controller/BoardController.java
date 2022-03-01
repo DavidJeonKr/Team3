@@ -200,37 +200,10 @@ public class BoardController {
 		public String search(String userid, int type, String keyword, Model model) {
 			log.info("search(type={}, keyword={})", type, keyword);
 			
-			//List<Board> list = boardService.select(type, keyword);
-			//model.addAttribute("boardList", list); 
-			//return "board/main"; 
-			
 			List<Board> list = boardService.select(type, keyword, userid);
 			model.addAttribute("boardList", list);
 			model.addAttribute("userInfo", userService.userInfo(userid));
 			
-//			User user = (User)session.getAttribute("userid");
-//			String userid1 = user.getUserid();
-//				if(userid != null) {
-//				if(userid.equals(userid1)) {
-//					List<Board> list = boardService.select(type, keyword, userid1);
-//					model.addAttribute("boardList", list);
-//					model.addAttribute("userInfo", user);
-//					
-//					
-//				}else {
-//					List<Board> list = boardService.select(type, keyword, userid);
-//					model.addAttribute("boardList", list);
-//					User user2 = userService.userInfo(userid);
-//					model.addAttribute("userInfo", user2);
-//					
-//				}
-//			}else {
-//				List<Board> list = boardService.select(type, keyword, userid1);
-//				model.addAttribute("boardList", list);
-//				model.addAttribute("userInfo", user);
-//				
-//				
-//			}
 			return "board/main"; 
 			
 		}
