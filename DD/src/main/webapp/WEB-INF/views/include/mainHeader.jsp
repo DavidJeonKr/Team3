@@ -117,7 +117,7 @@
 							
 							      <audio src="../resources/music/Dynamite.mp3" id="audio"></audio>
 							
-							      <div class="img-container">
+							      <div class="img-container">	
 							        <img src="../resources/music/images/Dynamite.jpg" alt="music-cover" id="cover" />
 							      </div>
 							      <div class="navigation">
