@@ -88,10 +88,10 @@
 
                         <ul class="middle">
                             <li>
-                                <span id="followerModal">팔로워</span> ${userInfo.followercnt}
+                                <span id="followerModal">팔로워 ${userInfo.followercnt}</span> 
                             </li>
                             <li>
-                                <span id="followModal">팔로우</span> ${userInfo.followcnt}
+                                <span id="followModal">팔로우 ${userInfo.followcnt}</span> 
                             </li>
                             <li>
                                	 비스켓 ${userInfo.biscuit}
@@ -146,7 +146,55 @@
                     <div> <!--컨텐트 들어갈 div-->
 						
                     </div>
-    
+    				    <!-- FollowModal -->		
+						<!-- 밑의 id 값을 토대로 모달을 호출하게 된다.--> 
+				  		<div class="modal fade insertModal" id="FModal" role="dialog">     		
+				    		<div class="modal-dialog">
+								<div class="modal-content">
+									
+				     		 	<!-- Modal Header -->
+				         			 <div class="modal-header">
+				           				 <h4 class="modal-title">팔로잉</h4>
+				            				<button type="button" class="close"
+				              					onclick="initModal('insertModal', g_arg)"
+				            				> &times;
+				            				</button>
+				         			</div>    
+				        <!-- Modal body -->
+				          <div class="modal-body">          
+				            <div class="form-group">
+				            	<div class="followList"></div>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+				    </div>  
+				    
+				    
+				    <!-- FollowerModal -->		
+						<!-- 밑의 id 값을 토대로 모달을 호출하게 된다.--> 
+				  		<div class="modal fade insertModal" id="FModal" role="dialog">     		
+				    		<div class="modal-dialog">
+								<div class="modal-content">
+									
+				     		 	<!-- Modal Header -->
+				         			 <div class="modal-header">
+				           				 <h4 class="modal-title text-center">팔로워</h4>
+				            				<button type="button" class="close"
+				              					onclick="initModal('insertModal', g_arg)"
+				            				> &times;
+				            				</button>
+				         			</div>    
+				        <!-- Modal body -->
+				          <div class="modal-body">          
+				            <div class="form-group">
+				             	<div class="followerList"></div>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+				    </div>  
+				     
                 </div>
                     
             </section>
@@ -170,6 +218,97 @@
 	
     <script>
     $(document).ready(function () {
+    	// 팔로우 버튼 클릭시 모달 창 열고 팔로우한 사람들 보이게 하기
+    	$('#followModal').click(function(){
+    		
+    		$('#FModal').modal();
+    		var followid = '${userInfo.userid}';
+    		
+    		$.getJSON('/dd/follow/followid/' + followid, function(respText){
+				var list= '';
+				
+				$(respText).each(function(){
+					
+					
+					list += '<div class="allFollowContet">'
+						+ '<div class="followName">'
+						+'<a href="/dd/diary/calendar?userid='
+						+ this.userid
+						+'">'
+						+'<div class="followRealname">'
+						+ this.realname				
+						+ '</div>'
+						+ '</a>'
+						+'<div class="folowNickname">'
+						+ this.nickname	
+						+ '</div>'
+						+'</div>';
+						console.log(this.userid);
+						if('${userid.userid}' != this.userid){
+							list+='<div id="follow_item_'+this.userid+'">';
+							if(followCk(this.userid)=="follow"){
+								
+								list+='<button onclick="followModalClick(true, \'' + this.userid + '\',\''+this.userid+'\')", class="followBtnModal">언팔로우</button>';
+							}else{
+								list+='<button onclick="followModalClick(false, \'' + this.userid + '\',\''+this.userid+'\')", class="followBtnModal">팔로우</button>';
+							}
+							list+='</div>';
+						}
+						list+='</div>';
+						
+						
+				});
+				$('.followList').html(list);
+				
+			});
+    
+    	});
+    	
+    	
+    	// 팔로워 버튼 클릭시 모달 창 열고 팔로우한 사람들 보이게 하기
+    	$('#followerModal').click(function(){
+    		
+    		$('#FModal').modal();
+    		var followerid = '${userInfo.userid}';
+
+    		$.getJSON('/dd/follow/followerid/' + followerid, function(respText){
+				var list= '';
+				$(respText).each(function(){
+					list += '<div class="allFollowContet">'
+						+ '<div class="followName">'
+						+'<a href="/dd/diary/calendar?userid='
+						+ this.userid
+						+'">'
+						+'<div class="followRealname">'
+						+ this.realname				
+						+ '</div>'
+						+ '</a>'
+						+'<div class="folowNickname">'
+						+ this.nickname	
+						+ '</div>'
+						+'</div>';
+					if('${userid.userid}' != this.userid){
+						list+='<div id="follow_item_'+this.userid+'">';
+						
+						if(followCk(this.userid)=="follow"){
+							list+='<button onclick="followModalClick(true, \'' + this.userid + '\',\''+this.userid+'\')", class="followBtnModal">언팔로우</button>';
+						}else{
+							list+='<button onclick="followModalClick(false, \'' + this.userid + '\',\''+this.userid+'\')", class="followBtnModal">팔로우</button>';
+						}
+						list+='</div>';
+					}
+					list+='</div>';
+						
+						
+						
+
+				});
+				$('.followList').html(list);
+				
+			});
+    		
+    	});
+    	
     	// 현제 페이지에 따라 css 적용하기
     	var str = window.location.pathname.slice(4,5)
     	if(str == "d"){
@@ -179,6 +318,11 @@
     		});
     	}else if(str=="b"){
     		$('.board').css({
+    			"color" : "black",
+    			"border-top" : "solid 1px black"
+    		});
+    	}else if(str=="p"){
+    		$('.picture').css({
     			"color" : "black",
     			"border-top" : "solid 1px black"
     		});
@@ -219,7 +363,22 @@
 		    }
 		  }
 		}
+		
+		// 타겟영역을 제외하고 클릭했을 시 검색창 숨기기
+		$('body').on('click', function(e){
+		   if(e.target.className!="searchBox"){
+			   console.log("클릭");
+			   $('#searchBox').css({
+					"display":"none" 
+				 });
+		   } 
+		});
+
+		
 		$('#search').on("change keyup paste", function(){
+			 $('#searchBox').css({
+				"display":"block" 
+			 });
 			var search = $('#search').val();
 			$.getJSON('/dd/search/search/' + search, function(respText){
 				var list= '';
@@ -227,15 +386,18 @@
 					list += '<a href="/dd/diary/calendar?userid='
 						+ this.userid
 						+'">'
-						+'<input class="search_item" value="'
-						//'<div class="search_item">'
+						+ '<div class="searchAll">'
+						+'<div class="sprite_search_icon"></div>'
+						+'<div class="nameFiled">'
+						+'<div id="searchRealName">'
 						+ this.realname				
-						+ '"/>'
-						+'<input class="search_item" value="'
+						+ '</div>'
+						+'<div id="searchNickName">'
 						+ this.nickname	
-						+ '"/>'
+						+ '</div>'
+						+ '</div>'
+						+ '</div>'
 						+ '</a>';
-						//+ '</div>';
 						
 				});
 				console.log(list);
@@ -252,6 +414,30 @@
 				follow(false);
 			}
 		});
+		
+		// 모달에서 팔로우 여부 확인하기
+		function followCk(e){
+			var re;
+			data={followerid:e}
+	    	$.ajax({
+	    		url: '/dd/follow/check/',
+	    		type: 'POST', 
+	    		data: data,
+	    		async: false,
+	    		success: function (result) {
+	    			if(result == "follow"){
+	    				re = result;
+	    			}else{
+	    				re = result;
+	    			}
+	    		}
+	    	});
+			console.log(re);
+			return re;
+		}
+		
+		
+		
 		
 		function follow(check){
 			var link = document.location.href;
@@ -283,7 +469,45 @@
 			}
 			
 		}
+		
+		// 모달 닫기 버튼 클릭
+		function initModal(modal, arg) {
+		    $("." + modal).modal("hide");
+		}
+				
     });
+    
+	// 모달에서 버튼 팔로우/팔로워 버튼 클릭시 
+	function followModalClick(check, userid, i){
+		
+		if(check){
+			var follow_item_el;
+			$.ajax({
+	    		url: '/dd/follow/delete/',
+	    		type: 'POST', 
+	    		data: data,
+	    		async: false,
+	    		success: function (result) {
+	    			if(result == "UnFollowOk"){
+	    				location.href = document.location.href;
+	    			}
+	    		}
+	    	});	
+		}else{
+			$.ajax({
+	    		url: '/dd/follow/add/',
+	    		type: 'POST', 
+	    		data: data,
+	    		async: false,
+	    		success: function (result) {
+	    			if(result == "FollowOk"){
+	    				location.href = document.location.href;
+	    			}
+	    		}
+	    	});
+		}
+	}
+
 	
     </script>
 </body>
