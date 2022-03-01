@@ -173,7 +173,7 @@
 				    
 				    <!-- FollowerModal -->		
 						<!-- 밑의 id 값을 토대로 모달을 호출하게 된다.--> 
-				  		<div class="modal fade insertModal" id="FModal" role="dialog">     		
+				  		<div class="modal fade insertModal" id="FerModal" role="dialog">     		
 				    		<div class="modal-dialog">
 								<div class="modal-content">
 									
@@ -268,7 +268,7 @@
     	// 팔로워 버튼 클릭시 모달 창 열고 팔로우한 사람들 보이게 하기
     	$('#followerModal').click(function(){
     		
-    		$('#FModal').modal();
+    		$('#FerModal').modal();
     		var followerid = '${userInfo.userid}';
 
     		$.getJSON('/dd/follow/followerid/' + followerid, function(respText){
@@ -303,7 +303,7 @@
 						
 
 				});
-				$('.followList').html(list);
+				$('.followerList').html(list);
 				
 			});
     		
