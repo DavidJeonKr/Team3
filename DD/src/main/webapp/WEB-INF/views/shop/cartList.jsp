@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DD</title>
  
 <link rel="shortcut icon" type="imge/x-icon" href="../resources/imgs/favicon.ico">
 <link rel="stylesheet" href="../resources/css/shop/reset.css">	
@@ -125,10 +125,10 @@
 		var biscuit = ${userid.biscuit};
 		var sum = ${sum};
 		
-	
+		/*
 		var productId = new Array();
 		productId = $(".productId").val();
-		
+		*/
 		
 		
 		if (confirm_val) {
@@ -140,12 +140,12 @@
 				});
 				
 				
-				/*
+				
 				var productId = new Array();
 				$("input[class='chBox']:checked").each(function () {
-					productId.push($(".productId").val());
+					productId.push($(this).attr("data-productId"));
 				});
-					*/
+					
 										
 				$.ajax({
 					url: "./payment",
