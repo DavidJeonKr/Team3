@@ -107,7 +107,8 @@
 								<div class="sprite_small_heart_icon_outline"></div>
 							</div>
 						</div>
-
+						<fmt:formatDate value="${photo.regdate}"
+							pattern="yyyy/MM/dd HH:mm:ss" var="last_update_time" />
 						<!-- 댓글 regdate -->
 						<div id="timer" class="timer"></div>
 
@@ -128,25 +129,27 @@
 
 		</section>
 		<script>
-				var photoNo = ${photo.ptno}; // 92 -> 91이 나오는 이유는?
+				// var photoNo = ${photo.ptno}; // 92 -> 91이 나오는 이유는?
+				var photoNo = new Array();
+
+				photoNo.push(${photo.ptno});
+				
+				console.log(photoNo);
+				
 				//var photoNo = $('#ptno_trance').val();
 				var likeCnt = ${photo.like_cnt};
 				console.log(photoNo);
 				
 				function getAllReplies() {
-					var photoNo = ${photo.ptno};
+					//var photoNo = ${photo.ptno};
 					console.log("getAllReplies() ---------안에 "+ photoNo);
 					//var photoNo = $('#ptno_trance').val();
-					<fmt:formatDate value="${photo.regdate}" pattern="yyyy/MM/dd HH:mm:ss" var="last_update_time"/>
-					var date1 = "${last_update_time}";
-					var date = new Date(date1);
-					var resultdate = date.getTime();
 					//console.log(date.getTime());
 					$.getJSON('/dd/preplies/all/' + photoNo, function(data) {
 					console.log(data);
 					console.log("getAllReplies() 안에 : " + photoNo);
 					
-					$('#replies').empty();
+					$("#replies").empty();
 					$('#nickname').empty();
 					$('#like_count').empty();
 					
@@ -161,75 +164,41 @@
 						//console.log("photoNo: "+ photoNo);
 						//시간
 						//var date = new Date(date);
-						function timeForToday(resultdate) {
-							const today = new Date();
-					        const timeValue = new Date(resultdate);
-
-					        const betweenTime = Math.floor((today.getTime() - timeValue.getTime()) / 1000 / 60);
-					        if (betweenTime < 1) return '방금전';
-					        if (betweenTime < 60) {
-					            return betweenTime + '분전';
-					        }
-
-					        const betweenTimeHour = Math.floor(betweenTime / 60);
-					        if (betweenTimeHour < 24) {
-					            return betweenTimeHour + '시간전';
-					        }
-
-					        const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
-					        if (betweenTimeDay < 365) {
-					            return betweenTimeDay+ '일전';
-					        }
-
-					        return Math.floor(betweenTimeDay / 365) + '년전';
-					 	}
-						var dateStr = timeForToday(resultdate);
+						
 						
 						// 닉네임
-						idlist += '<div>'
+						idlist += '<div id="nickname" class="nick_name">'
 							+ this.userid
 							+ '</div>';
 						// 댓글
-						rplist += '<div>'
+						rplist += '<div id="replies" class="replies">'
 							+ this.rpcontent
 							+ '</div>';
 						// 시간
-						timelist = '<div>'
-						+ dateStr
-						+'</div>';
+//						timelist = '<div>'
+//						+ dateStr
+//						+'</div>';
 						// 좋아요 수
 						likelist = '<div> 좋아요'
 						+ '<span id=span id="sp_like_count"> '
 						+ likeCnt
 						+ '개'
 						+ '</div>';
-						
 					});
-					// $('#nickname').each(function(){
-					// $('#nickname').html(idlist);	
-					$(".nick_name").html(idlist);	
-					
-					// })
-					//$('#replies').html(rplist);
+					$(".nick_name").html(idlist);
 					$(".replies").html(rplist);
-					$(".timer").html(timelist);
-					
-					
+					// $(".timer").html(timelist);
 					$('.likes').html(likelist);
 					console.log("photoNo: last: "+ photoNo);
 				});
 				}
-				
 				getAllReplies();
-				
-
 	</script>
 	</c:forEach>
 	<script>
 	//댓글 작성 이벤트
 	//TODO: 한번만 작성 -> ptno 읽어 오고 그 번호에 맞는 왜? 한번만 실행되지?
 	//$('#btn').click(function (event) {
-	$(document).ready(function () {
 	$(".upload_btn").click(function (event) {
 		console.log($('.upload_btn').data('no'));
 		var photoNoTest = $('#ptno_trance').val(); // 92가 뜸?
@@ -272,7 +241,44 @@
 			}
 		});
 	});
-});
 	</script>
+	<script>
+	var date1 = "${last_update_time}";
+	var date = new Date(date1);
+	var resultdate = date.getTime();
+	function timeForToday(resultdate) {
+		const today = new Date();
+        const timeValue = new Date(resultdate);
+
+        const betweenTime = Math.floor((today.getTime() - timeValue.getTime()) / 1000 / 60);
+        if (betweenTime < 1) return '방금전';
+        if (betweenTime < 60) {
+            return betweenTime + '분전';
+        }
+
+        const betweenTimeHour = Math.floor(betweenTime / 60);
+        if (betweenTimeHour < 24) {
+            return betweenTimeHour + '시간전';
+        }
+
+        const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+        if (betweenTimeDay < 365) {
+            return betweenTimeDay+ '일전';
+        }
+
+        return Math.floor(betweenTimeDay / 365) + '년전';
+ 	}
+	var dateStr = timeForToday(resultdate);
+	//$("#timer").empty();
+	var timelist = '';
+	timelist += '<div>'
+	+ dateStr
+	+'</div>';
+	$(".timer").append(timelist);
+	console.log(dateStr);
+	</script>
+
+
+
 </body>
 </html>
