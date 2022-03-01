@@ -155,11 +155,18 @@
 		  </div>
 		
 			<hr/>
-			<hr/>
+				
+			
+            
+            
             
             
             <div id="replies">
             </div>
+            
+           
+
+
 	</div>
 		</section>
     		 	</div>
@@ -223,24 +230,29 @@
                     	var date = new Date(this.regdate); // JavaScript Date 객체 생성
                     	var dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
                     	list += '<div class="reply_item" style="margin:5px">'
-                    		   + '<input  style="display: none;" type="text" id="cno" name="cno" value="'
-                    		   + this.cno
-                    		   + '" readonly />'
-                    		   + '<input type="text" id="rcontent" name="rcontent" value="'
-                    		   + this.rcontent
-                    		   +'" />'
-                    		   + '<input type="text" id="userid" name="userid" value="'
-                    		   + this.userid
-                    		   + '" readonly />'
-                    		   + '<input type="text" id="regdate" name="regdate" value="'
-                    		   + dateStr
-                    		   + '" readonly />';
-                    	if (this.userid == '${userid.userid}') { 
-                    		list += '<button class="reply_update">수정</button>'
-                    			  + '<button class="reply_delete">삭제</button>';
-                    	}
-                    	list += '</div>';
-                    });
+                 		   + '<input  style="display: none;" type="text" id="cno" name="cno" value="'
+                 		   + this.cno
+                 		   + '" readonly />'
+                 		   +'<textarea name="rcontent" id="rcontent" style="width:800px; height:40px; font-size: 15px">'
+                		   +  this.rcontent
+                		   + '</textarea>'
+                 		   
+                 		   
+                 		  
+                 		   + '<input type="text" id="userid" name="userid" value="'
+                 		   + this.userid
+                 		   + '" readonly />'
+                 		   + '<input type="text" id="regdate" name="regdate" value="'
+                 		   + dateStr
+                 		   + '" readonly />';
+                 	if (this.userid == '${userid.userid}') { 
+                 		list += '<button class="reply_update">수정</button>'
+                 			  + '<button class="reply_delete">삭제</button>';
+                 	}
+                 	list += '<hr/>' 
+                 		 +'</div>';
+                 });
+	
                     
                     // 완성된 HTML 문자열(list)를 div[id="replies"]의 하위 요소로 추가
                     $('#replies').html(list);
