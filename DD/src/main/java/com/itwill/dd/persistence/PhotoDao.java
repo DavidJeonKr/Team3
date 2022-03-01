@@ -13,6 +13,7 @@ public interface PhotoDao {
 	int create(Photo photo);
 //	List<Photo> selectall();
 	List<Photo> selectall(String userid);
+	int delete(int ptno);
 	
 	
 }

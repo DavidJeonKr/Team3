@@ -12,4 +12,5 @@ public interface PhotoService {
 	int insert(MultipartFile file, String userid, String content);
 	int insert(Photo photo);
 	List<Photo> selectall(String userid);
+	int delete(int ptno);
 }

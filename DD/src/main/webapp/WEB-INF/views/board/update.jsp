@@ -15,7 +15,6 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
 <link rel="stylesheet" href="../resources/css/common.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
 <body>
@@ -39,11 +38,7 @@
 				-->
 			</ul>
 			
-			<div class="nav" style="margin-left: 300px">
-				<button type="button" class="btn btn-dark" style="margin-left: 100px; ">
-					<i  class="fas fa-thumbs-up"></i>
-				</button>
-			</div>
+			
 		</nav>
 
 		<br/>
@@ -81,11 +76,12 @@
 					<div class="col-1">
 						<input type="text" id="view_cnt" class="form-control-plaintext" name="view_cnt" value="${board.view_cnt}" style="font-size: 12px; font-weight: 600;" readonly>
 					</div>
-					
+					<!--  
 					<label for="like_cnt" class="col-1 col-form-label" style="font-size: 12px; font-weight: 600;" >좋아요</label> 
 					<div class="col-1">
 						<input type="text" id="like_cnt" class="form-control-plaintext" name="like_cnt" value="${board.like_cnt}" style="font-size: 12px; font-weight: 600;" readonly>
 					</div>
+					-->
 				</div>
 				
 				<div class="row" >

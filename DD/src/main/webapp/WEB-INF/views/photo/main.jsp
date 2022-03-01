@@ -18,18 +18,23 @@
 <title>DD</title>
 </head>
 <body>
-	<script	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	<%@ include file="../include/mainHeader.jsp"%>
 
 	<!-- 사진추가 버튼 -->
-	<div>
+	<div class="addphoto_container">
 		<div class="addphoto_right">
-			<!--컨텐트 들어갈 div-->
-			<!-- TODO: 사진추가 경로 지정 -->
-			<button class="addphotobtn" type="button">
-				<a href="../photo/new_post?userid=${userInfo.userid}">add photo</a>
-			</button>
+			<!-- TODO: css 입히기-->
+			<div>
+				<button class="addphotobtn" type="button"
+					onclick="location.href='../photo/new_post?userid=${userInfo.userid}'">
+					<img id="img_btn" src="../resources/imgs/photo/add_btn.png">
+				</button>
+			</div>
+
 		</div>
 	</div>
 
@@ -52,13 +57,14 @@
 								</div>
 
 							</div>
-							<div class="sprite_more_icon" data-name="more">
-								<ul class="toggle_box">
-									<li><input type="submit" class="follow" value="팔로우"
-										data-name="follow"></li>
-									<li>수정</li>
-									<li>삭제</li>
-								</ul>
+
+							<!-- TODO: 삭제 버튼 만들기 -->
+							<div>
+								<%-- <button class="addphotobtn" type="button" onclick="location.href='../photo/delete?userid=${userInfo.userid}&ptno=${photo.ptno}'"> --%>
+								<button class="addphotobtn" type="button"
+									onclick="location.href='../photo/delete?userid=${userInfo.userid}&ptno=${photo.ptno}'">
+									<img id="img_btn" src="../resources/imgs/photo/delete_btn.png">
+								</button>
 							</div>
 						</header>
 						<div class="img_section">
@@ -93,8 +99,7 @@
 									<!-- TODO: nickname=userid -> bold stylee 입히기 -->
 									<div id="nickname" class="nick_name"></div>
 
-									<div id="replies" class="replies">
-									</div>
+									<div id="replies" class="replies"></div>
 								</div>
 							</div>
 							<div class="small_heart">
@@ -110,8 +115,10 @@
 							<input type="text" name="rpcontent" id="rpcontent"
 								class="rpcontent" placeholder="댓글달기...">
 							<!-- TODO: 지워도 됨 -->
-							<input type="hidden" id="ptno_trance" name="ptno_trance" class="ptno_class" value="${photo.ptno}"  />
-							<input type="hidden" id="reply_userid" name="userid" value="${userid.userid}">
+							<input type="hidden" id="ptno_trance" name="ptno_trance"
+								class="ptno_class" value="${photo.ptno}" /> <input
+								type="hidden" id="reply_userid" name="userid"
+								value="${userInfo.userid}">
 							<div id="btn" class="upload_btn" data-no="${photo.ptno}">게시</div>
 						</div>
 					</article>
