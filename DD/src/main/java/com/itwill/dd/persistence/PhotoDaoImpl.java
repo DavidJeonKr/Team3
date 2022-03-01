@@ -46,6 +46,12 @@ public class PhotoDaoImpl implements PhotoDao {
 		return sqlSession.selectList(PHOTOS_NAMESPACE + ".selectall", userid);
 	}
 
+	@Override
+	public int delete(int ptno) {
+		log.info("PhotoDaoImpl.delete({}) 호출", ptno);
+		return sqlSession.delete(PHOTOS_NAMESPACE + ".delete", ptno);
+	}
+
 
 
 

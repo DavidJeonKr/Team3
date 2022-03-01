@@ -1,9 +1,18 @@
 @charset "UTF-8";/* 73DE9E */
 
+
+.addphoto_container {
+	display: flex;
+    justify-content: center;
+}
 /* 사진추가버튼 정렬 */
 .addphoto_right {
     display: flex;
     flex-direction: row-reverse;
+    width: 935px;
+    /*  position: relative; */
+    /* justify-content: center; */
+    /* text-align: center; */
 }
 /* 버튼 */
 button {
@@ -11,15 +20,20 @@ button {
 }
 /* 사진추가 버튼 css */
 .addphotobtn{
-    padding: 15px 20px;
+    /* padding: 15px 20px; */
     border-radius: 15px;
     border: none;
-    background-color: #03A9F4;
+    background-color: #fafafa;
     color: aliceblue;
     box-shadow: none;
     outline: none;
     font-weight: 600;
     transition: 0.25s;
+}
+
+#img_btn {
+	max-width: 35px;
+	min-height: 35px;
 }
 
 #main_container1{
@@ -208,6 +222,7 @@ button {
     width: 25px;
     height: 25px;
 }
+
 
 
 
