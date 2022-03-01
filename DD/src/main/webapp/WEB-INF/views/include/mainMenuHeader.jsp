@@ -31,11 +31,14 @@
                 </h1>
                 
                 <!-- 검색 창-->
-                <div class="search_field">
-                    <input type="text" placeholder="검색" tabindex="0">
+                <div id="autocomplete" class="search_field">
+                    <input type="text" placeholder="검색" tabindex="0" id="search">
                     <div class="fake_field">
                         <span class=sprite_small_search_icon></span>
                         <span>검색</span>
+                    </div>
+                     <div id="searchBox"> 
+                    	<div id="searchVal"><!-- ajax로 불러올 검색결과 --></div>
                     </div>
                 </div>
 
@@ -90,6 +93,48 @@ window.onclick = function(event) {
     }
   }
 }
+
+//타겟영역을 제외하고 클릭했을 시 검색창 숨기기
+$('body').on('click', function(e){
+   if(e.target.className!="searchBox"){
+	   console.log("클릭");
+	   $('#searchBox').css({
+			"display":"none" 
+		 });
+   } 
+});
+
+
+$('#search').on("change keyup paste", function(){
+	 $('#searchBox').css({
+		"display":"block" 
+	 });
+	var search = $('#search').val();
+	$.getJSON('/dd/search/search/' + search, function(respText){
+		var list= '';
+		$(respText).each(function(){
+			list += '<a href="/dd/diary/calendar?userid='
+				+ this.userid
+				+'">'
+				+ '<div class="searchAll">'
+				+'<div class="sprite_search_icon"></div>'
+				+'<div class="nameFiled">'
+				+'<div id="searchRealName">'
+				+ this.realname				
+				+ '</div>'
+				+'<div id="searchNickName">'
+				+ this.nickname	
+				+ '</div>'
+				+ '</div>'
+				+ '</div>'
+				+ '</a>';
+				
+		});
+		console.log(list);
+		$('#searchVal').html(list);
+	});
+	
+});
     </script>
 </body>
 </html>
