@@ -82,7 +82,7 @@ public class UserController {
 		String toMail = email;
 		String title = "회원가입 인증 이메일 입니다.";
 		String content = 
-				"DailyDiary를 방문해주셔서 감사합니다." +
+				"dailygram를 방문해주셔서 감사합니다." +
 				"<br><br>" + 
 				"인증 번호는 " + checkNum + "입니다." + 
 				"<br>" + 
@@ -142,7 +142,7 @@ public class UserController {
 		String toMail = email;
 		String title = "비밀번호 변경 이메일 입니다.";
 		String content = 
-				"DailyDiary를 방문해주셔서 감사합니다." +
+				"dailygram를 방문해주셔서 감사합니다." +
 				"<br><br>" + 
 				"변경된 비밀번호는 " + checkNum + "입니다." + 
 				"<br>" + 
