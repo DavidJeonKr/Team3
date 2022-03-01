@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
 	<title>DD</title>
+	<link rel="shortcut icon" href="../resources/imgs/favicon.ico">
 	<link rel="stylesheet" href="../resources/css/photo/new_post.css">
     <link rel="stylesheet" href="../resources/css/photo/common.css">
 	<link>
