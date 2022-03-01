@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.itwill.dd.domain.Photo;
 import com.itwill.dd.persistence.PhotoDao;
 
+import oracle.net.aso.m;
+
 @Service
 public class PhotoServiceImpl implements PhotoService {
 	private static final Logger log = LoggerFactory.getLogger(PhotoServiceImpl.class);
@@ -35,6 +37,12 @@ public class PhotoServiceImpl implements PhotoService {
 	public List<Photo> selectall(String userid) {
 		log.info("PhotoServiceImpl.selectall() 호출");
 		return photoDao.selectall(userid);
+	}
+
+	@Override
+	public int delete(int ptno) {
+		log.info("PhotoServiceImpl.delete({}) 호출", ptno);
+		return photoDao.delete(ptno);
 	}
 
 

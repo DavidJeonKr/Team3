@@ -64,6 +64,19 @@ public class PhotoController {
 		model.addAttribute("userInfo", user);
 		
 	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(int ptno, String userid, Model model) {
+		log.info("delete({}) get 호출", ptno);
+		
+		User user = userService.userInfo(userid);
+		model.addAttribute("userInfo", user);
+		
+		photoService.delete(ptno);
+		
+		return "redirect:/photo/main?userid="+user.getUserid();
+		
+	}
 
 //	@RequestMapping(value = "/new_post", method = RequestMethod.POST)
 //	public String addpost(@RequestParam("file") MultipartFile file, @RequestParam("userid") String userid,

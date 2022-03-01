@@ -13,42 +13,8 @@
 	<link>
 	</head>
 <body>
-    <header id="header">
-        <section class="h_inner">
-            <h1 class="logo">
-                <a href="index.html">
-                    <div class="logo_location">
-                        <img src="../resources/imgs/photo/DD.png" alt="DD" class="DDlogo">
-                    </div>
-                </a>
-            </h1>
 
-            <!-- 검색 창-->
-            <div class="search_field">
-                <input type="text" placeholder="검색" tabindex="0">
-                <div class="fake_field">
-                    <span class=sprite_small_search_icon></span>
-                    <span>검색</span>
-                </div>
-            </div>
-
-            <div class="right_icons">
-                <a href="index.html">
-                    <div class="sprite_home_icon"></div>
-                </a>
-                <a href="shop.html"><img src="../resources/imgs/shop.jpg" alt="shop" class="shop"></a>
-                <div class="dropdown">
-
-                    <div onclick="myFunction()" class="sprite_setting_icon"></div>
-
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="#">setting</a>
-                        <a href="#">LogOut</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
+	<%@ include file="../include/mainMenuHeader.jsp"%>
 	
     <!-- 사진 업로드 화면 -->
     
