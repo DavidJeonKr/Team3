@@ -63,7 +63,7 @@
                 </div>
                     
 				<div>
-					<input type="submit" value="작성 완료">
+					<input type="submit" class="btn btn-dark" style="margin-left: 400px; margin-bottom: 35px;" value="작성 완료">
 				</div>
 			</form>
 		</div>

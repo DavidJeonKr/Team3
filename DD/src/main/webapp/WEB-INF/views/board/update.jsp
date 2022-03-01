@@ -99,7 +99,7 @@
 				</div>
 				
 				<div>
-					<input type="submit" value="수정완료" />
+					<input type="submit" class="btn btn-dark" style="margin-left: 400px; margin-bottom: 35px;" value="수정완료" />
 				</div>
                     
 				
@@ -123,7 +123,6 @@
 	<!--  
 	<script>
 		$(document).ready(function() {
-
 			$('#menu-delete').click(function(event) {
 				event.preventDefault(); // 링크를 클릭했을 때의 기본 동작인 요청 보내기를 하지 않음.
 				var result = confirm('정말 삭제할까요?');
