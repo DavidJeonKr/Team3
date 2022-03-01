@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-
+<link rel="shortcut icon" type="imge/x-icon" href="../resources/imgs/favicon.ico">
 <link rel="stylesheet" href="../resources/css/shop/reset.css">	
 <link rel="stylesheet" href="../resources/css/admin/main.css">
 <script src="../resources/js/shop/jquery.min.js"></script>
@@ -52,7 +52,7 @@
 							</p>
 						</div>
 						<div>
-							<input type="button" data-userPrnum="${buyList.userPrnum}" value="삭제" class="delete_btn" >
+							<input type="button" data-userPrnum="${addList.userPrnum}" value="삭제" class="delete_btn" >
 						</div>
 					</div>
 					</c:forEach>
@@ -129,7 +129,7 @@
 			  		data : { chbox : checkArr },
 			  		success : function(result){
 			  		if(result == 1) {            
-			  			location.href = "./profile";
+			  			location.href = "./mypage";
 			  		} else {
 			  			alert("삭제 실패");
 			  		}
@@ -137,7 +137,6 @@
 			});
 		} 
 	});
-	
 	
 	</script>
 

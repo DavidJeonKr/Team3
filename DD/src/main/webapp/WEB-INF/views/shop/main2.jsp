@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../resources/css/shop/footer.css">
     <link rel="stylesheet" href="../resources/css/shop/header.css">
     
+    <link rel="shortcut icon" type="imge/x-icon" href="../resources/imgs/favicon.ico">
+    
     <script src="../resources/js/shop/jquery.min.js"></script>
     <script src="../resources/js/shop/shop.js" defer></script>
      
