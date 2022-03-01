@@ -120,6 +120,7 @@ public class ShopController {
 		 for(String s : chArr) {   
 			 cartNum = Integer.parseInt(s);
 			 cart.setCartNum(cartNum);
+			 log.info("cartdelete : " + cart);
 			 shopService.deleteCart(cart);
 		 }   
 		 result = 1;

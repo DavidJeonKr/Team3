@@ -16,7 +16,7 @@
     <script src="../resources/js/shop/jquery.min.js"></script>
     <script src="../resources/js/shop/shop.js" defer></script>
 
-    <title>Document</title>
+    <title>DD</title>
 </head>
 <body>
       

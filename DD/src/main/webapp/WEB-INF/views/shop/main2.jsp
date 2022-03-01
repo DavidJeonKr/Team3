@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>shop page</title>
+    <title>DD</title>
     <link rel="stylesheet" href="../resources/css/shop/reset.css">
     <link rel="stylesheet" href="../resources/css/shop/shop.css">
     <link rel="stylesheet" href="../resources/css/shop/footer.css">

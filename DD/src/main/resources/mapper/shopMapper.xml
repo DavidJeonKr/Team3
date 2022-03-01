@@ -51,11 +51,12 @@
 	select
 	    row_number() over(order by u.userprnum desc) as num,
 	    u.userprnum, u.userid, u.productid,
-	    p.productname, p.productprice, p.productthumbimg
+	    p.productname, p.productprice, p.productthumbimg, p.productsong
 		from users_product u
 	    inner join product p
 	        on u.productid = p.productid   
 	    where u.userid = #{userid}
+	    	
 	</select>
 	
 	<!-- 결제 -->

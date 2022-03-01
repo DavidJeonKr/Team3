@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DD</title>
 
 <link rel="shortcut icon" type="imge/x-icon" href="../resources/imgs/favicon.ico">
 <link rel="stylesheet" href="../resources/css/shop/reset.css">	
