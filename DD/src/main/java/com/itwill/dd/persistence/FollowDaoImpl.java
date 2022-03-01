@@ -1,6 +1,7 @@
 package com.itwill.dd.persistence;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -40,6 +41,16 @@ public class FollowDaoImpl implements FollowDao{
 		params.put("followid", followid);
 		params.put("followerid", followerid);
 		return sqlSession.delete(FOLLOW_NAMESPACE + ".delete", params);
+	}
+
+	@Override
+	public List<Follow> followList(String followid) {
+		return sqlSession.selectList(FOLLOW_NAMESPACE + ".followList", followid);
+	}
+
+	@Override
+	public List<Follow> followerList(String followerid) {
+		return sqlSession.selectList(FOLLOW_NAMESPACE + ".followerList", followerid);
 	}
 
 }

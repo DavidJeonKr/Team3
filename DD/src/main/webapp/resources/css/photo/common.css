@@ -4,33 +4,24 @@ body{
 
 .DDlogo{
     display: inline-block;
-    height: 50px;
-    width: 170px;
+    height: 90px;
+    width: 150px;
 }
 
 .sprite_home_icon {
     display: inline-block;
-    background: url('../imgs/main/background01.png') no-repeat -104px -260px;
+    background: url('../imgs/background01.png') no-repeat -104px -260px;
     width: 25px;
     height: 25px;
 }
 
 .sprite_setting_icon {
     display: inline-block;
-    background: url('../imgs/main/background01.png') no-repeat -321px -26px;
+    background: url('../imgs/background01.png') no-repeat -321px -26px;
     width: 25px;
     height: 25px;
     cursor: pointer;
 }
-
-.sprite_search_icon {
-    display: inline-block;
-    background: url('../imgs/main/background01.png') no-repeat -286px -286px;
-    width: 20px;
-    height: 20px;
-    margin: 10px;
-}
-
 
 .shop{
     width: 30px;
@@ -77,8 +68,7 @@ body{
     font-weight: 400;
     text-align: left;
     font-size: 14px;
-    outline: none;     
-     
+    outline: none;  
 }
 
 #header .search_field input:focus ~ .fake_field span:nth-child(1){
@@ -128,20 +118,8 @@ body{
     order: 1;
 }
 
-#main_container_2 {
-    /*height: 100vh;*/
-    display: flex;
-    justify-content: center;
-    order: 1;
-}
-
 
 #main_container .b_inner{
-    width:935px;
-    position: relative;
-}
-
-#main_container_2 .b_inner{
     width:935px;
     position: relative;
 }
@@ -196,7 +174,6 @@ body{
 .detail .middle{
     display: flex;
     padding-left: 0;
-    margin-top: 16px;
 }
 .detail .middle li{
     display: inline-block;
@@ -211,12 +188,9 @@ body{
 }
 
 
-.content_main_bar{
+.content_main{
     margin-top: 50px;
 }
-
-
-
 .content_bar{
     padding-top: 15px;
     text-align: center;
@@ -228,19 +202,14 @@ body{
 }
 
 .content_bar a{
-    padding-top: 15px;
+    padding-top: 14.5px;
     text-decoration: none;
     color: gray;
 }
 
-
-#followBtn{
-	background: #0095f6;
-	color : white;
-	border:none;
-	border-radius : 5px;
-	
-	
+.content_bar .home{
+    border-top : 1.5px solid black;
+    color:black;
 }
 
 
@@ -277,84 +246,3 @@ body{
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
-  
-  #autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-}
-  
-  #searchBox {  	
-  	
-  	position: absolute;
-  	
-  	box-sizing: border-box;
-  	 
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;  	
-  }
-  
-  #searchVal {
-  	display: flex;
-  	flex-direction: column;
-  	
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
- 
-  }
-  .search_item {
-  width: 50px;
-  }
-  .search_item:nth-child(2){
-  	display:inline-block;
-  }
-  
-  
-  #followModal{
-  cursor: pointer;
-  }
-  #followerModal{
-  cursor: pointer;
-  }
-  
-  .allFollowContet{
-  display:flex;
-  justify-content: space-between;
-  margin-bottom: 7px;
-  }
-  
-  .followRealname{
-  	color:black;
-  	font-size: large;
-  }
-  
-  .folowNickname{
-  color:gray;
-  font-size:small;
-  
-  }
-  .followBtnModal{
-  	background: #0095f6;
-	color : white;
-	border:none;
-	border-radius : 5px;
-	
-  }
-  .searchAll{
-  display:flex;
-  margin:5px;
-  }
-  #searchRealName{
-  	color:black;
-  }
-  #searchNickName{
-  color:gray;
-  font-size:small;
-  }
