@@ -198,7 +198,7 @@ public class UserController {
 		
 		userService.updatePass(userid, password);
 		
-		return "redirect:/diary/calendar";
+		return "redirect:/diary/calendar?userid=" + userid;
 	}
 	
 	@RequestMapping(value = "/checkpass", method=RequestMethod.POST)
